@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>_acd_logo_1.png</file>
+<file>_acd_logo_icon.png</file>
+<file>acd_logo_Mzn_icon.ico</file>
+<file>bug.png</file>
+<file>github.png</file>
+<file>it.png</file>
+<file>ok.png</file>
+    </qresource>
+</RCC>
