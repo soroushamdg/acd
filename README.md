@@ -1,5 +1,5 @@
 
-<img src="header.png" alt="">
+<img src="header.gif" alt="">
 <img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
 <p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs">
 <img src="https://img.shields.io/badge/platfrom-windows-blue" alt="acd"></p>
@@ -8,6 +8,9 @@
 <li>Windows XP+</li>
 <li>At least 100 MB RAM (just for extracting large files)(usually it uses only 30 to 40 MB of RAM)</li>
 </ul>
+<h1>Why ACD?</h1>
+<h4>easy to answer, first of all, say goodbye to watching online those classes that you missed or watching for exams. it helps you to download and extract all voice and video data automated, add 5 sessions, go get a cup of tea and rest, it will make them ready for you. as easy as couple of clicks.</h4>
+<h4>Also by multithreading I could make it possible to save much more time in downloading and extracting data. </h4>
 <h1 id="usage">USAGE</h1>
 <h2 id="installation-and-first-run">Installation and First run</h2>
 <p>1 - Download latest release file from <a href="https://github.com/soroushamdg/acd/releases">releases</a> page.<br>
