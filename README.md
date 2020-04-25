@@ -44,3 +44,11 @@ After progress finished, you can add new links and download more sessions =D</p>
 <li>if you saw a bug, catch it, then throw it into <a href="%5Bhttps://github.com/soroushamdg/acd/issues%5D(https://github.com/soroushamdg/acd/issues)">issues page</a>.</li>
 </ul>
 
+<h2 id="Help">Help!</h2>
+most of issues will go away by deleting setting's file and relaunching the app.
+to delete settings file.
+"your windows drive, usally C" > ://Users/ "your-user" /AppData/Temp/
+ Example : C://Users/John/AppData/Temp/
+ 
+ <h4>in following folder look for : settings.acds
+  and delete the file :))</h4>
