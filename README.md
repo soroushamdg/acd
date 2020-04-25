@@ -3,6 +3,7 @@
 <img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
 <p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs">
 <img src="https://img.shields.io/badge/platfrom-windows-blue" alt="acd"></p>
+<a href="https://Bhttps://github.com/soroushamdg/acd/releases" style="text-align: center;"><h2>Download latest database version here</h2>
 <h1 id="requirments">Requirments</h1>
 <ul>
 <li>Windows XP+</li>
@@ -15,7 +16,7 @@
 <h2 id="installation-and-first-run">Installation and First run</h2>
 <p>1 - Download latest release file from <a href="https://github.com/soroushamdg/acd/releases">releases</a> page.<br>
 2 - Extract files.<br>
-3 - Goto <a href="%5Bhttps://ffmpeg.zeranoe.com/builds/%5D(https://ffmpeg.zeranoe.com/builds/)">FFMPEG Binary Releases</a> page and download latest STATIC stable version of it.<br>
+3 - Goto <a href="https://ffmpeg.zeranoe.com/builds/%5D(https://ffmpeg.zeranoe.com/builds/)">FFMPEG Binary Releases</a> page and download latest STATIC stable version of it.<br>
 <img src="https://raw.githubusercontent.com/soroushamdg/acd/master/ffmpeg-download-page.png" alt="ffmpeg_download_screenshot"></p>
 <p>4 - After FFMPEG downloaded, extract it into folder.</p>
 <p>5 - Extract ACD-Release.zip files.</p>
@@ -26,7 +27,7 @@
 <p>9 - Close the app and launch it again.</p>
 <p>10 - Open up the app again and in Stage-1, click on second item, then locate and open “database.acddb” file.</p>
 <h2 id="login-into-system">Login into system</h2>
-<p>After passing Stage-1(it’s one time thing), Stage-2 is now enabled for you. Select your university or school LMS link or if it’s not in the list, tell me in <a href="%5Bhttps://github.com/soroushamdg/acd/issues%5D(https://github.com/soroushamdg/acd/issues)">request page</a> by “request school” label.<br>
+<p>After passing Stage-1(it’s one time thing), Stage-2 is now enabled for you. Select your university or school LMS link or if it’s not in the list, tell me in <a href="https://github.com/soroushamdg/acd/issues%5D(https://github.com/soroushamdg/acd/issues)">request page</a> by “request school” label.<br>
 After choosing your school, enter username and password then hit “Login”</p>
 <h3 id="everything-is-encrypted-by-aes-method.">everything is encrypted by AES method.</h3>
 <h3 id="if-app-became-no-responding-its-ok.-just-wait.">if app became no responding, IT’S OK. Just wait.</h3>
@@ -44,7 +45,7 @@ After progress finished, you can add new links and download more sessions =D</p>
 <p>well I wasn’t in mood to draw all diagrams, maybe later @,@</p>
 <h1 id="report-a-bug">report a bug</h1>
 <ul>
-<li>if you saw a bug, catch it, then throw it into <a href="%5Bhttps://github.com/soroushamdg/acd/issues%5D(https://github.com/soroushamdg/acd/issues)">issues page</a>.</li>
+<li>if you saw a bug, catch it, then throw it into <a href="https://github.com/soroushamdg/acd/issues">issues page</a>.</li>
 </ul>
 
 <h2 id="Help">Help!</h2>
