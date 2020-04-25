@@ -1,6 +1,7 @@
 
 <img src="header.png" alt="">
-<p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs"><img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt=""><br>
+<img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
+<p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs">
 <img src="https://img.shields.io/badge/platfrom-windows-blue" alt="acd"></p>
 <h1 id="requirments">Requirments</h1>
 <ul>
