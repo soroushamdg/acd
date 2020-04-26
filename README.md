@@ -49,10 +49,13 @@ After progress finished, you can add new links and download more sessions =D</p>
 </ul>
 
 <h2 id="Help">Help!</h2>
-most of issues will go away by deleting setting's file and relaunching the app.
-to delete settings file.
+<h3> How to update database? </h3>
+Just download latest version of database and copy and replace it on old one. as simple as it is.
+<br>
+ <h4> most of issues will go away by deleting setting's file and relaunching the app.
+to delete settings file.<br>
 "your windows drive, usally C" > ://Users/ "your-user" /AppData/Temp/
- Example : C://Users/John/AppData/Temp/
+<br> Example : C://Users/John/AppData/Temp/ <h4>
  
  <h4>in following folder look for : settings.acds
   and delete the file :))</h4>
