@@ -50,7 +50,7 @@ else:
 try:
     back_options.check_export_and_temp_dirs(options.options['main_exe_path'])
 except:
-    log.log('wtf?')
+    log.log(__name__,'wtf?')
 
 found_ffmpeg = False
 ffmpeg_working = False
@@ -376,7 +376,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
     def retranslateUi(self, MainWindow):
         if options.options['selected_language'] == 'en':
             _translate = QtCore.QCoreApplication.translate
-            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0 - @soroushamdg made it."))
+            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0.1 - @soroushamdg made it."))
             self.groupBox.setTitle(_translate("MainWindow", "stage 1"))
             self.label.setText(_translate("MainWindow", "1. Install FFMPEG"))
             self.findFFMPEGButton.setText(_translate("MainWindow", "find the folder"))
@@ -398,7 +398,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "about ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", "version 1.0"))
+            self.label_8.setText(_translate("MainWindow", "version 1.0.1"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "report"))
@@ -408,7 +408,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.menu_soroushamdg_made_it.setTitle(_translate("MainWindow", ""))
             self.menulanguage.setTitle(_translate("MainWindow", "language"))
             self.actionadd_new_link.setText(_translate("MainWindow", "add new link"))
-            self.actionversion_1_0.setText(_translate("MainWindow", "version 1.0"))
+            self.actionversion_1_0.setText(_translate("MainWindow", "version 1.0.1"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
             self.actionexit.setText(_translate("MainWindow", "exit"))
             self.actionstart_downloading.setText(_translate("MainWindow", "start downloading"))
@@ -416,7 +416,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.actionenglish.setText(_translate("MainWindow", "english"))
         else:
             _translate = QtCore.QCoreApplication.translate
-            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0 - @soroushamdg made it."))
+            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0.1 - @soroushamdg made it."))
             self.groupBox.setTitle(_translate("MainWindow", "مرحله 1"))
             self.label.setText(_translate("MainWindow", "1. محل FFMPEG"))
             self.findFFMPEGButton.setText(_translate("MainWindow", "پوشه را پیدا کن"))
@@ -438,7 +438,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "درباره ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", "نسخه 1.0"))
+            self.label_8.setText(_translate("MainWindow", "نسخه 1.0.1"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "کزارش"))
@@ -448,7 +448,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.menu_soroushamdg_made_it.setTitle(_translate("MainWindow", ""))
             self.menulanguage.setTitle(_translate("MainWindow", "language"))
             self.actionadd_new_link.setText(_translate("MainWindow", "اضافه کردن لینک"))
-            self.actionversion_1_0.setText(_translate("MainWindow", "نسخه 1.0"))
+            self.actionversion_1_0.setText(_translate("MainWindow", "نسخه 1.0.1"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
             self.actionexit.setText(_translate("MainWindow", "خروج"))
             self.actionstart_downloading.setText(_translate("MainWindow", "شروع دانلود"))
@@ -471,7 +471,7 @@ def open_report_url():
     webbrowser.open('http://github.com/soroushamdg/acd/issues', new=2)
 
 def exit_menu():
-    sys.exit()
+    app.exit()
 
 class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
     global database_found,ffmpeg_working,found_ffmpeg
@@ -630,6 +630,12 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
             options.save_options()
             self.check_stage_1()
             if ffmpeg_working:
+                buttonReply = QMessageBox.question(self, "FFMPEG Found", 'Please start the app again.',
+                                                   QMessageBox.Ok, QMessageBox.Ok)
+                if buttonReply == QMessageBox.Ok:
+                    app.exit()
+                else:
+                    app.exit()
                 return True
             else:
                 self.show_message_box("Couldn't run ffmpeg.exe",

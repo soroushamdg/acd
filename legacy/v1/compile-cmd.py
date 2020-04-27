@@ -12,7 +12,7 @@ data_cmd = ['--add-binary=' + filename+';DATA' for filename in data_filenames]
 #                  ])
 subprocess.call(['pyinstaller',
                  '--name',
-                 'acd',
+                 'ACD-Launcher',
                  '--onefile',
                  '--icon=acd_logo_Mzn_icon.ico',
                  # '--specpath',
