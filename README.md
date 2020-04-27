@@ -4,6 +4,7 @@
 <p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs">
 <img src="https://img.shields.io/badge/platfrom-windows-blue" alt="acd"></p>
 <a href="https://Bhttps://github.com/soroushamdg/acd/releases" style="text-align: center;">Download latest database version here</a>
+<br>
 <a href="https://github.com/soroushamdg/acd/blob/master/supported_schools.txt">Supported schools</a>
 <h1 id="requirments">Requirments</h1>
 <ul>
