@@ -42,7 +42,8 @@ After entering links in list, hit start.</p>
 to save time I made app to be multithreaded, while extracting downloaded file it will download next file. so in some point your computers performance may drop.</p>
 <h2 id="after-stage-3">After Stage-3</h2>
 <p>Your downloaded and extracted files will be saved in “exports” folder in your DESKTOP.<br>
-After progress finished, you can add new links and download more sessions =D</p>
+After progress finished, you can add new links and download more sessions =D</p><br>
+<h4>ps: videos are availabe just for sessions with screenshare, those who just uploaded pdf or powerpoint files, are not supported. you can tell your teachers to use screenshare from now on.<h4><br>
 <h1 id="how-it-works">How it works?</h1>
 <p>well I wasn’t in mood to draw all diagrams, maybe later @,@</p>
 <h1 id="report-a-bug">report a bug</h1>
