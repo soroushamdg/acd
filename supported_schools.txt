@@ -1,6 +1,7 @@
 vc.kntu.ac.ir
-auth.ut.ac.ir:8443/cas/login
-79.143.84.172/system/login
+auth.ut.ac.ir:8443
+79.143.84.172
+newstd.srbiau.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
