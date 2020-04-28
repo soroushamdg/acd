@@ -4,6 +4,7 @@ auth.ut.ac.ir:8443
 newstd.srbiau.ac.ir
 elearning.iut.ac.ir
 vu.sbu.ac.ir
+lms2.alzahra.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
