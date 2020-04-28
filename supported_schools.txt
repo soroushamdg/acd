@@ -3,6 +3,7 @@ auth.ut.ac.ir:8443
 79.143.84.172
 newstd.srbiau.ac.ir
 elearning.iut.ac.ir
+vu.sbu.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
