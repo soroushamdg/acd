@@ -1,3 +1,26 @@
+<table>
+  <tr>
+    <th>Tutorials/آموزش راه اندازی</th>
+    <th>lang</th>
+    <th>link</th>
+  </tr>
+  <tr>
+    <td>Github</td>
+    <td>en</td>
+    <td>https://github.com/soroushamdg/acd#usage</td>
+  </tr>
+  <tr>
+    <td>Aparat(video)</td>
+    <td>فارسی</td>
+    <td><a href="https://www.aparat.com/v/YOie3">https://www.aparat.com/v/YOie3</a></td>
+  </tr>
+  <tr>
+    <td>Virgool(Text)</td>
+    <td>فارسی</td>
+    <td>https://vrgl.ir/KkEL5</td>
+  </tr>
+</table>
+
 <a href="https://github.com/soroushamdg/acd/releases/latest"><h1>Download latest Release</h1></a>
 <br>
 
