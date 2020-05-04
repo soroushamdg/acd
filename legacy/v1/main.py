@@ -20,6 +20,7 @@ log_options.log_file_path = options.options['main_exe_path']
 log_options.print_logging = True
 log_options.log_method = 'day'
 
+version = "version 1.0.5"
 from pyLog.pylog import log
 import webbrowser
 
@@ -68,6 +69,26 @@ def return_image_path(relative_path):
     #     return os.path.join(sys._MEIPASS, relative_path)
     # return os.path.join(os.path.abspath("."), relative_path)
     return ':/'+relative_path
+
+def check_for_new_version():
+    """
+    if new version is available show a alert to download new version.
+    :return:
+    """
+    try:
+        from selenium.webdriver import Chrome
+        from selenium.webdriver.chrome.options import Options
+        opts = Options()
+        opts.add_argument("--headless")
+        ac_browser = Chrome(options=opts, executable_path=back_options.driver_path)
+        ac_browser.close()
+        ac_browser.quit()
+        del ac_browser
+        del opts
+    except:
+        log.log(__name__, "file saved in options doesn't work, can't run it.")
+
+
 
 executor = concurrent.futures.ThreadPoolExecutor()
 in_downloading_process = False
@@ -376,7 +397,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
     def retranslateUi(self, MainWindow):
         if options.options['selected_language'] == 'en':
             _translate = QtCore.QCoreApplication.translate
-            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0.1 - @soroushamdg made it."))
+            MainWindow.setWindowTitle(_translate("MainWindow", f"ACD - {version} - @soroushamdg made it."))
             self.groupBox.setTitle(_translate("MainWindow", "stage 1"))
             self.label.setText(_translate("MainWindow", "1. Install FFMPEG"))
             self.findFFMPEGButton.setText(_translate("MainWindow", "find the folder"))
@@ -398,7 +419,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "about ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", "version 1.0.1"))
+            self.label_8.setText(_translate("MainWindow", f"{version}"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "report"))
@@ -408,7 +429,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.menu_soroushamdg_made_it.setTitle(_translate("MainWindow", ""))
             self.menulanguage.setTitle(_translate("MainWindow", "language"))
             self.actionadd_new_link.setText(_translate("MainWindow", "add new link"))
-            self.actionversion_1_0.setText(_translate("MainWindow", "version 1.0.1"))
+            self.actionversion_1_0.setText(_translate("MainWindow", f"{version}"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
             self.actionexit.setText(_translate("MainWindow", "exit"))
             self.actionstart_downloading.setText(_translate("MainWindow", "start downloading"))
@@ -416,7 +437,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.actionenglish.setText(_translate("MainWindow", "english"))
         else:
             _translate = QtCore.QCoreApplication.translate
-            MainWindow.setWindowTitle(_translate("MainWindow", "ACD - 1.0.1 - @soroushamdg made it."))
+            MainWindow.setWindowTitle(_translate("MainWindow", f"ACD - {version} - @soroushamdg made it."))
             self.groupBox.setTitle(_translate("MainWindow", "مرحله 1"))
             self.label.setText(_translate("MainWindow", "1. محل FFMPEG"))
             self.findFFMPEGButton.setText(_translate("MainWindow", "پوشه را پیدا کن"))
@@ -438,7 +459,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "درباره ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", "نسخه 1.0.1"))
+            self.label_8.setText(_translate("MainWindow", f"{version}"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "کزارش"))
@@ -448,7 +469,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.menu_soroushamdg_made_it.setTitle(_translate("MainWindow", ""))
             self.menulanguage.setTitle(_translate("MainWindow", "language"))
             self.actionadd_new_link.setText(_translate("MainWindow", "اضافه کردن لینک"))
-            self.actionversion_1_0.setText(_translate("MainWindow", "نسخه 1.0.1"))
+            self.actionversion_1_0.setText(_translate("MainWindow", f"{version}"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
             self.actionexit.setText(_translate("MainWindow", "خروج"))
             self.actionstart_downloading.setText(_translate("MainWindow", "شروع دانلود"))
@@ -730,8 +751,8 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
 
     # stage 3 stuff
     def add_link_to_list(self, course_link):
-        if self.course_object(course_link):
-            course = self.course_object(course_link)
+        if self.course_object(course_link,selected_school_dict=selected_school_dict):
+            course = self.course_object(course_link,selected_school_dict=selected_school_dict)
             if course.is_link_valid:
                 if course.file_name not in self.courses:
                     self.courses[course.file_name] = course

@@ -558,8 +558,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
 
     #stage 3 stuff
     def add_link_to_list(self,course_link):
-        if self.course_object(course_link):
-            course = self.course_object(course_link)
+        if self.course_object(course_link,selected_school_dict=selected_school_dict):
+            course = self.course_object(course_link,selected_school_dict=selected_school_dict)
             if course.is_link_valid:
                 if course.file_name not in self.courses:
                     self.courses[course.file_name] = course

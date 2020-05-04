@@ -135,7 +135,7 @@ def export_videos_sepratly(files_tuple,export_path,exportname):
         except:
             log.log("error in saving to cache.")
         try:
-            assert run_command_in_ffmeg(f"ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/audio_{exportname}_{str(index)}.mp4"),"error in writing audio sepratly"
+            assert run_command_in_ffmeg(f'ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/audio_{exportname}_{str(index)}.mp4'),"error in writing audio sepratly"
         except:
             log.log('error in running command')
         try:
@@ -152,7 +152,7 @@ def export_videos_sepratly(files_tuple,export_path,exportname):
             log.log("error in saving to cache.")
         try:
             assert run_command_in_ffmeg(
-                f"ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/video_{exportname}_{str(index)}.mov"), "error in writing video sepratly"
+                f'ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/video_{exportname}_{str(index)}.mov'), "error in writing video sepratly"
         except:
             log.log('error in running command')
         try:

@@ -12,7 +12,7 @@ from backend.options import script_name, temp_path,get_file_size_in_cache, remov
 from time import sleep
 
 opts = Options()
-# opts.add_argument("--headless")
+opts.add_argument("--headless")
 opts.add_argument("--window-size=1920x1080")
 opts.add_argument("--disable-notifications")
 opts.add_argument('--no-sandbox')
@@ -39,10 +39,14 @@ try:
 except:
     log.log(script_name,"can't launch acd_engine.")
 
-def check_if_link_is_valid(link):
+def check_if_link_is_valid(link,selected_login = False):
     if 'adobeconnect/joinrecording' in link and 'http' in link:
         return True
     elif 'lms3.srbiau.ac.ir' in link and any(['http' in link,'https' in link]) and len(link.split('/')) == 4:
+        return True
+    elif 'vc25.sbu.ac.ir' in link and any(['http' in link,'https' in link]) and len(link.split('/')) == 4:
+        return True
+    elif selected_login != False and "special_dl_url" in selected_login and any(['http' in link,'https' in link]):
         return True
     else:
         return False
@@ -113,8 +117,8 @@ def login_into_system(info_dict,username,password):
         else:
             sleep(3)
             break
-
-    assert 'ورود' in ac_browser.title,"LOGIN PAGE DIDN'T LOAD UP!"
+    if 'special_title' not in info_dict:
+        assert any(['ورود' in ac_browser.title,'login' in ac_browser.title.lower()]),"LOGIN PAGE DIDN'T LOAD UP!"
 
     #find username field.
 
@@ -175,7 +179,7 @@ def login_into_system(info_dict,username,password):
     return True
 
 
-def extract_download_url(url,filename = None):
+def extract_download_url(url,filename = None,selected_login = False):
     urllist = url.split('/')
     if "get-player" in url:
         return {"filename" : urllist[-2],
@@ -188,6 +192,11 @@ def extract_download_url(url,filename = None):
         return {"filename" : urllist[3],
                 "url" : str(urllist[0] + "//" + urllist[2] + '/' + urllist[3] + '/' if urllist[0] == "http" or "https" else "http://" + urllist[0] + '/' + urllist[1] + '/') + f'output/{filename}.cdata?download=zip',
                 }
+    elif selected_login and 'special_dl_link' in selected_login:
+        return {
+            "filename": urllist[3],
+            "url": str(urllist[0] + "//" + urllist[2] + '/' + urllist[3] + '/' if urllist[0] == "http" or "https" else "http://" +urllist[0] + '/' +urllist[1] + '/') + f'output/{filename}.cdata?download=zip',
+            }
     else:
         return {
             "filename": urllist[3] if urllist[0] == "http" or "https" else urllist[1],
@@ -199,7 +208,7 @@ def extract_download_url(url,filename = None):
                                                                                                                        1] + '/') + f'output/{filename}.cdata?download=zip',
             }
 
-def download_file(url,filename):
+def download_file(url,filename,selected_login = False):
 
 
 
@@ -215,6 +224,8 @@ def download_file(url,filename):
 
     if 'lms3.srbiau.ac.ir' in url:
         ac_browser.get(extract_download_url(url,filename)["url"])
+    elif selected_login and 'special_dl_url' in selected_login:
+        ac_browser.get(extract_download_url(url,filename,selected_login)["url"])
     else:
         ac_browser.get(extract_download_url(ac_browser.current_url,filename)["url"])
 
