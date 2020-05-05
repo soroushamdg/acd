@@ -6,6 +6,17 @@ elearning.iut.ac.ir
 vu.sbu.ac.ir
 lms2.alzahra.ac.ir
 lms.rashed.ir
+lms.uok.ac.ir
+lms1.uok.ac.ir
+lms2.uok.ac.ir
+lms3.uok.ac.ir
+lms4.uok.ac.ir
+lms5.uok.ac.ir
+lms6.uok.ac.ir
+lms7.uok.ac.ir
+lms8.uok.ac.ir
+lms9.uok.ac.ir
+lms.iust.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
