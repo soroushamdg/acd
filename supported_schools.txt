@@ -16,6 +16,7 @@ lms6.uok.ac.ir
 lms7.uok.ac.ir
 lms8.uok.ac.ir
 lms9.uok.ac.ir
+urmia9.viannacloud.ir
 lms.iust.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
