@@ -33,6 +33,9 @@ lms.chb.pnu.ac.ir
 vc.qut.ac.ir
 vlp.parsianfcp.ir
 vc.parsianfcp.ir
+live.ganjedu.ir
+adi.tehranlms.ir
+vc.modaresanesharif.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
