@@ -36,6 +36,12 @@ vc.parsianfcp.ir
 live.ganjedu.ir
 adi.tehranlms.ir
 vc.modaresanesharif.ac.ir
+lms2.ikiu.ac.ir
+e-learning.bzte.ac.ir
+lms.azuast.com
+vc.ilam.ac.ir
+cafetadris.com/login
+lms.razavi.pnu.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
