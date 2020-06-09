@@ -42,6 +42,8 @@ lms.azuast.com
 vc.ilam.ac.ir
 cafetadris.com/login
 lms.razavi.pnu.ac.ir
+connect3.afarinesh.org
+79.143.84.167
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
