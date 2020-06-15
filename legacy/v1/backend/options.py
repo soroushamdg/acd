@@ -1,4 +1,4 @@
-import os
+import os,pathlib
 
 script_name = "adc-dl-bc-20420"
 driver_path = ''
@@ -11,28 +11,31 @@ def define_temp_path(exe_path):
     global temp_path
     for i in range(1):
         try:
-            os.chdir(exe_path+r'/temp/cache')
+            os.chdir(str(pathlib.Path(exe_path).joinpath('temp').joinpath('cache').joinpath(' '))[:-1])
         except:
-            os.chdir(exe_path)
+            os.chdir(str(pathlib.Path(exe_path)))
             os.mkdir('temp')
-            os.chdir(exe_path+'/temp')
+            os.chdir(str(pathlib.Path(exe_path).joinpath('temp')))
             os.mkdir('cache')
         else:
-            temp_path = exe_path + "/temp/cache" + '/'
+            temp_path = str(pathlib.Path(exe_path).joinpath('temp').joinpath('cache'))
             break
+
+    print(temp_path)
 #define export path
 def define_export_path(exe_path):
     global mp4_export_path
-    desktop_path = os.environ["HOMEPATH"] + '/Desktop'
+    desktop_path = str(pathlib.Path().home().joinpath('Desktop'))
     for i in range(1):
         try:
-            os.chdir(desktop_path+'/exports')
+            os.chdir(str(pathlib.Path(desktop_path).joinpath('exports')))
         except:
-            os.chdir(desktop_path)
+            os.chdir(str(pathlib.Path(desktop_path)))
             os.mkdir('exports')
         else:
-            mp4_export_path = desktop_path+'/exports/'
+            mp4_export_path = str(pathlib.Path(desktop_path).joinpath('exports').joinpath(' '))[:-1]
             break
+    print(mp4_export_path)
 
 def check_export_and_temp_dirs(exe_path):
     global temp_path
@@ -40,25 +43,27 @@ def check_export_and_temp_dirs(exe_path):
         try:
             os.chdir(temp_path)
         except:
-            os.chdir(exe_path)
+            os.chdir(str(pathlib.Path(exe_path)))
             os.mkdir('temp')
-            os.chdir(exe_path + '/temp')
+            os.chdir(str(pathlib.Path(exe_path).joinpath('temp')))
             os.mkdir('cache')
         else:
-            temp_path = exe_path + "/temp/cache" + '/'
+            temp_path = str(pathlib.Path(exe_path).joinpath('temp').joinpath('cache').joinpath(' '))[:-1]
             break
 
     global mp4_export_path
-    desktop_path = '/'.join(os.environ["HOMEPATH"].split('\\'))+'/Desktop'
+    desktop_path = str(pathlib.Path().home().joinpath('Desktop'))
     for i in range(1):
         try:
-            os.chdir(mp4_export_path)
+            os.chdir(str(pathlib.Path(desktop_path).joinpath('exports')))
         except:
-            os.chdir(desktop_path)
+            os.chdir(str(pathlib.Path(desktop_path)))
             os.mkdir('exports')
         else:
-            mp4_export_path = desktop_path + '/exports/'
+            mp4_export_path = str(pathlib.Path(desktop_path).joinpath('exports').joinpath(' '))[:-1]
             break
+    print(mp4_export_path)
+    print(temp_path)
 
 def remove_old_files_in_cache(filename):
     if os.listdir(temp_path):
@@ -73,7 +78,7 @@ def remove_old_files_in_cache(filename):
 
 def get_file_size_in_cache(filename):
     try:
-        size = os.path.getsize(temp_path + filename)
+        size = os.path.getsize(pathlib.Path(temp_path).joinpath(filename))
     except:
         return False
     else:
@@ -82,7 +87,7 @@ def get_file_size_in_cache(filename):
 def make_folder_to_export_into(coursename):
     try:
         os.chdir(mp4_export_path)
-        os.mkdir(mp4_export_path+coursename)
+        os.mkdir(coursename)
     except:
         return False
     else:

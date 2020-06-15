@@ -18,7 +18,7 @@ from bytes_downloaded_info import bytes_downloaded
 from pyLog import options as log_options
 import requests,json
 import icons_qr
-
+import pathlib
 
 print("""
    ____   _                                    _    _                                          
@@ -45,9 +45,9 @@ import webbrowser
 def check_ffmpeg(bin_path,command):
     ffmpeg_dir = bin_path + ''
     try:
-        output = subprocess.check_output(ffmpeg_dir + command, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-    except:
-        log.log("error in running command in ffmpeg.")
+        output = subprocess.check_output(ffmpeg_dir + command, stderr=subprocess.PIPE, stdin=subprocess.PIPE) if sys.platform == 'win32' else subprocess.check_output(ffmpeg_dir + command,shell=True)
+    except Exception as msg:
+        log.log('@50',f"error in running command in ffmpeg. ->{msg}")
         return False
     else:
         return True
@@ -63,6 +63,7 @@ except:
 else:
     #setting options for backend
     from backend import options as back_options
+
     back_options.define_temp_path(options.options['main_exe_path'])
     back_options.define_export_path(options.options['main_exe_path'])
 
@@ -623,7 +624,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
             log.log(__name__, "can't find acd_engine, openning dialog.")
             while (True):
                 try:
-                    fileName = QFileDialog.getOpenFileUrl(filter="Engine files (*.acde)")[0].url().split('///')[1]
+                    fileName = QFileDialog.getOpenFileUrl(filter="Engine files (*.acde)")[0].url().split('///')[1] if sys.platform == 'win32' else QFileDialog.getOpenFileUrl(filter="Engine files (*.acde)")[0].url().split('//')[1]
                 except:
                     self.show_message_box("error", "can't open file dialog.")
                     return False
@@ -646,7 +647,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                             del ac_browser
                             del opts
                         except Exception as msg:
-                            log.log(__name__, "you chose wrong file, can't run it.")
+                            log.log(__name__, f"you chose wrong file, can't run it.")
                             self.show_message_box("error", "can't run engine, maybe you've selected wrong file.")
                             continue
                         else:
@@ -698,7 +699,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
     def openDatabaseFileNameDialog(self):
         global database_found
         try:
-            fileName = QFileDialog.getOpenFileUrl(filter="ACD Databse files (*.acddb)")[0].url().split('///')[1]
+            fileName = QFileDialog.getOpenFileUrl(filter="ACD Databse files (*.acddb)")[0].url().split('///')[1] if sys.platform == 'win32' else QFileDialog.getOpenFileUrl(filter="ACD Databse files (*.acddb)")[0].url().split('//')[1]
         except:
             self.show_message_box("error", "can't open file dialog.")
             return False
@@ -731,27 +732,48 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
         else:
             if fileName == None or fileName == '':
                 return
-
-        if 'ffmpeg.exe' in os.listdir(fileName):
-            options.options['ffmpeg_path'] = fileName + '/'
-            options.save_options()
-            self.check_stage_1()
-            if ffmpeg_working:
-                buttonReply = QMessageBox.question(self, "FFMPEG Found", 'Please start the app again.',
-                                                   QMessageBox.Ok, QMessageBox.Ok)
-                if buttonReply == QMessageBox.Ok:
-                    app.exit()
+        if sys.platform == 'win32':
+            if 'ffmpeg.exe' in os.listdir(fileName):
+                options.options['ffmpeg_path'] = str(pathlib.Path(fileName).joinpath(' '))[:-1]
+                options.save_options()
+                self.check_stage_1()
+                if ffmpeg_working:
+                    buttonReply = QMessageBox.question(self, "FFMPEG Found", 'Please start the app again.',
+                                                       QMessageBox.Ok, QMessageBox.Ok)
+                    if buttonReply == QMessageBox.Ok:
+                        app.exit()
+                    else:
+                        app.exit()
+                    return True
                 else:
-                    app.exit()
-                return True
+                    self.show_message_box("Couldn't run ffmpeg.exe",
+                                          "Please reinstall it again.")
+                    return False
             else:
-                self.show_message_box("Couldn't run ffmpeg.exe",
-                                      "Please reinstall it again.")
+                self.show_message_box("Couldn't find ffmpeg.exe",
+                                      "Please redirect to bin folder where you can find ffmpeg.exe file.")
                 return False
         else:
-            self.show_message_box("Couldn't find ffmpeg.exe",
-                                  "Please redirect to bin folder where you can find ffmpeg.exe file.")
-            return False
+            if 'ffmpeg' in os.listdir(fileName):
+                options.options['ffmpeg_path'] = str(pathlib.Path(fileName).joinpath(' '))[:-1]
+                options.save_options()
+                self.check_stage_1()
+                if ffmpeg_working:
+                    buttonReply = QMessageBox.question(self, "FFMPEG Found", 'Please start the app again.',
+                                                       QMessageBox.Ok, QMessageBox.Ok)
+                    if buttonReply == QMessageBox.Ok:
+                        app.exit()
+                    else:
+                        app.exit()
+                    return True
+                else:
+                    self.show_message_box("Couldn't run ffmpeg.exe",
+                                          "Please reinstall it again.")
+                    return False
+            else:
+                self.show_message_box("Couldn't find ffmpeg.exe",
+                                      "Please redirect to bin folder where you can find ffmpeg.exe file.")
+                return False
 
     # stage 1 stuff
     def check_stage_1(self):

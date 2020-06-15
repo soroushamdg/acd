@@ -1,5 +1,5 @@
 from pyLog import options
-import os
+import os,pathlib
 import datetime
 import csv
 
@@ -52,10 +52,11 @@ class logger():
         # Chaning path to logging destination
         while (True):
             try:
-                os.chdir(options.log_file_path + r"\log")
+                os.chdir(str(pathlib.Path(options.log_file_path).joinpath('log')))
+
             except:
                 print("couldn't find ", options.log_file_path + r'\log')
-                os.chdir(options.log_file_path)
+                os.chdir(str(pathlib.Path(options.log_file_path)))
                 os.mkdir("log")
             else:
                 break

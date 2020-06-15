@@ -8,11 +8,12 @@ from zipfile import ZipFile
 from pyLog.pylog import log
 import xml.etree.ElementTree as ET
 import datetime
+import sys
 
 def run_command_in_ffmeg(command):
     ffmpeg_dir = ffmpeg_directory_bin
     try:
-        output = subprocess.call(str(ffmpeg_dir + command).split())
+        output = subprocess.call(str(ffmpeg_dir + command).split()) if sys.platform == 'win32' else subprocess.call(str(ffmpeg_dir + command).split(),shell=False)
     except:
         log.log("error in running command.")
         return False

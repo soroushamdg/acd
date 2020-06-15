@@ -20,7 +20,7 @@ opts.add_argument("--disable-notifications")
 opts.add_argument('--no-sandbox')
 opts.add_argument('--verbose')
 opts.add_experimental_option("prefs", {
-        "download.default_directory": '\\'.join(temp_path.split('/')),
+        "download.default_directory": temp_path,
         "download.prompt_for_download": False,
         "download.directory_upgrade": True,
         "safebrowsing_for_trusted_sources_enabled": False,

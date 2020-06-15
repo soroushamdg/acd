@@ -3,9 +3,11 @@ this file holds options and database vars
 """
 import options_decoder
 import os
+import pathlib
 
 options = {'selected_language':'en',
-               'main_exe_path':'/'.join(os.path.realpath(__file__).split('\\')[:-2]),}
+               'main_exe_path':str(pathlib.Path(os.path.realpath(__file__)).parent.parent),}
+print(options)
 # selected languge
 #driver_path
 # main exe path
@@ -16,7 +18,7 @@ options = {'selected_language':'en',
 def save_options():
 
     try:
-        options_decoder.encrypt(options,'/'.join(os.path.realpath(__file__).split('\\')[:-2])+'/'+'settings.acds', 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
+        options_decoder.encrypt(options,str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('settings.acds')), 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
     except:
         return False
     else:
@@ -25,12 +27,12 @@ def save_options():
 def load_options():
     global options
     try:
-        file = open('/'.join(os.path.realpath(__file__).split('\\')[:-2])+r"/settings.acds",'r')
+        file = open(str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('settings.acds')),'r')
     except:
         assert save_options(),"can't save options files #25"
         return True
     else:
-        options = options_decoder.decrypt('/'.join(os.path.realpath(__file__).split('\\')[:-2])+ r"/settings.acds",'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
+        options = options_decoder.decrypt(str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('settings.acds')),'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
         return False
 
 urls_db = {}
@@ -48,9 +50,9 @@ def load_database():
                 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
             return True
     try:
-        file = open('/'.join(os.path.realpath(__file__).split('\\')[:-2])+'/'+'database.acddb','r')
+        file = open(str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('database.acddb')),'r')
     except:
         return False
     else:
-        urls_db = options_decoder.decrypt('/'.join(os.path.realpath(__file__).split('\\')[:-2])+'/'+ 'database.acddb','vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
+        urls_db = options_decoder.decrypt(str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('database.acddb')),'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=')
         return True
