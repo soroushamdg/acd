@@ -2,7 +2,9 @@
 Prosumer
 This script will download file into selected path, will return status of download and will show progress.
 """
-
+from PyQt5.QtWidgets import QMessageBox, QInputDialog
+import tkinter as tk
+from tkinter import simpledialog
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 
@@ -104,6 +106,13 @@ def login_into_system(info_dict,username,password):
     #              "sfli":0,
     #              "csbk":True
     #              }
+    global logged_in
+
+    if  info_dict and 'no-pre-login' in info_dict:
+        log.log(script_name,'setting as NO-PRE-LOGIN MODE')
+        logged_in = True
+        return True
+
     for i in range(5):
         try:
             ac_browser.get(info_dict["login_url"])
@@ -117,9 +126,59 @@ def login_into_system(info_dict,username,password):
         else:
             sleep(3)
             break
+
+    # just for iran university of science and research
+    if 'lms.iust.ac.ir' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_class_name('potentialidp').find_element_by_tag_name('a')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+
+    #just for kurdestan university
+    if 'uok.ac.ir' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_id('ctl00_PortalMasterPageStandardHeader_LoginStatusMainL')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+
+        # just for urmia university
+    if 'urmia' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_id('ctl00_mainContent_providerDetails_ctrl5_imgOpenIDLogin')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+
     if 'special_title' not in info_dict:
         assert any(['ورود' in ac_browser.title,'login' in ac_browser.title.lower()]),"LOGIN PAGE DIDN'T LOAD UP!"
 
+    sleep(2)
     #find username field.
 
     try:
@@ -173,7 +232,7 @@ def login_into_system(info_dict,username,password):
 
     log.log(script_name,"login successful.")
 
-    global logged_in
+
     logged_in = True
 
     return True
@@ -208,6 +267,102 @@ def extract_download_url(url,filename = None,selected_login = False):
                                                                                                                        1] + '/') + f'output/{filename}.cdata?download=zip',
             }
 
+def login_in_download_url(url,selected_link):
+    """
+    open dialog to get password, then goto link, enter password, if title changed, then it's ok and return true, otherwise return false
+    :param url:
+    :return:
+    """
+    titles = ['passcode','password','login','پسورد','ورود','لاگین']
+    ac_browser.get(url)
+    sleep(1)
+    print(ac_browser.title.lower(),any([title in ac_browser.title.lower() for title in titles]))
+    if any([title in ac_browser.title.lower() for title in titles]):# here gets username and password
+        if selected_link['ufm']:
+            username_input = tk.Tk()
+            username_input.withdraw()
+            # the input dialog
+            username = simpledialog.askstring(title="Username",
+                                              prompt="Please enter your username : ")
+            if not username:
+                log.log(script_name,"no username entered!")
+                return False
+            #write username
+            # find username field.
+
+            try:
+                if selected_link["ufm"] == "id":
+                    username_field = ac_browser.find_element_by_id(selected_link["ufv"])
+                elif selected_link["ufm"] == "class":
+                    username_field = ac_browser.find_elements_by_class_name(selected_link["ufv"])[int(selected_link["ufli"])]
+                else:
+                    username_field = ac_browser.find_elements_by_name(selected_link["ufv"])[int(selected_link["ufli"])]
+            except:
+                log.log(script_name, "can't find username field, something wrong with url maybe. please contact me.")
+                return False
+            else:
+                username_field.send_keys(username)
+                log.log(script_name,"found username.")
+
+        if selected_link['pfm']:
+            #get password
+            password_input = tk.Tk()
+            password_input.withdraw()
+            # the input dialog
+            password = simpledialog.askstring(title="Password",
+                                              prompt="Please enter your password : ")
+            if not password:
+                log.log(script_name,"no password entered!")
+                return False
+            # find password field.
+            print(password)
+            try:
+                if selected_link["pfm"] == "id":
+                    password_field = ac_browser.find_element_by_id(selected_link["pfv"])
+                elif selected_link["pfm"] == "class":
+                    password_field = ac_browser.find_elements_by_class_name(selected_link["pfv"])[int(selected_link["pfli"])]
+                else:
+                    password_field = ac_browser.find_elements_by_name(selected_link["pfv"])[int(selected_link["pfli"])]
+            except:
+                log.log(script_name, "can't find password field, something wrong with url maybe. please contact me.")
+                return False
+            else:
+                password_field.send_keys(password)
+                log.log(script_name,"found password.")
+        #hit login
+        log.log(script_name,'trying to login into system')
+        # find and click submit button.
+        if selected_link["csbk"]:
+            password_field.submit()
+        else:
+            try:
+                if selected_link["sfm"] == "id":
+                    submit_field = ac_browser.find_element_by_id(selected_link["sfv"])
+                elif selected_link["sfm"] == "class":
+                    submit_field = ac_browser.find_elements_by_class_name(selected_link["sfv"])[int(selected_link["sfli"])]
+                else:
+                    submit_field = ac_browser.find_elements_by_name(selected_link["sfv"])[int(selected_link["sfli"])]
+            except:
+                log.log(script_name, "can't find password field, something wrong with url maybe. please contact me.")
+                return False
+            else:
+                submit_field.click()
+
+        # wait for login
+        print(352)
+        sleep(10)
+        try:
+            ac_browser.find_element_by_class_name('login-error')
+        except:
+            log.log(script_name, "login successful.")
+            return True
+        else:
+            log.log(script_name, "login unsuccessful.")
+            return
+    else:
+        log.log(script_name,"no need to login, attempting to start download.")
+        return True
+
 def download_file(url,filename,selected_login = False):
 
 
@@ -222,12 +377,17 @@ def download_file(url,filename,selected_login = False):
         log.log(script_name,"error in removing old cache.")
         assert False,"error in removing old cache."
 
-    if 'lms3.srbiau.ac.ir' in url:
-        ac_browser.get(extract_download_url(url,filename)["url"])
-    elif selected_login and 'special_dl_url' in selected_login:
-        ac_browser.get(extract_download_url(url,filename,selected_login)["url"])
+    if selected_login and 'no-pre-login' in selected_login:
+        url = ac_browser.current_url
+        assert login_in_download_url(extract_download_url(ac_browser.current_url,filename,selected_login)["url"],selected_link=selected_login), 'ERROR #370 -> CAN\'T LOGIN'
+        # ac_browser.get(extract_download_url(ac_browser.current_url,filename,selected_login)["url"])
     else:
-        ac_browser.get(extract_download_url(ac_browser.current_url,filename)["url"])
+        if 'lms3.srbiau.ac.ir' in url:
+            ac_browser.get(extract_download_url(url,filename)["url"])
+        elif selected_login and 'special_dl_url' in selected_login:
+            ac_browser.get(extract_download_url(url,filename,selected_login)["url"])
+        else:
+            ac_browser.get(extract_download_url(ac_browser.current_url,filename)["url"])
 
 
 

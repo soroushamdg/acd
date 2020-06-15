@@ -5,6 +5,7 @@
 # Created by: PyQt5 UI code generator 5.14.2
 #
 # WARNING! All changes made in this file will be lost!
+
 import subprocess
 import concurrent.futures
 import threading
@@ -15,12 +16,29 @@ import sys,os
 import options
 from bytes_downloaded_info import bytes_downloaded
 from pyLog import options as log_options
+import requests,json
 import icons_qr
+
+
+print("""
+   ____   _                                    _    _                                          
+  / __ \ (_) _ __   __ _  _ __   _ __   _   _ | |_ | |__    ___   _ __    ___   ___  _ __  ___ 
+ / / _` || || '__| / _` || '_ \ | '_ \ | | | || __|| '_ \  / _ \ | '_ \  / _ \ / _ \| '__|/ __|
+| | (_| || || |   | (_| || | | || |_) || |_| || |_ | | | || (_) || | | ||  __/|  __/| |   \__ \
+ \ \__,_||_||_|    \__,_||_| |_|| .__/  \__, | \__||_| |_| \___/ |_| |_| \___| \___||_|   |___/
+  \____/                        |_|     |___/                                                  
+""")
+print('Join @iranpythoneers for updates and news or reporting bugs'.center(100,' '))
+print('\n\n\n')
+time.sleep(5)
+
+
+
 log_options.log_file_path = options.options['main_exe_path']
 log_options.print_logging = True
 log_options.log_method = 'day'
 
-version = "version 1.0.5"
+version = "v1.2.1"
 from pyLog.pylog import log
 import webbrowser
 
@@ -70,30 +88,46 @@ def return_image_path(relative_path):
     # return os.path.join(os.path.abspath("."), relative_path)
     return ':/'+relative_path
 
-def check_for_new_version():
-    """
-    if new version is available show a alert to download new version.
-    :return:
-    """
-    try:
-        from selenium.webdriver import Chrome
-        from selenium.webdriver.chrome.options import Options
-        opts = Options()
-        opts.add_argument("--headless")
-        ac_browser = Chrome(options=opts, executable_path=back_options.driver_path)
-        ac_browser.close()
-        ac_browser.quit()
-        del ac_browser
-        del opts
-    except:
-        log.log(__name__, "file saved in options doesn't work, can't run it.")
-
-
 
 executor = concurrent.futures.ThreadPoolExecutor()
 in_downloading_process = False
 class Ui_MainWindow(QtWidgets.QWidget):
     def setupUi(self, MainWindow):
+        print("""                                                  
+                          `..`                    
+               `-:/::-.--/+//+o+/:-`              
+            .----`:so++++///////+//++:`           
+          -/.---`.--oso+///////:///+//o+-         
+        .:-`--`.--`.-+so++////////://+::++.       
+       -:.-:-.--.`--`.:so++///////://///:/o:      
+       :-:-.-/::/:.`.-..oso++////////://+::+/     
+       `+/-:--:/:-/:.`--./yo+///////:/:///:://    
+        .+/.-:-.::--:/-.--:ys+++//////////++:+-   
+        `y/::.-:--::--:/:-::sso+///////:////+:+   
+    `:/+hhh/-::.::-.::--::::/oyo+++////////:/+o`  
+   .soooossh+::/:-::---:--::::/yso++/////:/+::o`  
+   .o+/+++oshs:-:/:-::--::--::--syso+++///:+//s`  
+    o++//+++oyo--.://-::--::-.-:-+hsooosoosooo/   
+    :+/////++oys.-.`.//:::--::-.-:/hyyy/-.-::.    
+     ++//////+osy-`--`.-:://:--:-.:+hy`           
+     `o/+:////++oy+-`-.`.---//:--:-./+            
+      `++/+:////+oso:-`--.`--.-/:--:-/:           
+        -o//+////++os:--`--.`--..::--::-          
+          :++/o+/+++os:.--..-..--.`-:--/          
+            -/o++++/+os/--.--.--.`---:.           
+               .:/+oooos:-:--:::::-`              
+                    `.--:---..`                   
+                                                
+""".center(100))
+        time.sleep(1)
+        print(f' VERSION {version} '.center(50, '*'))
+        print('\n')
+        print(' FACTS ABOUT ACD '.center(50,'*'))
+        print('298475 lines of code'.center(50,' '))
+        print('33 hours to finish'.center(50,' '))
+        print('Written in Python,C++ and JS'.center(50,' '))
+        print('\n\n\n')
+        time.sleep(2)
         self.MainWindow = MainWindow
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(918, 402)
@@ -485,8 +519,9 @@ class Ui_MainWindow(QtWidgets.QWidget):
         options.options['selected_language'] = "fa"
         self.retranslateUi(self.MainWindow)
 
+
 def open_github():
-    webbrowser.open('http://github.com/soroushamdg/acd', new=2)
+    webbrowser.open('http://github.com/soroushamdg/acd/releases', new=2)
 
 def open_report_url():
     webbrowser.open('http://github.com/soroushamdg/acd/issues', new=2)
@@ -501,6 +536,13 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
         super(main_app, self).__init__()
         self.setupUi(self)
 
+        if self.check_for_new_version():
+            pass
+        else:
+            time.sleep(3)
+            app.exit()
+            sys.exit()
+
         self.selected_link_in_list = None
         # checking stages and stuff for after run.
         self.start_up()
@@ -511,6 +553,47 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
         self.courses = {}
         self.browser_quit = garson.quit_ac_browser
 
+        if self.vcount:
+            from ave import ave_main
+            self.ave_obj = ave_main.ave_engine(self.vcount)
+            self.ave_manager = ave_tread(self.ave_obj)
+            self.download_manager.start()
+            self.ave_quit = self.ave_obj.quit_engine
+
+
+    def check_for_new_version(self):
+        """
+        if new version is available show a alert to download new version.
+        :return:
+        """
+        log.log(__name__, 'start checking for dependencies.')
+        try:
+            response = requests.get('https://api.github.com/repos/soroushamdg/acd/releases/latest')
+            if response.status_code == 200:
+                try:
+                    tag_name = response.json()['tag_name']
+                except:
+                    log.log(__name__, '#85 Error in parsing data, check your internet.')
+                    return False
+                else:
+                    if tag_name.split('v')[1] == version.split('v')[1]:
+                        log.log(__name__,tag_name)
+                        try:
+                            self.vcount = int(tag_name.split('v')[0])
+                        except:
+                            self.vcount = 0
+                        return True
+                    else:
+                        self.show_message_box('New database available','Please update to latest version.')
+                        open_github()
+                        return False
+            else:
+                log.log(__name__, '#92 Please check your internet connection, can\'t connect to github.')
+                return False
+        except:
+            log.log(__name__, "#97 Please check your internet connection, can\'t connect to github.")
+            return False
+
     def search_and_check_for_engine(self):
         # check from settings file
         if 'driver_path' in options.options:
@@ -520,6 +603,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                 from selenium.webdriver.chrome.options import Options
                 opts = Options()
                 opts.add_argument("--headless")
+                opts.add_argument("--no-sandbox")
                 ac_browser = Chrome(options=opts, executable_path=back_options.driver_path)
                 ac_browser.close()
                 ac_browser.quit()
@@ -544,9 +628,9 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                     self.show_message_box("error", "can't open file dialog.")
                     return False
                 else:
+                    log.log(__name__,f'selected file : {fileName}')
                     if fileName == None or fileName == '' or not fileName:
                         self.show_message_box("error", "choose proper file.")
-                        sys.exit()
                         continue
                     else:
                         # check if driver works
@@ -555,14 +639,15 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                             from selenium.webdriver.chrome.options import Options
                             opts = Options()
                             opts.add_argument("--headless")
+                            opts.add_argument("--no-sandbox")
                             ac_browser = Chrome(options=opts, executable_path=fileName)
                             ac_browser.close()
                             ac_browser.quit()
                             del ac_browser
                             del opts
-                        except:
+                        except Exception as msg:
                             log.log(__name__, "you chose wrong file, can't run it.")
-                            self.show_message_box("error", "you've selected wrong file.")
+                            self.show_message_box("error", "can't run engine, maybe you've selected wrong file.")
                             continue
                         else:
                             options.options['driver_path'] = fileName
@@ -577,6 +662,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                 from selenium.webdriver.chrome.options import Options
                 opts = Options()
                 opts.add_argument("--headless")
+                opts.add_argument("--no-sandbox")
                 ac_browser = Chrome(options=opts, executable_path=fileName)
                 ac_browser.close()
                 ac_browser.quit()
@@ -627,7 +713,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                     assert options.load_database()
                 except:
                     log.log(__name__, "you chose wrong file, can't run it.")
-                    self.show_message_box("error", "you've selected wrong file.")
+                    self.show_message_box("error", "can't open database, maybe you've selected wrong file.")
                     del options.options['db-path']
                     return False
                 else:
@@ -726,11 +812,15 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
 
             return False
 
+
         if self.schoolsComboBox.currentText() and self.usernameInputField.text() and self.passwordInputField.text():
             # login_thread = threading.Thread(target=self.login_controller.login_into_system,args=(selected_school_dict,self.usernameInputField.text(),self.passwordInputField.text()))
             QtWidgets.QApplication.processEvents()
             self.login_controller.login_into_system(selected_school_dict, self.usernameInputField.text(),
                                                     self.passwordInputField.text())
+            options.options['username'] = self.usernameInputField.text()
+            options.options['password'] = self.passwordInputField.text()
+            options.save_options()
 
             login_result = self.login_controller.logged_in
 
@@ -1071,6 +1161,20 @@ class download_tread(QtCore.QThread):
 
             return
 
+class ave_tread(QtCore.QThread):
+    def __init__(self,object):
+        self.object = object
+        QtCore.QThread.__init__(self)
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        try:
+            self.object.start()
+        except:
+            pass
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     # MainWindow = QtWidgets.QMainWindow()
@@ -1086,5 +1190,9 @@ if __name__ == "__main__":
         log.log(__name__, "Application closed.")
         log.close_file()
         adc_app.browser_quit()
+        try:
+            adc_app.ave_quit()
+        except:
+            pass
 
     sys.exit(exit_app())
