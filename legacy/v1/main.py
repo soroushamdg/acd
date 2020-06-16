@@ -19,6 +19,8 @@ from pyLog import options as log_options
 import requests,json
 import icons_qr
 import pathlib
+import platform
+import subprocess
 
 print("""
    ____   _                                    _    _                                          
@@ -393,9 +395,15 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.actionadd_new_link.triggered.connect(self.add_link_button)
         self.actionversion_1_0 = QtWidgets.QAction(MainWindow)
         self.actionversion_1_0.setObjectName("actionversion_1_0")
+
+        self.actionopen_temp_folder = QtWidgets.QAction(MainWindow)
+        self.actionopen_temp_folder.setObjectName("actionopen_temp_folder")
+        self.actionopen_temp_folder.triggered.connect(open_temp_folder)
+
         self.actionopen_github_page = QtWidgets.QAction(MainWindow)
         self.actionopen_github_page.setObjectName("actionopen_github_page")
         self.actionopen_github_page.triggered.connect(open_github)
+
         self.actionexit = QtWidgets.QAction(MainWindow)
         self.actionexit.setObjectName("actionexit")
         self.actionexit.triggered.connect(exit_menu)
@@ -415,6 +423,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.menulinks.addSeparator()
         self.menulinks.addAction(self.actionstart_downloading)
         self.menuversion.addAction(self.actionversion_1_0)
+        self.menuversion.addAction(self.actionopen_temp_folder)
         self.menuversion.addSeparator()
         self.menuversion.addAction(self.actionopen_github_page)
         self.menulanguage.addAction(self.actionfarsi)
@@ -466,6 +475,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.actionadd_new_link.setText(_translate("MainWindow", "add new link"))
             self.actionversion_1_0.setText(_translate("MainWindow", f"{version}"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
+            self.actionopen_temp_folder.setText(_translate("MainWindow","open temp folder"))
             self.actionexit.setText(_translate("MainWindow", "exit"))
             self.actionstart_downloading.setText(_translate("MainWindow", "start downloading"))
             self.actionfarsi.setText(_translate("MainWindow", "فارسی"))
@@ -506,6 +516,8 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.actionadd_new_link.setText(_translate("MainWindow", "اضافه کردن لینک"))
             self.actionversion_1_0.setText(_translate("MainWindow", f"{version}"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
+            self.actionopen_temp_folder.setText(_translate("MainWindow","فولدر temp"))
+
             self.actionexit.setText(_translate("MainWindow", "خروج"))
             self.actionstart_downloading.setText(_translate("MainWindow", "شروع دانلود"))
             self.actionfarsi.setText(_translate("MainWindow", "فارسی"))
@@ -529,6 +541,16 @@ def open_report_url():
 
 def exit_menu():
     app.exit()
+
+
+
+def open_temp_folder():
+    if platform.system() == "Windows":
+        os.startfile(back_options.temp_path)
+    elif platform.system() == "Darwin":
+        subprocess.Popen(["open", options.options['main_exe_path']])
+    else:
+        subprocess.Popen(["xdg-open", options.options['main_exe_path']])
 
 class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
     global database_found,ffmpeg_working,found_ffmpeg
