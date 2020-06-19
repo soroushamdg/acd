@@ -26,7 +26,6 @@ class course():
     def __init__(self, course_link,selected_school_dict = False):
         self.selected_login = selected_school_dict
         self.course_link = course_link
-    #Todo:is link valid in bool var
         self.is_link_valid = prosumer.check_if_link_is_valid(course_link,selected_login=self.selected_login)
 
     #if valid get file name and course name

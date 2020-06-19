@@ -363,6 +363,16 @@ def login_in_download_url(url,selected_link):
         log.log(script_name,"no need to login, attempting to start download.")
         return True
 
+def convert_byte(bytes):
+    if bytes > 1000:
+        return str(bytes / 1000) + 'KBs'
+    elif bytes > 1000000:
+        return str(bytes / 1000000) + 'MBs'
+    elif bytes < 1000:
+        return str(bytes) + 'Bytes'
+    else:
+        return str(bytes / 1000000000) + 'GBs'
+
 def download_file(url,filename,selected_login = False):
 
 
@@ -395,9 +405,9 @@ def download_file(url,filename,selected_login = False):
         sleep(1)
         dlstatus = get_download_progress(filename+'.cdata')
         if 'inprogress' == dlstatus[0]:
-            log.log(script_name,f"{filename} -> {dlstatus[1]} bytes downloaded. in progress.")
+            log.log(script_name,f"{filename} -> {convert_byte(int(dlstatus[1]))} downloaded. in progress.")
         elif 'finished' == dlstatus[0]:
-            log.log(script_name,f"{filename} download finished.{dlstatus[1]} bytes downloaded.")
+            log.log(script_name,f"{filename} download finished.{convert_byte(int(dlstatus[1]))} downloaded.")
             return True
         else:
             assert dlstatus[0],"ERR194 - ERROR IN DOWNLOADING OR SAVING DATA."

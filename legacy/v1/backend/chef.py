@@ -9,13 +9,25 @@ from pyLog.pylog import log
 import xml.etree.ElementTree as ET
 import datetime
 import sys
+from shutil import copyfile
+
+
+def check_ffmpeg_output(output :subprocess.Popen):
+    output = output.stdout.read().lower()
+    if 'conversion failed' in output:
+        return False
+    else:
+        return True
 
 def run_command_in_ffmeg(command):
     ffmpeg_dir = ffmpeg_directory_bin
     try:
-        output = subprocess.call(str(ffmpeg_dir + command).split()) if sys.platform == 'win32' else subprocess.call(str(ffmpeg_dir + command).split(),shell=False)
+        output = subprocess.Popen(str(ffmpeg_dir + command).split(),stdout=subprocess.PIPE) if sys.platform == 'win32' else subprocess.Popen(str(ffmpeg_dir + command).split(),shell=False)
+        if not check_ffmpeg_output(output):
+            log.log(script_name,'Conversion failed, retrying method @25')
+            return 'CONVERSION_FAILED'
     except:
-        log.log("error in running command.")
+        log.log(script_name,"error in running command.")
         return False
     else:
         log.log(script_name,'ffmpeg ran, output is not specified.')
@@ -120,12 +132,14 @@ def merge_and_export_videos(files_tuple,export_path,exportname,time_diff,audio_i
     remove_video_from_temp_file(files_tuple[1][0][0])
 
     return True
+def copy_flv_to_export_folder(source,destination):
+    copyfile(source, destination)
 
 def export_videos_sepratly(files_tuple,export_path,exportname):
     try:
-        assert make_folder_to_export_into(exportname),"error in creating export folder"
+        assert make_folder_to_export_into(exportname),"@137 error in creating export folder"
     except:
-        log.log(script_name,'error in creating export folder')
+        log.log(script_name,'@139 error in creating export folder')
 
     log.log(script_name,'starting audio files')
     #export audios
@@ -134,15 +148,21 @@ def export_videos_sepratly(files_tuple,export_path,exportname):
         try:
             save_video_into_temp_file(file[0],file[1][0])
         except:
-            log.log("error in saving to cache.")
+            log.log(script_name,"error in saving to cache.")
         try:
             assert run_command_in_ffmeg(f'ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/audio_{exportname}_{str(index)}.mp4'),"error in writing audio sepratly"
         except:
-            log.log('error in running command')
+            log.log(script_name,'error in running command')
+            try:
+                copy_flv_to_export_folder(f'{temp_path}{file[0]}.flv', f'{export_path}{exportname}/audio_{exportname}_{str(index)}.flv')
+            except:
+                log.log(script_name,'error in running method @25')
+            else:
+                log.log(script_name,'running method @25 successful')
         try:
             remove_video_from_temp_file(file[0])
         except:
-            log.log('error in removing cached data')
+            log.log(script_name,'error in removing cached data')
     #export videos
     log.log(script_name,'starting video files')
     for index,file in enumerate(files_tuple[1]):
@@ -150,16 +170,16 @@ def export_videos_sepratly(files_tuple,export_path,exportname):
         try:
             save_video_into_temp_file(file[0], file[1][0])
         except:
-            log.log("error in saving to cache.")
+            log.log(script_name,"error in saving to cache.")
         try:
             assert run_command_in_ffmeg(
                 f'ffmpeg -i {temp_path}{file[0]}.flv -c copy -c:a aac -y {export_path}{exportname}/video_{exportname}_{str(index)}.mov'), "error in writing video sepratly"
         except:
-            log.log('error in running command')
+            log.log(script_name,'error in running command')
         try:
             remove_video_from_temp_file(file[0])
         except:
-            log.log('error in removing cached data')
+            log.log(script_name,'error in removing cached data')
 
     return True
 

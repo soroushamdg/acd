@@ -23,12 +23,12 @@ import platform
 import subprocess
 
 print("""
-   ____   _                                    _    _                                          
-  / __ \ (_) _ __   __ _  _ __   _ __   _   _ | |_ | |__    ___   _ __    ___   ___  _ __  ___ 
- / / _` || || '__| / _` || '_ \ | '_ \ | | | || __|| '_ \  / _ \ | '_ \  / _ \ / _ \| '__|/ __|
-| | (_| || || |   | (_| || | | || |_) || |_| || |_ | | | || (_) || | | ||  __/|  __/| |   \__ \
- \ \__,_||_||_|    \__,_||_| |_|| .__/  \__, | \__||_| |_| \___/ |_| |_| \___| \___||_|   |___/
-  \____/                        |_|     |___/                                                  
+   ____   _                                    _    _                                           \n
+  / __ \ (_) _ __   __ _  _ __   _ __   _   _ | |_ | |__    ___   _ __    ___   ___  _ __  ___  \n
+ / / _` || || '__| / _` || '_ \ | '_ \ | | | || __|| '_ \  / _ \ | '_ \  / _ \ / _ \| '__|/ __| \n
+| | (_| || || |   | (_| || | | || |_) || |_| || |_ | | | || (_) || | | ||  __/|  __/| |   \__ \ \n
+ \ \__,_||_||_|    \__,_||_| |_|| .__/  \__, | \__||_| |_| \___/ |_| |_| \___| \___||_|   |___/ \n
+  \____/                        |_|     |___/                                                   \n
 """)
 print('Join @iranpythoneers for updates and news or reporting bugs'.center(100,' '))
 print('\n\n\n')
@@ -473,7 +473,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.menu_soroushamdg_made_it.setTitle(_translate("MainWindow", ""))
             self.menulanguage.setTitle(_translate("MainWindow", "language"))
             self.actionadd_new_link.setText(_translate("MainWindow", "add new link"))
-            self.actionversion_1_0.setText(_translate("MainWindow", f"{version}"))
+            self.actionversion_1_0.setText(_translate("MainWindow", f"{version} - {platform.system()}"))
             self.actionopen_github_page.setText(_translate("MainWindow", "open github page"))
             self.actionopen_temp_folder.setText(_translate("MainWindow","open temp folder"))
             self.actionexit.setText(_translate("MainWindow", "exit"))
@@ -504,7 +504,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "درباره ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", f"{version}"))
+            self.label_8.setText(_translate("MainWindow", f"{version} - {platform.system()}"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "کزارش"))
@@ -546,7 +546,7 @@ def exit_menu():
 
 def open_temp_folder():
     if platform.system() == "Windows":
-        os.startfile(back_options.temp_path)
+        os.startfile(back_options.options.options['main_exe_path'])
     elif platform.system() == "Darwin":
         subprocess.Popen(["open", options.options['main_exe_path']])
     else:
