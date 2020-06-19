@@ -21,7 +21,6 @@ def define_temp_path(exe_path):
             temp_path = str(pathlib.Path(exe_path).joinpath('temp').joinpath('cache'))
             break
 
-    print(temp_path)
 #define export path
 def define_export_path(exe_path):
     global mp4_export_path
@@ -35,7 +34,6 @@ def define_export_path(exe_path):
         else:
             mp4_export_path = str(pathlib.Path(desktop_path).joinpath('exports').joinpath(' '))[:-1]
             break
-    print(mp4_export_path)
 
 def check_export_and_temp_dirs(exe_path):
     global temp_path
@@ -62,8 +60,7 @@ def check_export_and_temp_dirs(exe_path):
         else:
             mp4_export_path = str(pathlib.Path(desktop_path).joinpath('exports').joinpath(' '))[:-1]
             break
-    print(mp4_export_path)
-    print(temp_path)
+
 
 def remove_old_files_in_cache(filename):
     if os.listdir(temp_path):

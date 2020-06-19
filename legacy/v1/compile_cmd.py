@@ -12,6 +12,7 @@ data_cmd = ['--add-binary=' + filename+';DATA' for filename in data_filenames] i
 #                  ])
 if sys.platform == 'win32':
     subprocess.call(['pyinstaller',
+                     '--clean',
                  '--name',
                  'ACD-Launcher',
                  '--onefile',
@@ -22,6 +23,7 @@ if sys.platform == 'win32':
 elif sys.platform == 'darwin':
     # --add-binary = '/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary = '/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'
     print(' '.join(['pyinstaller',
+                    '--clean',
                     ' main.py',
                     '--name',
                     'ACD-Launcher',

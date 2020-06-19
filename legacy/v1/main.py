@@ -123,12 +123,13 @@ class Ui_MainWindow(QtWidgets.QWidget):
                                                 
 """.center(100))
         time.sleep(1)
-        print(f' VERSION {version} '.center(50, '*'))
+        print(f' VERSION {version} - {platform.system()}'.center(50, '*'))
         print('\n')
         print(' FACTS ABOUT ACD '.center(50,'*'))
         print('298475 lines of code'.center(50,' '))
         print('33 hours to finish'.center(50,' '))
         print('Written in Python,C++ and JS'.center(50,' '))
+        print('for Windows, macOS and Linux(Debian)'.center(50, ' '))
         print('\n\n\n')
         time.sleep(2)
         self.MainWindow = MainWindow
@@ -463,7 +464,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
             self.downloadProgressBar.setFormat(_translate("MainWindow", "%p%"))
             self.groupBox_4.setTitle(_translate("MainWindow", "about ACD"))
             self.label_7.setText(_translate("MainWindow", "ACD"))
-            self.label_8.setText(_translate("MainWindow", f"{version}"))
+            self.label_8.setText(_translate("MainWindow", f"{version} - {platform.system()}"))
             self.label_9.setText(_translate("MainWindow", "@soroushamdg made it."))
             self.githubButton.setText(_translate("MainWindow", "github"))
             self.reportBugButton.setText(_translate("MainWindow", "report"))

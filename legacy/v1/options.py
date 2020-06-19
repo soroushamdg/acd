@@ -7,7 +7,6 @@ import pathlib
 
 options = {'selected_language':'en',
                'main_exe_path':str(pathlib.Path(os.path.realpath(__file__)).parent.parent),}
-print(options)
 # selected languge
 #driver_path
 # main exe path
