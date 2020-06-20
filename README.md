@@ -38,6 +38,11 @@
 <h1 id="requirments">Requirements</h1>
 <ul>
 <li>Windows XP+</li>
+
+  <li>OR macOS 10.10+</li>
+
+  <li>OR Linux Debian (Tested on <b>Ubuntu 19.10</b> + <b>Arch Linux 2020.06</b>)</li>
+  
 <li>At least 100 MB RAM (just for extracting large files)(usually it uses only 50 to 60 MB of RAM)</li>
 </ul>
 <h1>Why ACD?</h1>
