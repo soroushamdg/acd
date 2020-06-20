@@ -34,10 +34,10 @@ elif sys.platform == 'darwin':
                     ]) + ' '.join(data_cmd)+ r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'")
     os.system(' '.join(['pyinstaller',
                         ' main.py',
-                        '--windowed',
-                        '-y',
+                        # '--windowed',
+                        # '-y',
                         '--clean',
-                        '-F',
+                        # '-F',
                         '--name',
                         'ACD-Launcher',
                         '--onefile',

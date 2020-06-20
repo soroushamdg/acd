@@ -12,22 +12,31 @@ import sys
 from shutil import copyfile
 
 
-def check_ffmpeg_output(output :subprocess.Popen):
-    output = output.stdout.read().lower()
-    if 'conversion failed' in output:
-        return False
-    else:
-        return True
+def check_ffmpeg_output(output):
+    try:
+        output = output.decode('utf-8').lower()
+        print(output)
+    except Exception as msg:
+        log.log(script_name,'error in check_ffmpeg output'+msg)
+    try:
+        if 'conversion failed' in output:
+            print(output)
+            return False
+        else:
+            return True
+    except Exception as msg:
+        log.log(script_name,msg)
 
 def run_command_in_ffmeg(command):
     ffmpeg_dir = ffmpeg_directory_bin
     try:
-        output = subprocess.Popen(str(ffmpeg_dir + command).split(),stdout=subprocess.PIPE) if sys.platform == 'win32' else subprocess.Popen(str(ffmpeg_dir + command).split(),shell=False)
-        if not check_ffmpeg_output(output):
+        output = subprocess.Popen(str(ffmpeg_dir + command).split(),stdout=subprocess.PIPE) if sys.platform == 'win32' else subprocess.Popen(str(ffmpeg_dir + command).split(),shell=False,stdout=subprocess.PIPE)
+        out,err = output.communicate()
+        if not check_ffmpeg_output(output=out):
             log.log(script_name,'Conversion failed, retrying method @25')
-            return 'CONVERSION_FAILED'
-    except:
-        log.log(script_name,"error in running command.")
+            return False
+    except Exception as msg:
+        log.log(script_name,"error in running command." + msg)
         return False
     else:
         log.log(script_name,'ffmpeg ran, output is not specified.')

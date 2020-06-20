@@ -1,5 +1,5 @@
 
-log_file_path = r"C:\Users\Soroush\PycharmProjects\ac_downloader"
+log_file_path = ""
 
 print_logging = True
 

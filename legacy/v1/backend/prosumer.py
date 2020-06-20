@@ -19,6 +19,7 @@ opts.add_argument("--window-size=1920x1080")
 opts.add_argument("--disable-notifications")
 opts.add_argument('--no-sandbox')
 opts.add_argument('--verbose')
+opts.add_argument('--log-level=OFF')
 opts.add_experimental_option("prefs", {
         "download.default_directory": temp_path,
         "download.prompt_for_download": False,
@@ -28,6 +29,7 @@ opts.add_experimental_option("prefs", {
 })
 opts.add_argument('--disable-gpu')
 opts.add_argument('--disable-software-rasterizer')
+
 # opts.set_headless(True)
 # assert opts.headless
 
@@ -38,6 +40,8 @@ def enable_download_headless(browser,download_dir):
 
 try:
     ac_browser = Chrome(options=opts, executable_path= driver_path)
+
+
 except:
     log.log(script_name,"can't launch acd_engine.")
 
@@ -364,14 +368,14 @@ def login_in_download_url(url,selected_link):
         return True
 
 def convert_byte(bytes):
-    if bytes > 1000:
-        return str(bytes / 1000) + 'KBs'
-    elif bytes > 1000000:
-        return str(bytes / 1000000) + 'MBs'
+    if bytes > 1000 and bytes < 1000000:
+        return str(bytes / 1000) + ' KBs'
+    elif bytes > 1000000 and bytes < 1000000000:
+        return str(bytes / 1000000) + ' MBs'
     elif bytes < 1000:
-        return str(bytes) + 'Bytes'
+        return str(bytes) + ' Bytes'
     else:
-        return str(bytes / 1000000000) + 'GBs'
+        return str(bytes / 1000000000) + ' GBs'
 
 def download_file(url,filename,selected_login = False):
 

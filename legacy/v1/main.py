@@ -123,7 +123,7 @@ class Ui_MainWindow(QtWidgets.QWidget):
                                                 
 """.center(100))
         time.sleep(1)
-        print(f' VERSION {version} - {platform.system()}'.center(50, '*'))
+        print(f' VERSION {version} - {platform.system()} '.center(50, '*'))
         print('\n')
         print(' FACTS ABOUT ACD '.center(50,'*'))
         print('298475 lines of code'.center(50,' '))
@@ -642,7 +642,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
 
         # try to find it it self.
         try:
-            open('\\'.join(os.path.realpath(__file__).split('\\')[:-2]) + '\\' + 'acd_engine.acde')
+            open('/'.join(os.path.realpath(__file__).split('/')[:-2]) + '/' + 'acd_engine.acde')
         except:
             log.log(__name__, "can't find acd_engine, openning dialog.")
             while (True):
@@ -679,7 +679,7 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
                             back_options.driver_path = fileName
                             return True
         else:
-            fileName = '\\'.join(os.path.realpath(__file__).split('\\')[:-2]) + '\\' + 'acd_engine.acde'
+            fileName = '/'.join(os.path.realpath(__file__).split('/')[:-2]) + '/' + 'acd_engine.acde'
             # check if driver works
             try:
                 from selenium.webdriver import Chrome
@@ -1016,7 +1016,8 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
     def start_up(self):
         self.check_stage_1()
         if not self.search_and_check_for_engine():
-            sys.exit()
+            # sys.exit()
+            pass
         else:
             log.log(__name__, 'Driver launched and found successfully.')
 
