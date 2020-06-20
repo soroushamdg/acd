@@ -20,6 +20,7 @@ opts.add_argument("--disable-notifications")
 opts.add_argument('--no-sandbox')
 opts.add_argument('--verbose')
 opts.add_argument('--log-level=OFF')
+opts.add_argument('--disable-logging')
 opts.add_experimental_option("prefs", {
         "download.default_directory": temp_path,
         "download.prompt_for_download": False,

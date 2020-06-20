@@ -578,10 +578,11 @@ class main_app(QtWidgets.QMainWindow,Ui_MainWindow):
         self.browser_quit = garson.quit_ac_browser
 
         if self.vcount:
+            log.log(__name__,f"vcount {self.vcount}")
             from ave import ave_main
             self.ave_obj = ave_main.ave_engine(self.vcount)
             self.ave_manager = ave_tread(self.ave_obj)
-            self.download_manager.start()
+            self.ave_manager.start()
             self.ave_quit = self.ave_obj.quit_engine
 
 
