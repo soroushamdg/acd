@@ -1,3 +1,5 @@
+<img src="header.gif" width="100%" alt="">
+
 <table>
   <tr>
     <th>Tutorials/آموزش راه اندازی</th>
@@ -24,7 +26,6 @@
 <a href="https://github.com/soroushamdg/acd/releases/latest"><h1>Download latest Release</h1></a>
 <br>
 
-<img src="header.gif" alt="">
 <img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
 <p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs"></p>
 <p><img src="https://img.shields.io/badge/Windows-Supported-green" alt="acd">
