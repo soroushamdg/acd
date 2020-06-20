@@ -44,6 +44,15 @@ cafetadris.com/login
 lms.razavi.pnu.ac.ir
 connect3.afarinesh.org
 79.143.84.167
+class1.ondemy.ir
+lms.birjand.ac.ir
+shamswebinar.ir
+tehranclass.ir
+portal.mahan.ac.ir
+95.80.184.253
+vu.hafez.ac.ir
+learn.falatghareh.ir
+lms.sutech.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
