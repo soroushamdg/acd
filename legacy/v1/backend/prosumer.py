@@ -12,6 +12,7 @@ from pyLog.pylog import log
 from backend.options import script_name, temp_path,get_file_size_in_cache, remove_old_files_in_cache,driver_path
 
 from time import sleep
+import clearbuffer
 
 opts = Options()
 opts.add_argument("--headless")
@@ -19,7 +20,8 @@ opts.add_argument("--window-size=1920x1080")
 opts.add_argument("--disable-notifications")
 opts.add_argument('--no-sandbox')
 opts.add_argument('--verbose')
-opts.add_argument('--log-level=OFF')
+opts.add_argument('--log-level=3')
+
 opts.add_argument('--disable-logging')
 opts.add_experimental_option("prefs", {
         "download.default_directory": temp_path,
@@ -41,6 +43,8 @@ def enable_download_headless(browser,download_dir):
 
 try:
     ac_browser = Chrome(options=opts, executable_path= driver_path)
+    clearbuffer.clear_buffer()
+
 
 
 except:
@@ -169,6 +173,53 @@ def login_into_system(info_dict,username,password):
         for i in range(5):
             try:
                 button = ac_browser.find_element_by_id('ctl00_mainContent_providerDetails_ctrl5_imgOpenIDLogin')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+
+        # just for lms.razi.ac.ir university
+    if 'lms.razi.ac.ir' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_id('ctl00_PortalMasterPageStandardHeader_LoginStatusMainL')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+        #just for tabriz university
+    if 'lms.tabrizu.ac.ir' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_id('ctl00_mainContent_providerDetails_ctrl5_imgOpenIDLogin')
+            except:
+                if i < 4:
+                    sleep(1)
+                    continue
+                else:
+                    log.log(script_name, "can't find login button, please contact me @ github.")
+                    return False
+            else:
+                button.click()
+                break
+
+              #for ba honar kerman university
+    if 'uk.ac.ir' in info_dict["login_url"]:
+        for i in range(5):
+            try:
+                button = ac_browser.find_element_by_id('ctl00_PortalMasterPageStandardHeader_LoginStatusMainL')
             except:
                 if i < 4:
                     sleep(1)

@@ -40,7 +40,7 @@ log_options.log_file_path = options.options['main_exe_path']
 log_options.print_logging = True
 log_options.log_method = 'day'
 
-version = "v1.5"
+version = "v1.6"
 from pyLog.pylog import log
 import webbrowser
 

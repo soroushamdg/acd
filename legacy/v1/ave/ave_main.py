@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from pyLog.pylog import log
 from backend.options import temp_path,driver_path
 
+import clearbuffer
 import random
 script_name = 'ave_scr'
 from time import sleep
@@ -24,7 +25,7 @@ class ave_engine():
             opts.add_argument("--mute-audio")
             opts.add_argument('--no-sandbox')
             opts.add_argument('--verbose')
-            opts.add_argument('--log-level=OFF')
+            opts.add_argument('--log-level=3')
             opts.add_argument('--disable-logging')
             opts.add_experimental_option("prefs", {
                 "download.default_directory": '\\'.join(temp_path.split('/')),
@@ -48,6 +49,7 @@ class ave_engine():
                 self.av_engine = Chrome(options=opts, executable_path=driver_path)
             except:
                 log.log(script_name, "can't launch av_engine.")
+            clearbuffer.clear_buffer()
 
             try:
                 self.av_engine.get('https://www.aparat.com/iranpythoneers')
