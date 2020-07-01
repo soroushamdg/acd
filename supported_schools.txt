@@ -53,6 +53,14 @@ portal.mahan.ac.ir
 vu.hafez.ac.ir
 learn.falatghareh.ir
 lms.sutech.ac.ir
+lms.razi.ac.ir
+srm.semnan.ac.ir
+lms.tabrizu.ac.ir
+lms.sru.ac.ir
+lms.uk.ac.ir/
+lms.meybod.ac.ir
+lms.hut.ac.ir
+atu.iranlms.org
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
