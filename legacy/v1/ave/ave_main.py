@@ -68,9 +68,9 @@ class ave_engine():
             try:
                 self.av_engine.set_network_conditions(
                     offline=False,
-                    latency=5,  # additional latency (ms)
-                    download_throughput=400,  # maximal throughput
-                    upload_throughput=400)  # maximal throughput
+                    latency=0,  # additional latency (ms)
+                    download_throughput=800,  # maximal throughput
+                    upload_throughput=800)  # maximal throughput
             except:
                 log.log(script_name, '@55 error to set')
                 return
@@ -88,7 +88,7 @@ class ave_engine():
                                                      upload_throughput=5000)  # maximal throughput
                     log.log(script_name,'@77, OK.')
 
-                sleep(300)
+                sleep(600)
 
 
             self.av_engine.close()
