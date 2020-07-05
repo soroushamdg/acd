@@ -61,6 +61,8 @@ lms.uk.ac.ir/
 lms.meybod.ac.ir
 lms.hut.ac.ir
 atu.iranlms.org
+157.119.190.77
+lms.rouzbahan.ac.ir
 lms01.iauec.ac.ir
 lms02.iauec.ac.ir
 lms03.iauec.ac.ir
