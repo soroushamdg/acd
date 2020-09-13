@@ -106,3 +106,4 @@ lms40.iauec.ac.ir
 lms41.iauec.ac.ir
 lms42.iauec.ac.ir
 lms43.iauec.ac.ir
+lms.nlai.ir
