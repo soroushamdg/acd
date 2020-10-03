@@ -27,8 +27,12 @@
 <a href="https://github.com/soroushamdg/acd/releases/latest"><h1>Download latest Release</h1></a>
 <br>
 
+
 <img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
-<p><img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs"></p>
+
+
+<p><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/soroushamdg/acd/total?color=%231E1E2C">
+ <img src="https://img.shields.io/badge/written%20in-Python%2C%20C%2B%2B%2CJS%20-green" alt="acd-langs"></p>
 <p><img src="https://img.shields.io/badge/Windows-Supported-green" alt="acd">
 <img src="https://img.shields.io/badge/macOS-Supported-blue" alt="acd">
   <img src="https://img.shields.io/badge/Linux-Supported-orange" alt="acd">
