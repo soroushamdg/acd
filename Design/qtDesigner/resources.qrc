@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="acd-icons">
+    <file>icon.png</file>
+  </qresource>
+  <qresource prefix="tab-icons">
+    <file>ftp-icon.png</file>
+    <file>adobe-connect-icon.png</file>
+  </qresource>
+</RCC>
