@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -83,6 +83,12 @@ background-color:#13141f;
        <height>151</height>
       </rect>
      </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="font">
       <font>
        <family>Poppins</family>
@@ -113,7 +119,7 @@ background-color:#13141f;
     <widget class="QLabel" name="appVersion">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>250</x>
        <y>20</y>
        <width>171</width>
        <height>51</height>
@@ -149,11 +155,17 @@ background-color:#13141f;
     <widget class="QLabel" name="appCreator">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>250</x>
        <y>90</y>
        <width>291</width>
        <height>51</height>
       </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
      <property name="font">
       <font>
@@ -273,7 +285,7 @@ color:#ffffff;
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="iconSize">
      <size>
@@ -371,7 +383,7 @@ border:none;
        <rect>
         <x>30</x>
         <y>90</y>
-        <width>71</width>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -410,7 +422,7 @@ border:none;
        <rect>
         <x>130</x>
         <y>90</y>
-        <width>81</width>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -466,7 +478,7 @@ QPushButton:pressed {background:#465bff;}</string>
        <rect>
         <x>30</x>
         <y>130</y>
-        <width>71</width>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -505,7 +517,7 @@ QPushButton:pressed {background:#465bff;}</string>
        <rect>
         <x>30</x>
         <y>320</y>
-        <width>151</width>
+        <width>181</width>
         <height>31</height>
        </rect>
       </property>
@@ -561,7 +573,7 @@ QPushButton:pressed {background:#465bff;}</string>
        <rect>
         <x>30</x>
         <y>170</y>
-        <width>161</width>
+        <width>121</width>
         <height>31</height>
        </rect>
       </property>
@@ -595,7 +607,7 @@ QPushButton:pressed {background:#465bff;}</string>
      <widget class="QLineEdit" name="acCourseURLInput">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>150</x>
         <y>170</y>
         <width>351</width>
         <height>31</height>
@@ -626,7 +638,7 @@ QPushButton:pressed {background:#465bff;}</string>
      <widget class="QLineEdit" name="acFileNameInput">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>150</x>
         <y>220</y>
         <width>281</width>
         <height>31</height>
@@ -662,7 +674,7 @@ QPushButton:pressed {background:#465bff;}</string>
        <rect>
         <x>30</x>
         <y>220</y>
-        <width>151</width>
+        <width>131</width>
         <height>31</height>
        </rect>
       </property>
@@ -786,9 +798,9 @@ color:#424242;
      <widget class="QListView" name="acQueueListView">
       <property name="geometry">
        <rect>
-        <x>505</x>
+        <x>515</x>
         <y>60</y>
-        <width>371</width>
+        <width>361</width>
         <height>251</height>
        </rect>
       </property>
@@ -829,9 +841,9 @@ color:white;
       </property>
       <property name="geometry">
        <rect>
-        <x>505</x>
+        <x>510</x>
         <y>320</y>
-        <width>81</width>
+        <width>101</width>
         <height>31</height>
        </rect>
       </property>
@@ -957,9 +969,9 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
      <widget class="QProgressBar" name="acProgressBar">
       <property name="geometry">
        <rect>
-        <x>595</x>
+        <x>625</x>
         <y>320</y>
-        <width>281</width>
+        <width>251</width>
         <height>31</height>
        </rect>
       </property>
@@ -1000,7 +1012,7 @@ background-color:#6a7bff;
       </property>
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>230</x>
         <y>90</y>
         <width>31</width>
         <height>31</height>
@@ -1060,9 +1072,9 @@ border:none;</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>490</x>
         <y>330</y>
-        <width>81</width>
+        <width>101</width>
         <height>31</height>
        </rect>
       </property>
@@ -1106,7 +1118,7 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
       <property name="iconSize">
        <size>
         <width>30</width>
-        <height>27</height>
+        <height>24</height>
        </size>
       </property>
       <property name="checkable">
@@ -1124,7 +1136,7 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
        <rect>
         <x>180</x>
         <y>31</y>
-        <width>71</width>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
@@ -1161,7 +1173,7 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>750</x>
+        <x>760</x>
         <y>31</y>
         <width>30</width>
         <height>31</height>
@@ -1242,7 +1254,7 @@ background-color:#6a7bff;
        <rect>
         <x>95</x>
         <y>10</y>
-        <width>51</width>
+        <width>81</width>
         <height>71</height>
        </rect>
       </property>
@@ -1341,7 +1353,7 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>620</x>
+        <x>630</x>
         <y>31</y>
         <width>121</width>
         <height>31</height>
@@ -1551,7 +1563,7 @@ QPushButton:pressed {background:#465bff;}</string>
      <widget class="QLineEdit" name="ftpAddressInput">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>270</x>
         <y>30</y>
         <width>351</width>
         <height>31</height>
@@ -1677,7 +1689,7 @@ QPushButton:pressed {background:#465bff;}</string>
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QListView" name="ftpQueueListView_2">
+     <widget class="QListView" name="ftpExplorListView">
       <property name="geometry">
        <rect>
         <x>50</x>
