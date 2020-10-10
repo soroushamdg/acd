@@ -1,6 +1,6 @@
 from app import *
 import sys
-from menuDetails import appinfo, expert, help
+from menuBar import appinfo, expert, help
 
 
 class Main(QtWidgets.QMainWindow):
@@ -13,6 +13,7 @@ class Main(QtWidgets.QMainWindow):
         self.ui.actionEngineVersion.setText(f"Engine v{appinfo.ENGINE_VERSION}")
         self.ui.actionOS.setText(f"OS : {expert.running_platform}\n{expert.system}\n{expert.architect}")
         self.ui.actionCPU.setText(f"CPU : {expert.processor}")
+        # SET APP "HELP" MENU ACTIONS
 
     def __init__(self,parent=None):
         QtWidgets.QWidget.__init__(self,parent)
