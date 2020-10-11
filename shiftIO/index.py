@@ -40,6 +40,8 @@ if (__name__ == "__main__"):
                 print(
                 "   %s/%s" % (ip.ip, ip.network_prefix))
 
-    app.listen(1234)
+    server = tornado.httpserver.HTTPServer(app, max_buffer_size=10485760000)  # 10G
+    server.listen(1234)
     print("Listening on port 1234")
+
     tornado.ioloop.IOLoop.instance().start()
