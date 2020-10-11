@@ -1,3 +1,5 @@
+<h2 style="direction:rtl !important; align-text:right;">۳۰ شهریور :</h2>
+<h3 style="direction:rtl !important; align-text:right;">کاربرانی که با لاگین کردن یا راه اندازی نرم افزار مشکل دارند، نرم افزار تا اواسط آبان آپدیت خواهد شد.</h3>
 <img src="header.gif" width="100%" alt="">
 <img src="madeforplatfroms.png" width="100%" alt="">
 
