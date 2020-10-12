@@ -115,7 +115,7 @@ class Ui_welcomeScreenDialog(QtWidgets.QDialog):
         self.DialogButtonBox.setFont(font)
         self.DialogButtonBox.setStyleSheet("")
         self.DialogButtonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.DialogButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Discard)
+        self.DialogButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
         self.DialogButtonBox.setObjectName("DialogButtonBox")
         self.welcome2acdLabel = QtWidgets.QLabel(self)
         self.welcome2acdLabel.setGeometry(QtCore.QRect(10, 280, 281, 50))
@@ -141,8 +141,7 @@ class Ui_welcomeScreenDialog(QtWidgets.QDialog):
         movie.start()
 
         self.retranslateUi(self)
-        self.DialogButtonBox.rejected.connect(self.reject)
-        self.DialogButtonBox.accepted.connect(self.accept)
+        self.DialogButtonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.reject)
         QtCore.QMetaObject.connectSlotsByName(self)
 
     def retranslateUi(self, welcomeScreenDialog):

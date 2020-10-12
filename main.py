@@ -35,7 +35,7 @@ class Main(QtWidgets.QMainWindow):
 
     def showwelcomedialog(self):
         dialog = welcomeScreenDialog.Ui_welcomeScreenDialog(parent=self)
-        dialog.show()
+        dialog.exec_()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
