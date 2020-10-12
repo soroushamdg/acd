@@ -1,19 +1,22 @@
-import asyncio
+import asyncio,random
 import tornado.web
 import tornado.ioloop
+import socket
+import webbrowser
+
 
 class uploadImgHandler(tornado.web.RequestHandler):
     def post(self):
         files = self.request.files["fileImage"]
         print(files)
         for f in files:
-            print(f)
+            print(type(f),f.keys())
             fh = open(f"upload/{f.filename}", "wb")
             fh.write(f.body)
             fh.close()
-            self.write(f"http://localhost:1234/upload/{f.filename}")
+            self.write(f"http://{socket.gethostname()}:{port}/upload/{f.filename}")
     def get(self):
-        self.render("index.html")
+            self.render("index.html")
 
 if (__name__ == "__main__"):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -22,26 +25,15 @@ if (__name__ == "__main__"):
         ("/", uploadImgHandler),
         ("/upload/(.*)", tornado.web.StaticFileHandler, {'path': 'upload'})
     ])
-    # port = 8882
-    # app.listen(port)
-    # print(f"Application is ready and listening on port {port}")
-    # tornado.ioloop.IOLoop.current().start()
-    #
 
-    import ifaddr
+    server = tornado.httpserver.HTTPServer(app,
+                                           max_buffer_size=167772160  # 160 MB
+     )
+    port = random.randrange(1000,10000)
+    server.listen(port)
+    print(f"Listening on {socket.gethostname()}:{port}")
 
-    adapters = ifaddr.get_adapters()
-
-    for adapter in adapters:
-        if 'wireless' in str(adapter.nice_name).lower():
-            print(
-            "IPs of network adapter " + adapter.nice_name)
-            for ip in adapter.ips:
-                print(
-                "   %s/%s" % (ip.ip, ip.network_prefix))
-
-    server = tornado.httpserver.HTTPServer(app, max_buffer_size=10485760000)  # 10G
-    server.listen(1234)
-    print("Listening on port 1234")
+    webbrowser.open(f'http://{socket.gethostname()}:{port}',new=2)
 
     tornado.ioloop.IOLoop.instance().start()
+

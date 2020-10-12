@@ -2211,11 +2211,11 @@ border-radius: 15px;</string>
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="action_2"/>
-    <addaction name="actionYoutube"/>
-    <addaction name="action_3"/>
-    <addaction name="actionTelegram"/>
-    <addaction name="actionContact_developer"/>
+    <addaction name="actionAparatHelpMenu"/>
+    <addaction name="actionYoutubeHelpMenu"/>
+    <addaction name="actionVirgoolHelpMenu"/>
+    <addaction name="actionTelegramHelpMenu"/>
+    <addaction name="actionContactDeveloperHelpMenu"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -2297,27 +2297,27 @@ border-radius: 15px;</string>
     <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="actionAparatHelpMenu">
    <property name="text">
     <string>آپارات</string>
    </property>
   </action>
-  <action name="actionYoutube">
+  <action name="actionYoutubeHelpMenu">
    <property name="text">
     <string>Youtube</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="actionVirgoolHelpMenu">
    <property name="text">
     <string>ویرگول</string>
    </property>
   </action>
-  <action name="actionTelegram">
+  <action name="actionTelegramHelpMenu">
    <property name="text">
     <string>Telegram</string>
    </property>
   </action>
-  <action name="actionContact_developer">
+  <action name="actionContactDeveloperHelpMenu">
    <property name="text">
     <string>Contact developer</string>
    </property>
