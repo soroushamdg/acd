@@ -3,6 +3,7 @@ import sys
 from menuBar import appinfo, expert, help
 from courseExtraFileDownloadDialog import courseExtraFileDownloadDialog
 from welcomeScreenDialog import welcomeScreenDialog
+from downloadEngineDialog import downloadEngineDialog
 class Main(QtWidgets.QMainWindow):
 
     def setMenuBarInformation(self):
@@ -35,12 +36,19 @@ class Main(QtWidgets.QMainWindow):
 
     def showwelcomedialog(self):
         dialog = welcomeScreenDialog.Ui_welcomeScreenDialog(parent=self)
+        with open('changelog.txt','r') as changestext:
+            dialog.changesLogTextEdit.setPlainText(str(changestext.read()))
+        dialog.exec_()
+
+    def showdownloaddialog(self):
+        dialog = downloadEngineDialog.Ui_downloadEngineDialog(parent=self)
         dialog.exec_()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     myapp = Main()
     myapp.show()
+    myapp.showdownloaddialog()
     myapp.showwelcomedialog()
-    myapp.showdialog()
+
     sys.exit(app.exec_())

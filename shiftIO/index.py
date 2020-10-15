@@ -3,7 +3,16 @@ import tornado.web
 import tornado.ioloop
 import socket
 import webbrowser
+from netifaces import interfaces, ifaddresses, AF_INET
 
+
+def find_ip_address(ret_single_ip=False):
+    addresses = []
+    for ifaceame in interfaces():
+        for i in ifaddresses(ifaceame).setdefault(AF_INET, [{'addr': 'No IP addr'}]):
+            if '192.168' in i['addr']:
+                addresses.append(i['addr'])
+    return addresses if not ret_single_ip else addresses[0]
 
 class uploadImgHandler(tornado.web.RequestHandler):
     def post(self):
@@ -32,6 +41,8 @@ if (__name__ == "__main__"):
     port = random.randrange(1000,10000)
     server.listen(port)
     print(f"Listening on {socket.gethostname()}:{port}")
+    for address in find_ip_address():
+        print(f'connect via -> {address}:{port}')
 
     webbrowser.open(f'http://{socket.gethostname()}:{port}',new=2)
 

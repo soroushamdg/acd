@@ -6,5 +6,5 @@ SETTINGS = {
     'EXE_PATH':None,
     'APPLICATION_KEY':None,
     'ACD_ENGINE_PATH':None,
-    
-}
+    '':None,
+    }

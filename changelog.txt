@@ -1,0 +1,7 @@
+ver 2.0 :
+    + whole new code base.
+    + no more databases needed, more universal
+    + auto engine downloader and updater
+    + new design
+    + ftp file downloader
+    + Shift I/O
