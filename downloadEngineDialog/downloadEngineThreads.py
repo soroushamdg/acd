@@ -1,9 +1,11 @@
+import os
 import subprocess
-import threading
 from PyQt5 import QtCore
 import requests,sys
 from time import sleep
 import settings,pathlib
+from zipfile import ZipFile
+import logging
 
 def get_platform_architecture():
     if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
@@ -85,7 +87,7 @@ class downloadEngineThread(QtCore.QThread):
             full_size = int(res.headers['Content-length'])
             self.max_progress_bar_value.emit((int(full_size/1024)+1)*1024)
             try:
-                file = open(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH']), 'wb')
+                file = open(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH']+'z'), 'wb')
             except Exception as msg:
                 self.raise_dialog.emit('Error', 'Error in creating new file',
                                        'Please check file permissions.', True)
@@ -102,10 +104,28 @@ class downloadEngineThread(QtCore.QThread):
                 return
             else:
                 self.download_engine_status.emit(True)
-            sleep(3)
-            self.extract_install_status.emit(True)
             file.close()
             sleep(2)
+            # unzip data
+            try:
+                zip = ZipFile(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH'] + 'z'), 'r')
+                for zfile in zip.filelist:
+                    if 'chromedriver' in zfile.filename:
+                        file = open(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH']), 'wb')
+                        file.write(zip.read(zfile.filename))
+                        file.close()
+                        zip.close()
+                        break
+            except Exception as msg:
+                logging.debug(msg)
+                logging.error('Error in extracting and installing engine.')
+                self.raise_dialog.emit('Error', 'Error in extracting and installing engine',
+                                       'Please check internet connection and directory permissions and try again.', True)
+                return
+            else:
+                os.remove(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH'] + 'z'))
+            self.extract_install_status.emit(True)
+            sleep(3)
             return
         else:
             self.raise_dialog.emit('Error', 'Error in accessing server',

@@ -1,9 +1,13 @@
+import settings
 from app import *
 import sys
 from menuBar import appinfo, expert, help
 from courseExtraFileDownloadDialog import courseExtraFileDownloadDialog
-from welcomeScreenDialog import welcomeScreenDialog
-from downloadEngineDialog import downloadEngineDialog
+from mainThreads import startupConfigurations
+# CONFIGURE LOGGING
+import logging
+# logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='w',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+
 class Main(QtWidgets.QMainWindow):
 
     def setMenuBarInformation(self):
@@ -26,33 +30,30 @@ class Main(QtWidgets.QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
         self.setMenuBarInformation()
+        self.startupConfiguration()
+        QtWidgets.QApplication.processEvents()
+
+    def startupConfiguration(self):
+        startupConfigurationTaskThread = startupConfigurations.StartupConfigurationThread(parent=self)
+        startupConfigurationTaskThread.run()
 
     def showdialog(self):
         dialog = courseExtraFileDownloadDialog.Ui_courseExtraFilesDownloadTypeDialog(parent=self)
         res = dialog.exec_()
         print(res)
 
-    def showwelcomedialog(self):
-        dialog = welcomeScreenDialog.Ui_welcomeScreenDialog(parent=self)
-        with open('changelog.txt','r') as changestext:
-            dialog.changesLogTextEdit.setPlainText(str(changestext.read()))
-        dialog.exec_()
 
-    def showdownloaddialog(self):
-        dialog = downloadEngineDialog.Ui_downloadEngineDialog(parent=self)
-        dialog.exec_()
-        print('value:' + str(dialog.retstatus))
-        if dialog.retstatus == 'CANCEL':
-            app.exit()
-            app.quit()
+
+
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    myapp = Main()
-    myapp.show()
-    myapp.showdownloaddialog()
-    myapp.showwelcomedialog()
+    try:
+        app = QtWidgets.QApplication(sys.argv)
+        myapp = Main()
+        myapp.show()
 
-    sys.exit(app.exec_())
+        sys.exit(app.exec_())
+    except Exception as msg:
+        logging.debug(msg)
+        sys.exit()

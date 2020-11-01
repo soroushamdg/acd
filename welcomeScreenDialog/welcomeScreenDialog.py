@@ -5,15 +5,23 @@
 # Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
-
+import logging
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
+from menuBar import appinfo
+from welcomeScreenDialog import welcomeScreenThreads
 
 
 class Ui_welcomeScreenDialog(QtWidgets.QDialog):
+    errorflag = False
+    retstatus = None
     def __init__(self,parent):
         super(Ui_welcomeScreenDialog, self).__init__(parent)
+
         self.setWindowModality(QtCore.Qt.WindowModal)
+        self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint, False)
         self.setObjectName("welcomeScreenDialog")
         self.setWindowModality(QtCore.Qt.WindowModal)
         self.resize(300, 550)
@@ -142,12 +150,76 @@ class Ui_welcomeScreenDialog(QtWidgets.QDialog):
 
         self.retranslateUi(self)
         self.DialogButtonBox.button(QtWidgets.QDialogButtonBox.Ok).clicked.connect(self.reject)
+
+        self.DialogButtonBox.setDisabled(True)
         QtCore.QMetaObject.connectSlotsByName(self)
+
+        self.define_thread()
+        self.start_thread()
+
+    def raise_dialog(self,title,message,description,needretry=False):
+        try:
+            msg = QMessageBox()
+            msg.setText(message)
+            msg.setInformativeText(description)
+            msg.setWindowTitle(title)
+            if needretry:
+                self.raise_errorflag()
+                msg.setStandardButtons(QMessageBox.Retry | QMessageBox.Cancel)
+                self.configurationTaskThread.quit()
+                self.configurationTaskThread.terminate()
+                self.configurationTaskThread.wait()
+            else:
+                msg.setStandardButtons(QMessageBox.Close)
+                self.configurationTaskThread.quit()
+            retval = msg.exec()
+            if retval == QMessageBox.Retry:
+                self.errorflag = False
+                self.define_thread()
+                self.start_thread()
+            elif retval == QMessageBox.Cancel or QMessageBox.Close:
+                self.retstatus= 'CANCEL'
+                self.close()
+
+
+        except Exception as msg:
+            logging.debug('error'+msg)
+
+    def raise_errorflag(self):
+        self.errorflag = True
+
+    def check_dependencies_status(self,status):
+        if status:
+            self.checkingdebStatusLabel.setEnabled(True)
+        else:
+            self.checkingdebStatusLabel.setDisabled(True)
+
+    def setting_basic_config_status(self,status):
+        if status:
+            self.settingConfigStatusLabel.setEnabled(True)
+        else:
+            self.settingConfigStatusLabel.setDisabled(True)
+
+    def configuration_finished(self):
+        if not self.errorflag:
+            self.retstatus = 'COMPLETED'
+            self.DialogButtonBox.setEnabled(True)
+
+    def define_thread(self):
+        self.configurationTaskThread = welcomeScreenThreads.configurationThread()
+        self.configurationTaskThread.check_dependencies_status.connect(self.check_dependencies_status)
+        self.configurationTaskThread.setting_basic_config_status.connect(self.setting_basic_config_status)
+        self.configurationTaskThread.raise_dialog.connect(self.raise_dialog)
+        self.configurationTaskThread.raise_errorflag.connect(self.raise_errorflag)
+        self.configurationTaskThread.finished.connect(self.configuration_finished)
+
+    def start_thread(self):
+        self.configurationTaskThread.start()
 
     def retranslateUi(self, welcomeScreenDialog):
         _translate = QtCore.QCoreApplication.translate
         welcomeScreenDialog.setWindowTitle(_translate("welcomeScreenDialog", "Welcome to ACD"))
-        self.versionNumberLabel.setText(_translate("welcomeScreenDialog", "Version 2.0"))
+        self.versionNumberLabel.setText(_translate("welcomeScreenDialog", f"Version {appinfo.VERSION}"))
         self.checkingdepLabel.setText(_translate("welcomeScreenDialog", "Checking dependencies"))
         self.settingConfigLabel.setText(_translate("welcomeScreenDialog", "Setting basic config"))
         self.changesLogLabel.setText(_translate("welcomeScreenDialog", "Changes log:"))
