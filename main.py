@@ -43,6 +43,10 @@ class Main(QtWidgets.QMainWindow):
     def showdownloaddialog(self):
         dialog = downloadEngineDialog.Ui_downloadEngineDialog(parent=self)
         dialog.exec_()
+        print('value:' + str(dialog.retstatus))
+        if dialog.retstatus == 'CANCEL':
+            app.exit()
+            app.quit()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

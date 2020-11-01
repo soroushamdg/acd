@@ -9,12 +9,17 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
+from downloadEngineDialog import downloadEngineThreads
 
 class Ui_downloadEngineDialog(QtWidgets.QDialog):
+    errorflag = False
+    retstatus = None
     def __init__(self,parent):
         super(Ui_downloadEngineDialog, self).__init__(parent)
         self.setWindowModality(QtCore.Qt.WindowModal)
+        self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint, False)
         self.setObjectName("downloadEngineDialog")
         self.setWindowModality(QtCore.Qt.WindowModal)
         self.resize(300, 550)
@@ -29,14 +34,14 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         icon.addPixmap(QtGui.QPixmap(":/media/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
         self.setStyleSheet("QDialog{\n"
-"background:#F9B92F;\n"
-"}\n"
-"QPushButton{background:#f9b92f;border: 2px solid #000000;border-radius:15px;\n"
-"color:#000000;\n"
-"font: 12pt \"Poppins\";padding:3px 6px}\n"
-"\n"
-"QPushButton:hover{background:#fcc964;}\n"
-"QPushButton:pressed{background:#e2a72f;}")
+                           "background:#F9B92F;\n"
+                           "}\n"
+                           "QPushButton{background:#f9b92f;border: 2px solid #000000;border-radius:15px;\n"
+                           "color:#000000;\n"
+                           "font: 12pt \"Poppins\";padding:3px 6px}\n"
+                           "\n"
+                           "QPushButton:hover{background:#fcc964;}\n"
+                           "QPushButton:pressed{background:#e2a72f;}")
         self.checkingdepLabel = QtWidgets.QLabel(self)
         self.checkingdepLabel.setGeometry(QtCore.QRect(60, 330, 231, 31))
         font = QtGui.QFont()
@@ -118,14 +123,14 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         self.progressBar = QtWidgets.QProgressBar(self)
         self.progressBar.setGeometry(QtCore.QRect(10, 462, 281, 31))
         self.progressBar.setStyleSheet("QProgressBar{\n"
-"border:2px solid #484848;\n"
-"border-radius:6px;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"background-color:#f9b92f;\n"
-"border-radius:6px;\n"
-"}")
-        self.progressBar.setProperty("value", 6)
+                                       "border:2px solid #484848;\n"
+                                       "border-radius:6px;\n"
+                                       "}\n"
+                                       "QProgressBar::chunk{\n"
+                                       "background-color:#f9b92f;\n"
+                                       "border-radius:6px;\n"
+                                       "}")
+        self.progressBar.setProperty("value", 0)
         self.progressBar.setTextVisible(False)
         self.progressBar.setObjectName("progressBar")
         self.settingConfigStatusLabel_2 = QtWidgets.QLabel(self)
@@ -154,7 +159,11 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         self.retranslateUi(self)
         self.DialogButtonBox.rejected.connect(self.reject)
         self.DialogButtonBox.accepted.connect(self.accept)
+        self.DialogButtonBox.setDisabled(True)
+
         QtCore.QMetaObject.connectSlotsByName(self)
+        self.define_thread()
+        self.start_thread()
 
     def retranslateUi(self, downloadEngineDialog):
         _translate = QtCore.QCoreApplication.translate
@@ -163,4 +172,87 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         self.settingConfigLabel.setText(_translate("downloadEngineDialog", "Download"))
         self.welcome2acdLabel.setText(_translate("downloadEngineDialog", "ACD Engine Downloader"))
         self.settingConfigLabel_2.setText(_translate("downloadEngineDialog", "Extract & Install"))
+
+    def raise_dialog(self,title,message,description,needretry=False):
+        try:
+            msg = QMessageBox(self)
+            msg.setText(message)
+            msg.setInformativeText(description)
+            msg.setWindowTitle(title)
+            if needretry:
+                self.raise_errorflag()
+                msg.setStandardButtons(QMessageBox.Retry | QMessageBox.Cancel)
+                self.downloadTaskThread.quit()
+                self.downloadTaskThread.terminate()
+                self.downloadTaskThread.wait()
+            else:
+                msg.setStandardButtons(QMessageBox.Close)
+                self.downloadTaskThread.quit()
+            retval = msg.exec()
+            if retval == QMessageBox.Retry:
+                self.errorflag = False
+                self.define_thread()
+                self.start_thread()
+            elif retval == QMessageBox.Cancel or QMessageBox.Close:
+                self.retstatus= 'CANCEL'
+                self.close()
+
+        except Exception as msg:
+            print('error'+msg)
+
+
+    def raise_errorflag(self):
+        self.errorflag = True
+
+    def check_dependencies_status(self,status):
+        if status:
+            self.checkingdebStatusLabel.setEnabled(True)
+        else:
+            self.checkingdebStatusLabel.setDisabled(True)
+
+    def download_engine_status(self,status):
+        if status:
+            self.settingConfigStatusLabel.setEnabled(True)
+        else:
+            self.settingConfigStatusLabel.setDisabled(True)
+
+    def extract_install_status(self,status):
+        if status:
+            self.settingConfigStatusLabel_2.setEnabled(True)
+        else:
+            self.settingConfigStatusLabel_2.setDisabled(True)
+
+    def max_progress_bar_value(self,maxvalue):
+        if isinstance(maxvalue,int):
+            self.progressBar.setProperty("maximum",maxvalue)
+
+    def update_progress_bar_value(self,percentage):
+        if isinstance(percentage,int):
+            self.progressBar.setValue(percentage)
+
+    def download_finished(self):
+        if not self.errorflag:
+            self.retstatus = 'COMPLETED'
+            self.close()
+
+    def define_thread(self):
+        self.downloadTaskThread = downloadEngineThreads.downloadEngineThread()
+        self.downloadTaskThread.check_dependencies_status.connect(self.check_dependencies_status)
+        self.downloadTaskThread.download_engine_status.connect(self.download_engine_status)
+        self.downloadTaskThread.extract_install_status.connect(self.extract_install_status)
+        self.downloadTaskThread.update_progress_bar_value.connect(self.update_progress_bar_value)
+        self.downloadTaskThread.max_progress_bar_value.connect(self.max_progress_bar_value)
+        self.downloadTaskThread.raise_dialog.connect(self.raise_dialog)
+        self.downloadTaskThread.raise_errorflag.connect(self.raise_errorflag)
+        self.downloadTaskThread.finished.connect(self.download_finished)
+
+    def start_thread(self):
+        self.downloadTaskThread.start()
+
+
+
+
+
+
+
 import downloadEngineDialog.downloadEngineDialogResources_rc
