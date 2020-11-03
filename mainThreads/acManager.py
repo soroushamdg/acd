@@ -5,6 +5,7 @@ import threading
 import settings
 import enum
 import tldextract
+import shutil
 
 class acCourseStatus(enum.Enum):
     fresh = 0
@@ -25,7 +26,7 @@ def return_domain(url):
     return f"{extract.domain}.{extract.suffix}"
 
 def extract_download_url_from_course_url(url,filename):
-    return urljoin(url,f'/output/filename.zip?{"".join(filename.split())}.cdata')
+    return urljoin(url,f'output/filename.zip?{"".join(filename.split())}.cdata')
 
 class acCourse():
     def __init__(self,course_url,filename,merge_files=False,download_assets=False):
@@ -34,7 +35,9 @@ class acCourse():
         self.filename = ''.join(filename.split())
         self.merge_files = merge_files
         self.download_assets = download_assets
-        self.download_url = extract_download_url_from_course_url(course_url,course_url)
+        self.media_streams_objects = None
+        self.assets_streams_objects = None
+        self.download_url = extract_download_url_from_course_url(course_url,filename)
         pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename).mkdir(parents=True, exist_ok=True)
         self.export_folder = str(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename))
 
@@ -97,3 +100,16 @@ class acQueueManager():
             return list(enumerate([item.filename for item in self.queue_list]))
         else:
             return self.queue_list
+
+    def update_ac_course_object(self,acCourseObject : acCourse):
+        for index, item in enumerate(self.queue_list):
+            if acCourseObject == item:
+                self.queue_list[index] = acCourseObject
+
+
+    def cancel_and_remove_files(self):
+        for course in self.queue_list:
+            try:
+                shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
+            except:
+                pass

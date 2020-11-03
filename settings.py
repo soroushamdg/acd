@@ -80,7 +80,7 @@ SETTINGS = {
     'EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
     'APPLICATION_KEY': 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=',
     'ACD_ENGINE_PATH': str(pathlib.Path(application_path()).joinpath('acd_engine.acde')),
-    'ENGINE_COOKIE_PATH': str(pathlib.Path(application_path()).joinpath(f'{get_random_string(16)}.acdata')),
+    'ENGINE_COOKIE_PATH': str(pathlib.Path(application_path()).joinpath(f'{get_random_string(32)}.acdata')),
     'ENGINE_DUMP_PATH':  str(pathlib.Path(application_path()).joinpath('dumps')),
     'TOTAL_DOWNLOADED_COURSES':0,
     'TOTAL_FTP_DOWNLOAD':0,

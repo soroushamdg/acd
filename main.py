@@ -376,6 +376,7 @@ if __name__ == "__main__":
         app = QtWidgets.QApplication(sys.argv)
         myapp = Main()
         myapp.show()
+        myapp.showdialog()
 
         sys.exit(app.exec_())
     except Exception as msg:
