@@ -834,6 +834,9 @@ color:white;
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectItems</enum>
       </property>
+      <property name="wordWrap">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="acStartQueueButton">
       <property name="enabled">
@@ -967,6 +970,9 @@ QPushButton:pressed {background:rgb(221, 101, 94);}</string>
       </property>
      </widget>
      <widget class="QProgressBar" name="acProgressBar">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>625</x>

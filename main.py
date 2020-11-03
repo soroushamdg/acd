@@ -17,7 +17,7 @@ from clearbuffer import clear_buffer
 
 # CONFIGURE LOGGING
 import logging
-# logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='w',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
 
 class Main(QtWidgets.QMainWindow):
     driver1 = None
@@ -54,9 +54,12 @@ class Main(QtWidgets.QMainWindow):
         self.startupConfiguration()
         QtWidgets.QApplication.processEvents()
         self.ac_disable_all_buttons_except_login()
-
         # ADOBE CONNECT QUEUE MANAGER
         self.acQueueList = acManager.acQueueManager()
+        self.ui.acAddToQueueButton.clicked.connect(self.ac_add_to_queue_button_action)
+        self.ui.acQueueListView.clicked.connect(self.ac_selected_item_from_list)
+        self.ui.acRemoveFromQueueButton.clicked.connect(self.ac_remove_from_queue_button_action)
+
 
     def startupConfiguration(self):
         startupConfigurationTaskThread = startupConfigurations.StartupConfigurationThread(parent=self)
@@ -68,34 +71,22 @@ class Main(QtWidgets.QMainWindow):
         res = dialog.exec_()
         print(res)
 
-    def raise_dialog(self,title,message,description,needretry=False):
+    def raise_error_dialog(self,title,message,description=None):
         try:
-            msg = QMessageBox(self)
+            msg = QMessageBox()
             msg.setText(message)
-            msg.setInformativeText(description)
+            msg.setIcon(QMessageBox.Critical)
+            if description:
+                msg.setInformativeText(description)
             msg.setWindowTitle(title)
-            if needretry:
-                self.raise_errorflag()
-                msg.setStandardButtons(QMessageBox.Retry | QMessageBox.Cancel)
-                self.downloadTaskThread.quit()
-                self.downloadTaskThread.terminate()
-                self.downloadTaskThread.wait()
-            else:
-                msg.setStandardButtons(QMessageBox.Close)
-                self.downloadTaskThread.quit()
-            retval = msg.exec()
-            if retval == QMessageBox.Retry:
-                self.errorflag = False
-                self.define_thread()
-                self.start_thread()
-            elif retval == QMessageBox.Cancel or QMessageBox.Close:
-                self.retstatus= 'CANCEL'
-                self.close()
-
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec()
         except Exception as msg:
             logging.debug('error'+msg)
 
-    # ADOBE CONNECT TAB
+    # AC ADOBE CONNECT TAB
+
+    # AC STAGE 1 : LOGIN
     def ac_disable_all_buttons_except_login(self):
         self.ui.acCourseURLInput.setDisabled(True)
         try:
@@ -131,8 +122,6 @@ class Main(QtWidgets.QMainWindow):
         self.ui.actionLogin.triggered.connect(self.ac_login_button_await_action)
 
         QtWidgets.QApplication.processEvents()
-
-
 
     def ac_login_succesfull(self):
         self.ui.acLoginButton.setText('OK!')
@@ -181,7 +170,7 @@ class Main(QtWidgets.QMainWindow):
             print(msg)
 
         try:
-            pickle.dump(self.driver1.get_cookies(), open(settings.SETTINGS['ENGINE_COOKIE_PATH'], 'wb'))
+            pickle.dump(self.driver1.get_cookies(), open(settings.engine_cookie_path(), 'wb'))
             self.acLoginActionCurrentURL = self.driver1.current_url
             self.acLoginActionCurrentTitle = self.driver1.title
             self.driver1.close()
@@ -211,7 +200,7 @@ class Main(QtWidgets.QMainWindow):
         clear_buffer()
         self.acBrowser.get(self.acLoginActionCurrentURL)
         self.acBrowser.delete_all_cookies()
-        for cookie in pickle.load(open(settings.SETTINGS['ENGINE_COOKIE_PATH'], 'rb')):
+        for cookie in pickle.load(open(settings.engine_cookie_path(), 'rb')):
             self.acBrowser.add_cookie(cookie)
 
         self.acBrowser.get(self.acLoginActionCurrentURL)
@@ -226,6 +215,135 @@ class Main(QtWidgets.QMainWindow):
         waitMessage.close()
         return
 
+    # AC STAGE 2 : QUEUE CONTROLLER
+    def ac_start_queue_status(self,enable):
+        if enable:
+            self.ui.acStartQueueButton.setEnabled(True)
+            self.ui.actionStart.setEnabled(True)
+        else:
+            self.ui.acStartQueueButton.setEnabled(False)
+            self.ui.actionStart.setEnabled(False)
+
+    def ac_clear_inputs(self):
+        self.ui.acCourseURLInput.clear()
+        self.ui.acFileNameInput.clear()
+        self.ui.acMergeFilesCheckBox.setChecked(False)
+
+    def ac_clear_ui_queue_list(self):
+        self.ui.acQueueListView.clear()
+
+    def ac_update_ui_queue_list(self):
+        self.ac_clear_ui_queue_list()
+        items = self.acQueueList.return_queue_list_filenames(True)
+        if items:
+            for index, item in items:
+                self.ui.acQueueListView.addItem(f'{index+1} - {item}')
+            self.ac_start_queue_status(enable=True)
+            return
+        else:
+            self.ac_start_queue_status(enable=False)
+
+    def ac_check_and_return_input_values(self):
+        if self.ui.acCourseURLInput.text() and self.ui.acFileNameInput.text():
+            return self.ui.acCourseURLInput.text(), self.ui.acFileNameInput.text()
+
+    def ac_add_item_to_queue_manager(self, downloadassets = False):
+        status = self.acQueueList.add_to_queue(course_url= self.ui.acCourseURLInput.text(),
+                                      filename= self.ui.acFileNameInput.text(),
+                                      merge_files= self.ui.acMergeFilesCheckBox.isChecked(),
+                                      download_assets= downloadassets)
+        if status == "DUPLICATE":
+            self.raise_error_dialog('Duplicated item','Please enter different URL and filename.')
+
+    def ac_add_to_queue_button_action(self):
+        try:
+            course_url, filename = self.ac_check_and_return_input_values()
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error('Error happened in getting input information.')
+            self.raise_error_dialog('Error happend','Please check your inputs or restart the program.')
+            self.ac_clear_inputs()
+            return
+
+        try:
+            assert acManager.validate_input_url(loginurl=self.acLoginActionCurrentURL,courseurl=course_url),f'URL is not valid. {self.acLoginActionCurrentURL} != {course_url}'
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error(f'URL is not valid. {self.acLoginActionCurrentURL} != {course_url}')
+            self.raise_error_dialog('Course URL not valid',f"Your course url should be on same domain.\nLogged into : {acManager.return_domain(self.acLoginActionCurrentURL)}\nCourse domain : {acManager.return_domain(course_url)}")
+            self.ac_clear_inputs()
+            return
+
+        try:
+            assert not acManager.check_if_filename_exists(filename=filename),f'File name already exists in exports folder. -> {filename}'
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error(f'File name already exists in exports folder. -> {filename}')
+            self.raise_error_dialog('File already exists',f'File name already exists in exports folder. -> {filename}')
+            self.ac_clear_inputs()
+            return
+
+        merge_files = self.ui.acMergeFilesCheckBox.isChecked()
+
+        msg = QMessageBox()
+        msg.setText('Download course assets?')
+        msg.setIcon(QMessageBox.Question)
+        msg.setInformativeText('Course assets are files that Hosts uploaded during meetings.\n (mp4, pdf supported.)')
+        msg.setWindowTitle('Download Assets?')
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.Yes)
+        downloadAssets = True if msg.exec() == QMessageBox.Yes else False
+
+        try:
+            self.ac_add_item_to_queue_manager(downloadassets=downloadAssets)
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error(f'Error in adding item to queue manager -> {course_url} | {filename}')
+            self.raise_error_dialog('Error in adding item', f'Please check your inputs and try again.')
+            self.ac_clear_inputs()
+            return
+        else:
+            self.ac_update_ui_queue_list()
+            self.ac_clear_inputs()
+
+    def ac_selected_item_from_list(self):
+        self.ui.acRemoveFromQueueButton.setEnabled(True)
+        self.selected_link_in_list = self.ui.acQueueListView.currentItem().text()
+
+    def ac_remove_from_queue_button_action(self):
+        if self.selected_link_in_list:
+            buttonReply = QMessageBox()
+            buttonReply.setText("Remove course from Queue")
+            buttonReply.setIcon(QMessageBox.Question)
+            buttonReply.setInformativeText(
+                'Are you sure you want to remove this item from queue?')
+            buttonReply.setWindowTitle('Remove Item')
+            buttonReply.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            buttonReply.setDefaultButton(QMessageBox.No)
+            buttonReply = buttonReply.exec_()
+            if buttonReply == QMessageBox.Yes:
+                try:
+                    index, filename = [item.replace(" ","") for item in str(self.selected_link_in_list).split('-')]
+                    try:
+                        index = int(index)
+                        self.acQueueList.remove_from_queue(filename=filename,index=int(index)-1)
+                    except:
+                        self.acQueueList.remove_from_queue(filename=filename)
+
+                    self.acQueueList.remove_from_queue(filename=filename,index=int(index)-1)
+                    self.selected_link_in_list = None
+                    self.ui.acRemoveFromQueueButton.setDisabled(True)
+                    self.ac_update_ui_queue_list()
+                except Exception as msg:
+                    print(msg)
+            else:
+                print(3)
+                self.selected_link_in_list = None
+                return
+
+    # AC STAGE 3 : QUEUE DOWNLOAD
+
+
     def closeEvent(self, event):
         quit_msg = "Are you sure you want to exit the program?"
         try:
@@ -238,6 +356,11 @@ class Main(QtWidgets.QMainWindow):
         except Exception as msg:
             print(msg)
         if reply == QMessageBox.Yes:
+            try:
+                self.driver1.close()
+                self.driver1.quit()
+            except:
+                pass
             try:
                 self.acBrowser.close()
                 self.acBrowser.quit()
@@ -257,4 +380,5 @@ if __name__ == "__main__":
         sys.exit(app.exec_())
     except Exception as msg:
         logging.debug(msg)
+        print(msg)
         sys.exit()

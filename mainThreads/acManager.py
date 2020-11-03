@@ -1,9 +1,10 @@
 import logging
 import pathlib
-from urllib.parse import urljoin
+from urllib.parse import urljoin,urlparse
 import threading
 import settings
 import enum
+import tldextract
 
 class acCourseStatus(enum.Enum):
     fresh = 0
@@ -13,6 +14,15 @@ class acCourseStatus(enum.Enum):
     media_converted = 4
     finished = 5
 
+def check_if_filename_exists(filename):
+    return pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename).exists()
+
+def validate_input_url(loginurl,courseurl):
+    return tldextract.extract(loginurl).domain == tldextract.extract(courseurl).domain and tldextract.extract(loginurl).suffix == tldextract.extract(courseurl).suffix
+
+def return_domain(url):
+    extract = tldextract.extract(url)
+    return f"{extract.domain}.{extract.suffix}"
 
 def extract_download_url_from_course_url(url,filename):
     return urljoin(url,f'/output/filename.zip?{"".join(filename.split())}.cdata')
@@ -65,24 +75,25 @@ class acQueueManager():
 
     def remove_from_queue(self,filename,index=None):
         try:
-            if index and isinstance(index,int):
+            if index and isinstance(index,int) and index>=0:
                 if len(self.queue_list)-1 >= index:
                     if self.queue_list[index].filename == filename:
                         self.queue_list.remove(index)
                         return True
             for index,item in enumerate(self.queue_list):
                 if item.filename == filename:
-                    self.queue_list.remove(index)
+                    self.queue_list.remove(item)
                     return True
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in removing item ACCOURSE filename : {filename}')
+            print('\n',1,msg)
             return False
         return False
 
 
     def return_queue_list_filenames(self,with_index=False):
         if with_index:
-            return list(enumerate(self.queue_list))
+            return list(enumerate([item.filename for item in self.queue_list]))
         else:
             return self.queue_list

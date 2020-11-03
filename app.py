@@ -350,21 +350,22 @@ class Ui_MainWindow(object):
         self.acQueueLabel.setScaledContents(False)
         self.acQueueLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.acQueueLabel.setObjectName("acQueueLabel")
-        self.acQueueListView = QtWidgets.QListView(self.adobeConnectTab)
+        self.acQueueListView = QtWidgets.QListWidget(self.adobeConnectTab)
         self.acQueueListView.setGeometry(QtCore.QRect(515, 60, 361, 251))
-        self.acQueueListView.setStyleSheet("QListView{\n"
+        self.acQueueListView.setWordWrap(True)
+        self.acQueueListView.setStyleSheet("QListWidget{\n"
 "show-decoration-selected: 1; \n"
 "border:1px solid #6a7bff;\n"
 "border-radius:5px;\n"
 "}\n"
 "\n"
-"QListView::item:selected {\n"
+"QListWidget::item:selected {\n"
 "   background:#6a7bff;\n"
 "color:white;\n"
 "}\n"
 "\n"
 "\n"
-"QListView::item:hover {\n"
+"QListWidget::item:hover {\n"
 "    background: #919dff;\n"
 "color:white;\n"
 "}")
@@ -400,7 +401,7 @@ class Ui_MainWindow(object):
         self.acStartQueueButton.setFlat(False)
         self.acStartQueueButton.setObjectName("acStartQueueButton")
         self.acRemoveFromQueueButton = QtWidgets.QPushButton(self.adobeConnectTab)
-        self.acRemoveFromQueueButton.setEnabled(True)
+        self.acRemoveFromQueueButton.setEnabled(False)
         self.acRemoveFromQueueButton.setGeometry(QtCore.QRect(890, 70, 30, 30))
         font = QtGui.QFont()
         font.setFamily("Poppins")
@@ -431,6 +432,7 @@ class Ui_MainWindow(object):
         self.acRemoveFromQueueButton.setFlat(False)
         self.acRemoveFromQueueButton.setObjectName("acRemoveFromQueueButton")
         self.acProgressBar = QtWidgets.QProgressBar(self.adobeConnectTab)
+        self.acProgressBar.setDisabled(True)
         self.acProgressBar.setGeometry(QtCore.QRect(625, 320, 251, 31))
         self.acProgressBar.setAutoFillBackground(False)
         self.acProgressBar.setStyleSheet("QProgressBar{\n"
@@ -616,21 +618,21 @@ class Ui_MainWindow(object):
         self.ftpTitleIconLabel.setPixmap(QtGui.QPixmap(":/tab-icons/ftp-icon.png"))
         self.ftpTitleIconLabel.setScaledContents(True)
         self.ftpTitleIconLabel.setObjectName("ftpTitleIconLabel")
-        self.ftpQueueListView = QtWidgets.QListView(self.ftpTab)
+        self.ftpQueueListView = QtWidgets.QListWidget(self.ftpTab)
         self.ftpQueueListView.setGeometry(QtCore.QRect(480, 120, 401, 191))
-        self.ftpQueueListView.setStyleSheet("QListView{\n"
+        self.ftpQueueListView.setStyleSheet("QListWidget{\n"
 "show-decoration-selected: 1; \n"
 "border:1px solid #6a7bff;\n"
 "border-radius:5px;\n"
 "}\n"
 "\n"
-"QListView::item:selected {\n"
+"QListWidget::item:selected {\n"
 "   background:#6a7bff;\n"
 "color:white;\n"
 "}\n"
 "\n"
 "\n"
-"QListView::item:hover {\n"
+"QListWidget::item:hover {\n"
 "    background: #919dff;\n"
 "color:white;\n"
 "}")
@@ -728,21 +730,21 @@ class Ui_MainWindow(object):
         self.ftpBackDirectoryButton.setDefault(False)
         self.ftpBackDirectoryButton.setFlat(False)
         self.ftpBackDirectoryButton.setObjectName("ftpBackDirectoryButton")
-        self.ftpExplorListView = QtWidgets.QListView(self.ftpTab)
+        self.ftpExplorListView = QtWidgets.QListWidget(self.ftpTab)
         self.ftpExplorListView.setGeometry(QtCore.QRect(50, 120, 381, 191))
-        self.ftpExplorListView.setStyleSheet("QListView{\n"
+        self.ftpExplorListView.setStyleSheet("QListWidget{\n"
 "show-decoration-selected: 1; \n"
 "border:1px solid #6a7bff;\n"
 "border-radius:5px;\n"
 "}\n"
 "\n"
-"QListView::item:selected {\n"
+"QListWidget::item:selected {\n"
 "   background:#6a7bff;\n"
 "color:white;\n"
 "}\n"
 "\n"
 "\n"
-"QListView::item:hover {\n"
+"QListWidget::item:hover {\n"
 "    background: #919dff;\n"
 "color:white;\n"
 "}")
