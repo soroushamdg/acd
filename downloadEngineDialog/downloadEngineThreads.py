@@ -67,6 +67,7 @@ class downloadEngineThread(QtCore.QThread):
             res = get_url(
                 f'https://chromedriver.storage.googleapis.com/LATEST_RELEASE_{".".join(get_chrome_version().split(".")[:-1])}')
         except Exception as msg:
+            logging.debug(msg)
             self.raise_dialog.emit('Error', 'Error in accessing server',
                                    'Please connect to VPN or a proxy and try again.', True)
             return
@@ -76,9 +77,10 @@ class downloadEngineThread(QtCore.QThread):
             return
         try:
             res = get_url(
-            f'https://chromedriver.storage.googleapis.com/{str(res.content.decode("utf-8"))}/chromedriver_win32.zip',
+            f'https://chromedriver.storage.googleapis.com/{str(res.content.decode("utf-8"))}/chromedriver_{"".join(get_platform_architecture())}.zip',
             stream=True)
         except Exception as msg:
+            logging.debug(msg)
             self.raise_dialog.emit('Error', 'Error in accessing server',
                                    'Please connect to VPN or a proxy and try again.', True)
             return
@@ -89,6 +91,7 @@ class downloadEngineThread(QtCore.QThread):
             try:
                 file = open(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH']+'z'), 'wb')
             except Exception as msg:
+                logging.debug(msg)
                 self.raise_dialog.emit('Error', 'Error in creating new file',
                                        'Please check file permissions.', True)
                 return
@@ -99,6 +102,7 @@ class downloadEngineThread(QtCore.QThread):
                     downloaded += 1024
                     self.update_progress_bar_value.emit(downloaded)
             except Exception as msg:
+                logging.debug(msg)
                 self.raise_dialog.emit('Error', 'Error in downloading files',
                                        'Please check internet connection.', True)
                 return

@@ -16,19 +16,72 @@ def application_path(DEBUG = True):
     config_path = os.path.join(application_path, config_name)
     return str(pathlib.Path(config_path).parent) if not DEBUG else str(pathlib.Path(config_path).parent.parent.parent.joinpath('DEBUG'))
 
+def check_or_create_exports_folder(DEBUG = True):
+    if not DEBUG:
+        try:
+            if not pathlib.Path(SETTINGS['EXPORT_PATH']).exists():
+                os.mkdir(str(pathlib.Path(SETTINGS['EXPORT_PATH'])))
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error('ERROR IN CREATING EXPORTS FOLDER')
+            return False
+        else:
+            return True
+    else:
+        try:
+            if not pathlib.Path(application_path()).joinpath('ACD_EXPORTS').exists():
+                os.mkdir(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
+        except Exception as msg:
+            logging.debug(msg)
+            logging.error('ERROR IN CREATING EXPORTS FOLDER')
+            return False
+        else:
+            SETTINGS['EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
+            return True
+
+def reset_program():
+    try:
+        os.remove(SETTINGS['ACD_ENGINE_PATH'])
+    except Exception as msg:
+        pass
+    try:
+        os.remove(SETTINGS['ENGINE_COOKIE_PATH'])
+    except:
+        pass
+    try:
+        os.remove(SETTINGS['SETTINGS_PATH'])
+    except:
+        pass
+
+def clear_cache():
+    try:
+        os.remove(SETTINGS['ENGINE_COOKIE_PATH'])
+    except:
+        pass
+    try:
+        os.remove(SETTINGS['ENGINE_DUMP_PATH'])
+    except:
+        pass
+
 # Default settings dictionary
 SETTINGS = {
     'BUILD_NUMBER':BUILD_NUMBER, # by increasing build number, it will show welcome screen.
     'LOG_LEVEL':logging.DEBUG,
     'LOG_PATH' : str(pathlib.Path(application_path()).joinpath('log.log')),
     'EXE_PATH': str(pathlib.Path(application_path())),
+    'SETTINGS_PATH' : str(pathlib.Path(application_path()).joinpath('settings.es')),
+    'EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
     'APPLICATION_KEY': 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=',
     'ACD_ENGINE_PATH': str(pathlib.Path(application_path()).joinpath('acd_engine.acde')),
+    'ENGINE_COOKIE_PATH': str(pathlib.Path(application_path()).joinpath('429meXk31_342Mierwerq.acdata')),
+    'ENGINE_DUMP_PATH':  str(pathlib.Path(application_path()).joinpath('dumps')),
     'TOTAL_DOWNLOADED_COURSES':0,
     'TOTAL_FTP_DOWNLOAD':0,
     'TOTAL_SHIFTIO_TRANSFER':0,
     'SHIFTIO_FILE_TYPES':['jpg','png','jpeg','pdf','mp4','txt','docx','pptx','doc','ppt'],
     }
+
+check_or_create_exports_folder()
 
 def settings_file_exists():
     return pathlib.Path(application_path()).joinpath('settings.es').exists()

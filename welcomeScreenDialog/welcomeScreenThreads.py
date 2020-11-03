@@ -110,6 +110,7 @@ class configurationThread(QtCore.QThread):
         else:
             self.setting_basic_config_status.emit(True)
 
+
         sleep(3)
         return
 

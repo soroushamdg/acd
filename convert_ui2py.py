@@ -37,3 +37,15 @@ def convertDownloadEngineDialog():
                     '-o',
                     'downloadEngineDialog\\downloadEngineDialogResources_rc.py'])
     print('Ran pyrcc5')
+
+def convertDownloadACDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\downloadACDialog\\downloadACDialog.ui',
+                    '-o',
+                    'downloadACDialog\\downloadACDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\downloadACDialog\\downloadACDialogResources.qrc',
+                    '-o',
+                    'downloadACDialog\\downloadACDialogResources_rc.py'])
+    print('Ran pyrcc5')
