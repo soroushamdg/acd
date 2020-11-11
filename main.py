@@ -3,7 +3,6 @@ from time import sleep
 
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMessageBox, QInputDialog
-from beepy import beep
 
 import settings
 from app import *
@@ -17,8 +16,9 @@ from clearbuffer import clear_buffer
 from shiftIO import shiftioThread
 # CONFIGURE LOGGING
 import logging
-logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
-
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=logging.INFO,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+import tldextract
+tldextract.extract('https://google.com')
 class Main(QtWidgets.QMainWindow):
     driver1 = None
     acBrowser = None
@@ -254,9 +254,11 @@ class Main(QtWidgets.QMainWindow):
 
                 self.acBrowser.get(self.acLoginActionCurrentURL)
             except:
+                clear_buffer()
                 attempts += 1
                 pass
             else:
+                clear_buffer()
                 break
         else:
             self.acBrowser.close()
@@ -265,7 +267,6 @@ class Main(QtWidgets.QMainWindow):
 
         if self.acBrowser.title == self.acLoginActionCurrentTitle and self.acBrowser.current_url == self.acLoginActionCurrentURL:
             self.ac_login_succesfull()
-            beep(sound=5)
         else:
             self.acBrowser.close()
             self.acBrowser.quit()
@@ -449,7 +450,6 @@ class Main(QtWidgets.QMainWindow):
             self.shiftio_run_success()
 
     def shiftio_run_success(self):
-        beep(5)
         self.ui.shiftIOIPAddressLabel.setText(self.shiftIOControllerThread.main_ip+':'+str(self.shiftIOControllerThread.port))
         try:
             self.ui.shiftIOStartButton.clicked.disconnect()
@@ -528,6 +528,7 @@ if __name__ == "__main__":
         # myapp.showdialog()
 
         sys.exit(app.exec_())
+        sys.exit()
     except Exception as msg:
         logging.debug(msg)
         print(msg)

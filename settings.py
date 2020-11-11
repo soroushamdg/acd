@@ -6,11 +6,23 @@ from cryptography.fernet import Fernet
 from exeinfo import BUILD_NUMBER
 import random,string
 
+DEBUG = False
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def get_random_string(length=16):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(length))
 
-def return_temp_path(DEBUG = True,filename=None):
+def return_temp_path(DEBUG = DEBUG,filename=None):
     if not DEBUG:
         pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP').mkdir(parents=True, exist_ok=True)
         return str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP').joinpath(filename)) if filename else str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP'))
@@ -18,7 +30,7 @@ def return_temp_path(DEBUG = True,filename=None):
         pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP').mkdir(parents=True, exist_ok=True)
         return str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP').joinpath(filename)) if filename else str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP'))
 
-def application_path(DEBUG = True):
+def application_path(DEBUG = DEBUG):
     config_name = 'myapp.cfg'
 
     # determine if application is a script file or frozen exe
@@ -30,10 +42,15 @@ def application_path(DEBUG = True):
     config_path = os.path.join(application_path, config_name)
     return str(pathlib.Path(config_path).parent) if not DEBUG else str(pathlib.Path(config_path).parent.parent.parent.joinpath('DEBUG'))
 
-def return_shiftio_assets_path(DEBUG = True):
-    return str(pathlib.Path(application_path()).joinpath('shiftIO').joinpath('grabber').joinpath('assets')) if not DEBUG else str(pathlib.Path(application_path()).parent.joinpath('shiftIO').joinpath('grabber').joinpath('assets'))
+def return_shiftio_assets_path(DEBUG = DEBUG, html=False):
+    if html:
+        return resource_path(
+            str(pathlib.Path().joinpath('shiftIO').joinpath('grabber').joinpath('index.html'))) if not DEBUG else str(
+            pathlib.Path(application_path()).parent.joinpath('shiftIO').joinpath('grabber').joinpath('index.html'))
+    else:
+        return resource_path(str(pathlib.Path().joinpath('shiftIO').joinpath('grabber').joinpath('assets'))) if not DEBUG else str(pathlib.Path(application_path()).parent.joinpath('shiftIO').joinpath('grabber').joinpath('assets'))
 
-def src_path(src_name,DEBUG = True):
+def src_path(src_name,DEBUG = DEBUG):
     config_name = 'myapp.cfg'
 
     # determine if application is a script file or frozen exe
@@ -44,10 +61,10 @@ def src_path(src_name,DEBUG = True):
 
     config_path = os.path.join(application_path, config_name)
 
-    return str(pathlib.Path(config_path).joinpath('src').joinpath(src_name)) if not DEBUG else str(
+    return resource_path(str(pathlib.Path().joinpath('src').joinpath(src_name))) if not DEBUG else str(
         pathlib.Path(config_path).parent.parent.parent.joinpath('src').joinpath(src_name))
 
-def check_or_create_exports_folder(DEBUG = True):
+def check_or_create_exports_folder(DEBUG = DEBUG):
     if not DEBUG:
         try:
             if not pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).exists():
@@ -107,7 +124,7 @@ def clear_cache():
 # Default settings dictionary
 SETTINGS = {
     'BUILD_NUMBER':BUILD_NUMBER, # by increasing build number, it will show welcome screen.
-    'LOG_LEVEL':logging.DEBUG,
+    'LOG_LEVEL':logging.INFO,
     'LOG_PATH' : str(pathlib.Path(application_path()).joinpath('log.log')),
     'EXE_PATH': str(pathlib.Path(application_path())),
     'SETTINGS_PATH' : str(pathlib.Path(application_path()).joinpath('settings.es')),

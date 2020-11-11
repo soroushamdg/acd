@@ -21,7 +21,8 @@ import pickle
 import requests
 from xmlparser import streamParser,assetsParser
 import logging
-logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'thread',filemode='a',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+from clearbuffer import clear_buffer
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'thread',filemode='a',level=logging.INFO,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
 
 logger = 'bar'
 verbose = True
@@ -188,7 +189,9 @@ class downloadACThread(QtCore.QThread):
     def course_download_files(self,course : acCourse):
         self.progressbar_reset()
         self.acBrowser.get(course.course_url)
+        clear_buffer()
         course_cookies = self.acBrowser.get_cookies()
+        clear_buffer()
         ## preparing requests session
         session = requests.Session()
         try:

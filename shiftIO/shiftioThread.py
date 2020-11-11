@@ -8,7 +8,6 @@ import tornado.web
 import tornado.ioloop
 import socket
 import settings
-from beepy import beep
 from netifaces import interfaces, ifaddresses, AF_INET
 from PyQt5 import QtCore
 import threading
@@ -69,11 +68,11 @@ class shiftioUploadHandler(tornado.web.RequestHandler):
                           "wb")
                 fh.write(f.body)
                 fh.close()
-        beep('coin')
         self.redirect("/")
 
     def get(self):
-        self.render("grabber/index.html", file_types=' .'+" .".join(settings.return_shiftio_valid_types()))
+        print(settings.return_shiftio_assets_path(html=True))
+        self.render(settings.return_shiftio_assets_path(html=True), file_types=' .'+" .".join(settings.return_shiftio_valid_types()))
 
 class shiftIOServerThread(QtCore.QThread):
 
