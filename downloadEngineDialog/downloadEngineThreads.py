@@ -128,6 +128,19 @@ class downloadEngineThread(QtCore.QThread):
                 return
             else:
                 os.remove(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH'] + 'z'))
+
+            # CHANGE FILE PERMISSIONS IF MAC OR LINUX
+            try:
+                if get_platform_architecture()[0] == 'mac' or 'linux':
+                    import stat
+                    st = os.stat(str(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH'])))
+                    os.chmod(str(pathlib.Path(settings.SETTINGS['ACD_ENGINE_PATH'])), st.st_mode | stat.S_IEXEC)
+            except Exception as msg:
+                logging.debug(msg)
+                logging.error('Error in changing file permissions.')
+                self.raise_dialog.emit('Error', 'Error in changing file permissions.',
+                                       'Please set acd_engine.acde file permissions to EXECUTABLE and restart the program.', False)
+
             self.extract_install_status.emit(True)
             sleep(3)
             return

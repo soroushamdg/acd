@@ -124,11 +124,11 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         self.progressBar.setGeometry(QtCore.QRect(10, 462, 281, 31))
         self.progressBar.setStyleSheet("QProgressBar{\n"
                                        "border:2px solid #484848;\n"
-                                       "border-radius:6px;\n"
+                                       "border-radius:9px;\n"
                                        "}\n"
                                        "QProgressBar::chunk{\n"
                                        "background-color:#f9b92f;\n"
-                                       "border-radius:6px;\n"
+                                       "border-radius:9px;\n"
                                        "}")
         self.progressBar.setProperty("value", 0)
         self.progressBar.setTextVisible(False)

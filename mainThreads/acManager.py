@@ -1,19 +1,27 @@
 import logging
 import pathlib
-from urllib.parse import urljoin,urlparse
-import threading
+from urllib.parse import urljoin
 import settings
 import enum
 import tldextract
 import shutil
 
 class acCourseStatus(enum.Enum):
+    failure = -1
     fresh = 0
     ready = 1
     downloaded = 2
-    assets_downloaded = 3
-    media_converted = 4
-    finished = 5
+    parsedstreams = 3
+    assets_downloaded = 40
+    exported_media = 4
+    assetsdl_mediaexport = 44
+    mixed_converted_audio = 50
+    converted_video = 5
+    mixed_converted_audio_video = 55
+    merged_audio_video = 6
+    merge_video_audio_failure = -6
+    finished = 7
+    cleanedup = 8
 
 def check_if_filename_exists(filename):
     return pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename).exists()
@@ -26,20 +34,21 @@ def return_domain(url):
     return f"{extract.domain}.{extract.suffix}"
 
 def extract_download_url_from_course_url(url,filename):
-    return urljoin(url,f'output/filename.zip?{"".join(filename.split())}.cdata')
+    return urljoin(url,f'output/{"".join(filename.split())}.cdata?download=zip')
 
 class acCourse():
     def __init__(self,course_url,filename,merge_files=False,download_assets=False):
-        self.status = acCourseStatus.fresh
+        self.status = 0
         self.course_url = course_url
         self.filename = ''.join(filename.split())
         self.merge_files = merge_files
         self.download_assets = download_assets
-        self.media_streams_objects = None
-        self.assets_streams_objects = None
+        self.media_streams_objects = []
+        self.assets_streams_objects = []
         self.download_url = extract_download_url_from_course_url(course_url,filename)
         pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename).mkdir(parents=True, exist_ok=True)
         self.export_folder = str(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(filename))
+        self.status = 1
 
         # create assets folder
         if download_assets:
@@ -54,6 +63,9 @@ class acCourse():
     def __hash__(self):
         return hash(('filename', self.filename,
                      'course_url', self.course_url))
+
+    def asset_download_url(self,asseturl):
+        return urljoin(self.course_url,asseturl)
 
 class acQueueManager():
     def __init__(self):
@@ -113,3 +125,11 @@ class acQueueManager():
                 shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
             except:
                 pass
+
+    def remove_failed_files(self):
+        for course in self.queue_list:
+            if course.status not in [acCourseStatus.finished, acCourseStatus.cleanedup]:
+                try:
+                    shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
+                except Exception as msg:
+                    print(msg)

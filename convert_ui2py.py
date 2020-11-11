@@ -49,3 +49,15 @@ def convertDownloadACDialog():
                     '-o',
                     'downloadACDialog\\downloadACDialogResources_rc.py'])
     print('Ran pyrcc5')
+    
+def convertSplashScreenDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\splashScreenDialog\\splashScreenDialog.ui',
+                    '-o',
+                    'splashScreenDialog\\splashScreenDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\splashScreenDialog\\splashScreenDialogResources.qrc',
+                    '-o',
+                    'splashScreenDialog\\splashScreenDialogResources_rc.py'])
+    print('Ran pyrcc5')

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html style="height: 100%;min-height: 100%;max-height: 100%;overflow:hidden;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>shiftio_land</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+
+<body style="height: 100%;min-height: 100%;max-height: 100%;padding: 15;background-color: #7494EC;">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col text-center" style="filter: blur(0px);font-family: Montserrat, sans-serif;">
+            <h1 class="text-center tada animated" style="font-family: Montserrat, sans-serif;color: #F8FBFF;font-weight: 700;font-size: 4em;">Shift I/O</h1>
+            <h6 style="color: #F8FBFF;font-weight: 300;">open source project by @soroushamdg</h6>
+            <h6 class="text-center" style="color: #F8FBFF;font-family: Montserrat, sans-serif;font-weight: 500;font-size: 14px;">engine version : v beta 1</h6>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;margin-right: 0px;margin-left: 0px;">
+        <div class="col-auto col-sm-12 col-md-3 col-xl-auto m-auto"></div>
+        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5" style="padding: 15px;">
+            <div class="card shadow-lg" style="background-color: #F8FBFF; border-radius:30px !important;">
+                <div class="card-body" style="padding: 0px;">
+                    <h2 class="text-center card-title" style="color: #8E99B4;font-family: Montserrat, sans-serif;font-weight: 600;margin-top: 15px;margin-left: 0px;padding: 0px 15px;">UPLOAD FILES</h2>
+                    <h6 class="text-center text-muted card-subtitle mb-2" style="margin-top: 0px;margin-left: 0px;padding: 0px 15px;">Accepted file types : {{ file_types }}<br></h6>
+                    <h6 class="text-left text-muted card-subtitle mb-2" id="selected-files" style="margin-top: 6%;margin-left: 0px;padding: 0px 15px;padding-right: 15px;padding-left: 30px;">Selected files : None</h6>
+                    <div class="row" style="margin-top: 15px;padding: 0px;margin-right: 0px;margin-left: 0px;">
+                        <div class="col" style="margin: 0px;padding: 0px;">
+                            <form method="post" action="/" enctype="multipart/form-data" acceptcharset="">
+                                <div class="text-center flash animated dashed_upload" style="font-family: Montserrat, sans-serif;"><div class="wrapper">
+  <div class="drop">
+    <div class="cont" style="width:auto !important;">
+      <i class="fa fa-cloud-upload"></i>
+      <div class="tit">
+        Drag & Drop
+      </div>
+      <div class="desc">
+        or 
+      </div>
+      <div class="browse">
+        Click here to browse
+      </div>
+    </div>
+<input id="fileinput" name="filesqueue" type="file" multiple>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="js/index.js"></script></div><button class="btn btn-primary btn-lg text-center" id="submit-button" type="submit" style="font-family: Montserrat, sans-serif;font-weight: bold;width: 100%;margin-top: 10%;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;background-color: #5874C6;border: none;"
+                                    value="upload" disabled="">Send</button></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto col-sm-12 col-md-3 col-xl-auto m-auto"></div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

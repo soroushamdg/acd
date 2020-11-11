@@ -10,6 +10,13 @@ def get_random_string(length=16):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(length))
 
+def return_temp_path(DEBUG = True,filename=None):
+    if not DEBUG:
+        pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP').mkdir(parents=True, exist_ok=True)
+        return str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP').joinpath(filename)) if filename else str(pathlib.Path(os.path.realpath(__file__)).parent.parent.joinpath('ACDTEMP'))
+    else:
+        pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP').mkdir(parents=True, exist_ok=True)
+        return str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP').joinpath(filename)) if filename else str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ACDTEMP'))
 
 def application_path(DEBUG = True):
     config_name = 'myapp.cfg'
@@ -23,27 +30,54 @@ def application_path(DEBUG = True):
     config_path = os.path.join(application_path, config_name)
     return str(pathlib.Path(config_path).parent) if not DEBUG else str(pathlib.Path(config_path).parent.parent.parent.joinpath('DEBUG'))
 
+def return_shiftio_assets_path(DEBUG = True):
+    return str(pathlib.Path(application_path()).joinpath('shiftIO').joinpath('grabber').joinpath('assets')) if not DEBUG else str(pathlib.Path(application_path()).parent.joinpath('shiftIO').joinpath('grabber').joinpath('assets'))
+
+def src_path(src_name,DEBUG = True):
+    config_name = 'myapp.cfg'
+
+    # determine if application is a script file or frozen exe
+    if getattr(sys, 'frozen', True):
+        application_path = os.path.dirname(sys.executable)
+    elif __file__:
+        application_path = os.path.dirname(__file__)
+
+    config_path = os.path.join(application_path, config_name)
+
+    return str(pathlib.Path(config_path).joinpath('src').joinpath(src_name)) if not DEBUG else str(
+        pathlib.Path(config_path).parent.parent.parent.joinpath('src').joinpath(src_name))
+
 def check_or_create_exports_folder(DEBUG = True):
     if not DEBUG:
         try:
-            if not pathlib.Path(SETTINGS['EXPORT_PATH']).exists():
-                os.mkdir(str(pathlib.Path(SETTINGS['EXPORT_PATH'])))
+            if not pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).exists():
+                pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).mkdir(parents=True, exist_ok=True)
+                pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).joinpath('ADOBE CONNECT').mkdir(parents=True, exist_ok=True)
+                pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).joinpath('Transfers').mkdir(parents=True, exist_ok=True)
+
         except Exception as msg:
             logging.debug(msg)
+            print(msg)
             logging.error('ERROR IN CREATING EXPORTS FOLDER')
             return False
         else:
             return True
     else:
         try:
-            if not pathlib.Path(application_path()).joinpath('ACD_EXPORTS').exists():
-                os.mkdir(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
+            if not pathlib.Path(application_path()).joinpath('MAIN_EXPORT_PATH').exists():
+                pathlib.Path(application_path()).joinpath('ACD_EXPORTS').mkdir(parents=True, exist_ok=True)
+                pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT').mkdir(parents=True, exist_ok=True)
+                pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('Transfers').mkdir(parents=True, exist_ok=True)
+
         except Exception as msg:
+            print(msg)
             logging.debug(msg)
             logging.error('ERROR IN CREATING EXPORTS FOLDER')
             return False
         else:
-            SETTINGS['EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
+            SETTINGS['MAIN_EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
+            SETTINGS['EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT'))
+            SETTINGS['SHIFTIO_EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('Transfers'))
             return True
 
 def reset_program():
@@ -77,15 +111,20 @@ SETTINGS = {
     'LOG_PATH' : str(pathlib.Path(application_path()).joinpath('log.log')),
     'EXE_PATH': str(pathlib.Path(application_path())),
     'SETTINGS_PATH' : str(pathlib.Path(application_path()).joinpath('settings.es')),
-    'EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
+    'MAIN_EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
+    'EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT')),
+    'SHIFTIO_EXPORT_PATH' :str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('Transfers')),
+    'TEMP_PATH' : return_temp_path(),
     'APPLICATION_KEY': 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=',
     'ACD_ENGINE_PATH': str(pathlib.Path(application_path()).joinpath('acd_engine.acde')),
     'ENGINE_COOKIE_PATH': str(pathlib.Path(application_path()).joinpath(f'{get_random_string(32)}.acdata')),
     'ENGINE_DUMP_PATH':  str(pathlib.Path(application_path()).joinpath('dumps')),
+    'OUTPUT_BITRATE' : "90k",
+    'OUTPUT_FORMAT': "mp4",
     'TOTAL_DOWNLOADED_COURSES':0,
     'TOTAL_FTP_DOWNLOAD':0,
     'TOTAL_SHIFTIO_TRANSFER':0,
-    'SHIFTIO_FILE_TYPES':['jpg','png','jpeg','pdf','mp4','txt','docx','pptx','doc','ppt'],
+    'SHIFTIO_FILE_TYPES':['jpg','png','jpeg','pdf','mp4','txt','docx','pptx','doc','ppt','mov','mp3','aac','mkv'],
     }
 
 check_or_create_exports_folder()
@@ -111,11 +150,57 @@ def load_settings():
     file.close()
     data = json.loads(f.decrypt(encrypted_data))
     SETTINGS['BUILD_NUMBER'] = data['BUILD_NUMBER']
+    SETTINGS['OUTPUT_BITRATE'] = data['OUTPUT_BITRATE']
+    SETTINGS['OUTPUT_FORMAT'] = data['OUTPUT_FORMAT']
     SETTINGS['ENGINE_COOKIE_PATH'] = data['ENGINE_COOKIE_PATH']
     SETTINGS['TOTAL_DOWNLOADED_COURSES']=data['TOTAL_DOWNLOADED_COURSES']
     SETTINGS['TOTAL_FTP_DOWNLOAD']=data['TOTAL_FTP_DOWNLOAD']
     SETTINGS['TOTAL_SHIFTIO_TRANSFER']= data['TOTAL_SHIFTIO_TRANSFER']
     SETTINGS['SHIFTIO_FILE_TYPES']= data['SHIFTIO_FILE_TYPES']
+
+def return_output_bitrate():
+    try:
+        load_settings()
+    except:
+        return "90k"
+    else:
+        return SETTINGS['OUTPUT_BITRATE']
+
+def set_output_bitrate(bitrate):
+    try:
+        load_settings()
+        SETTINGS['OUTPUT_BITRATE'] = bitrate
+        save_settings()
+    except:
+        return False
+    else:
+        return True
+
+def return_output_format():
+    try:
+        load_settings()
+    except Exception as msg:
+        return "mp4"
+    else:
+        return SETTINGS['OUTPUT_FORMAT']
+
+def set_output_format(format):
+    try:
+        load_settings()
+        SETTINGS['OUTPUT_FORMAT'] = format
+        save_settings()
+    except:
+        return False
+    else:
+        return True
+
+def return_shiftio_valid_types():
+    try:
+        load_settings()
+    except:
+        return ['jpg','png','jpeg','pdf','mp4','txt','docx','pptx','doc','ppt','mov','mp3','aac','mkv']
+    else:
+        return SETTINGS['SHIFTIO_FILE_TYPES']
 
 def ret_buildnumber():
     try:

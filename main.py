@@ -1,9 +1,9 @@
 import pickle
-import winsound
 from time import sleep
 
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QInputDialog
+from beepy import beep
 
 import settings
 from app import *
@@ -14,7 +14,7 @@ from mainThreads import startupConfigurations, acManager
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from clearbuffer import clear_buffer
-
+from shiftIO import shiftioThread
 # CONFIGURE LOGGING
 import logging
 logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
@@ -38,6 +38,10 @@ class Main(QtWidgets.QMainWindow):
         self.ui.actionOS.setText(f"OS : {expert.running_platform}\n{expert.system}\n{expert.architect}")
         self.ui.actionCPU.setText(f"CPU : {expert.processor}")
         self.ui.actionReset.triggered.connect(self.reset_program)
+        self.ui.actionConvert_Threads_60.setText(f"Output bitrate : {settings.return_output_bitrate()}")
+        self.ui.actionOutputFileType.setText(f"Output file format : {settings.return_output_format()}")
+        self.ui.actionConvert_Threads_60.triggered.connect(self.menu_bar_set_ac_output_bitrate)
+        self.ui.actionOutputFileType.triggered.connect(self.menu_bar_set_ac_output_format)
         # SET APP "HELP" MENU ACTIONS
         self.ui.actionAparatHelpMenu.triggered.connect(help.open_aparat_link)
         self.ui.actionYoutubeHelpMenu.triggered.connect(help.open_youtube_link)
@@ -54,22 +58,64 @@ class Main(QtWidgets.QMainWindow):
         self.startupConfiguration()
         QtWidgets.QApplication.processEvents()
         self.ac_disable_all_buttons_except_login()
+        self.shiftio_prepare_before_run()
         # ADOBE CONNECT QUEUE MANAGER
         self.acQueueList = acManager.acQueueManager()
         self.ui.acAddToQueueButton.clicked.connect(self.ac_add_to_queue_button_action)
         self.ui.acQueueListView.clicked.connect(self.ac_selected_item_from_list)
         self.ui.acRemoveFromQueueButton.clicked.connect(self.ac_remove_from_queue_button_action)
+        self.ui.actionStart.triggered.connect(self.ac_start_download_action)
+        self.ui.acStartQueueButton.clicked.connect(self.ac_start_download_action)
 
+    def menu_bar_set_ac_output_bitrate(self):
+        options_plain = ("30k",
+                   "60k",
+                   "90k",
+                   "120k",
+                   "150k",
+                   "250k",
+                   "500k",
+                   "750k",
+                   "1000k",
+                   "1200k",
+                   "1500k",
+                   )
+        options = ("30k - Weak",
+                   "60k - Good (~=15 minutes to process in MKV)",
+                   "90k - Better (~=16 minutes to process in MKV)",
+                   "120k - Very good (~=17 minutes to process in MKV)",
+                   "150k",
+                   "250k",
+                   "500k",
+                   "750k",
+                   "1000k",
+                   "1200k",
+                   "1500k",
+                   )
+        item, ok = QInputDialog.getItem(self,
+                                       "Output bitrate",
+                                        "Select outputs bitrate in list below. Higher bitrates take longer to process!",
+                                        options, options_plain.index(settings.return_output_bitrate()), False)
+        if ok and item:
+            settings.set_output_bitrate(str(item.split("-")[0].rstrip()))
+            self.ui.actionConvert_Threads_60.setText(f"Output bitrate : {settings.return_output_bitrate()}")
+
+    def menu_bar_set_ac_output_format(self):
+        options_plain = ("mp4",
+                   "mkv")
+        options = ("mp4 - Fast",
+                   "mkv - Faster but usually FAILS!")
+        item, ok = QInputDialog.getItem(self,
+                                        "Output File Formant",
+                                        "Please select oupputs file format from list below. Performance may change.",
+                                        options, options_plain.index(settings.return_output_format()), False)
+        if ok and item:
+            settings.set_output_format(str(item.split("-")[0].rstrip()))
+            self.ui.actionOutputFileType.setText(f"Output file format : {settings.return_output_format()}")
 
     def startupConfiguration(self):
         startupConfigurationTaskThread = startupConfigurations.StartupConfigurationThread(parent=self)
         startupConfigurationTaskThread.run()
-
-    def showdialog(self):
-        dialog = downloadACDialog.Ui_downloadACDialog(parent=self,acBrowser=None,acQueueList=None)
-        print('shown dialog')
-        res = dialog.exec_()
-        print(res)
 
     def raise_error_dialog(self,title,message,description=None):
         try:
@@ -198,16 +244,28 @@ class Main(QtWidgets.QMainWindow):
         except Exception as msg:
             print(msg)
         clear_buffer()
-        self.acBrowser.get(self.acLoginActionCurrentURL)
-        self.acBrowser.delete_all_cookies()
-        for cookie in pickle.load(open(settings.engine_cookie_path(), 'rb')):
-            self.acBrowser.add_cookie(cookie)
+        attempts = 0
+        while(attempts != 3):
+            try:
+                self.acBrowser.get(self.acLoginActionCurrentURL)
+                self.acBrowser.delete_all_cookies()
+                for cookie in pickle.load(open(settings.engine_cookie_path(), 'rb')):
+                    self.acBrowser.add_cookie(cookie)
 
-        self.acBrowser.get(self.acLoginActionCurrentURL)
+                self.acBrowser.get(self.acLoginActionCurrentURL)
+            except:
+                attempts += 1
+                pass
+            else:
+                break
+        else:
+            self.acBrowser.close()
+            self.acBrowser.quit()
+            self.ac_login_failed()
 
         if self.acBrowser.title == self.acLoginActionCurrentTitle and self.acBrowser.current_url == self.acLoginActionCurrentURL:
             self.ac_login_succesfull()
-            winsound.PlaySound("*", winsound.SND_ALIAS)
+            beep(sound=5)
         else:
             self.acBrowser.close()
             self.acBrowser.quit()
@@ -275,7 +333,7 @@ class Main(QtWidgets.QMainWindow):
             return
 
         try:
-            assert not acManager.check_if_filename_exists(filename=filename),f'File name already exists in exports folder. -> {filename}'
+            assert not acManager.check_if_filename_exists(filename=filename),f'File name already exists in exports folder. \nName : {filename}'
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'File name already exists in exports folder. -> {filename}')
@@ -341,8 +399,99 @@ class Main(QtWidgets.QMainWindow):
                 self.selected_link_in_list = None
                 return
 
-    # AC STAGE 3 : QUEUE DOWNLOAD
+    def ac_cleanup_after_download_dialog_close(self):
+        self.ac_clear_inputs()
+        self.ac_clear_ui_queue_list()
+        self.acQueueList.queue_list.clear()
+        self.ac_update_ui_queue_list()
 
+    # AC STAGE 3 : QUEUE DOWNLOAD
+    def ac_start_download_action(self):
+        try:
+            dialog = downloadACDialog.Ui_downloadACDialog(parent=self,acBrowser=self.acBrowser,acQueueListManager=self.acQueueList)
+            res = dialog.exec_()
+        except Exception as msg:
+            print(msg)
+        if dialog.retstatus == 'CANCEL':
+            pass
+        elif dialog.retstatus == 'COMPLETED':
+            self.ac_cleanup_after_download_dialog_close()
+
+    # SHIFT IO CONTROLLER
+    def shiftio_prepare_before_run(self):
+        self.ui.shiftIOIPAddressLabel.setText('Disconnected')
+        try:
+            self.ui.shiftIOStartButton.clicked.disconnect()
+        except:
+            pass
+        self.ui.shiftIOStartButton.clicked.connect(self.shiftio_run_server)
+        self.ui.shiftIOStartButton.setText('Start')
+        self.ui.shiftIOStartButton.setEnabled(True)
+        self.ui.shiftIOStatusLabel.setDisabled(True)
+
+    def shiftio_thread_finished(self):
+        pass
+
+    def shiftio_run_server(self):
+        self.ui.shiftIOStartButton.setText('Starting')
+        self.ui.shiftIOStartButton.setEnabled(False)
+        self.shiftIOControllerThread = shiftioThread.shiftIOServerThread()
+        self.shiftIOControllerThread.finished.connect(self.shiftio_thread_finished)
+        self.shiftIOControllerThread.start()
+        sleep(1)
+        if not self.shiftIOControllerThread.status:
+            self.shiftIOControllerThread.stop_server()
+            self.shiftIOControllerThread.quit()
+            self.shiftIOControllerThread.terminate()
+            self.shiftIOControllerThread.wait()
+            self.shiftio_run_failed()
+        else:
+            self.shiftio_run_success()
+
+    def shiftio_run_success(self):
+        beep(5)
+        self.ui.shiftIOIPAddressLabel.setText(self.shiftIOControllerThread.main_ip+':'+str(self.shiftIOControllerThread.port))
+        try:
+            self.ui.shiftIOStartButton.clicked.disconnect()
+        except:
+            pass
+        self.ui.shiftIOStartButton.clicked.connect(self.shiftio_stop_server)
+        self.ui.shiftIOStartButton.setText('Stop')
+        self.ui.shiftIOStartButton.setEnabled(True)
+        self.ui.shiftIOStatusLabel.setEnabled(True)
+
+        msg = QMessageBox()
+        msg.setText('Shift I/O Started!')
+        servers = f"\n".join([f"{add}:{self.shiftIOControllerThread.port}" for add in self.shiftIOControllerThread.ip_addresses]+[f"{self.shiftIOControllerThread.hostname}:{self.shiftIOControllerThread.port}"])
+        msg.setInformativeText('You can connect to Shift I/O by below addresses :\n\n'+
+                               servers+
+                               '\n\n If you had problem connecting, please turn off your firewall.')
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowTitle("Shift I/O Engine started")
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
+
+    def shiftio_run_failed(self):
+        self.shiftio_prepare_before_run()
+
+        msg = QMessageBox()
+        msg.setText('Failed to start Shift I/O engine.')
+        msg.setInformativeText('Please check your firewall and try again.')
+        msg.setIcon(QMessageBox.Critical)
+        msg.setWindowTitle("Shift I/O Engine failed")
+        msg.setStandardButtons(QMessageBox.Ok)
+        msg.exec_()
+
+    def shiftio_stop_server(self):
+        try:
+            self.shiftIOControllerThread.stop_server()
+            self.shiftIOControllerThread.quit()
+            self.shiftIOControllerThread.terminate()
+            self.shiftIOControllerThread.wait()
+        except:
+            pass
+        else:
+            self.shiftio_prepare_before_run()
 
     def closeEvent(self, event):
         quit_msg = "Are you sure you want to exit the program?"
@@ -376,7 +525,7 @@ if __name__ == "__main__":
         app = QtWidgets.QApplication(sys.argv)
         myapp = Main()
         myapp.show()
-        myapp.showdialog()
+        # myapp.showdialog()
 
         sys.exit(app.exec_())
     except Exception as msg:
