@@ -6,6 +6,7 @@ from time import sleep
 import settings,pathlib
 from zipfile import ZipFile
 import logging
+import stat
 
 def get_platform_architecture():
     if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
