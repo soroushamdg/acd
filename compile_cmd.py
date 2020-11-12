@@ -53,7 +53,7 @@ def compile():
                             ' main.py',
                             "--distpath='EXPORTS'",
                             '--windowed',
-                            # '-y',
+                            '-y', #confirm replace
                             # '--clean',
                             # '-F',
                             '--name',
@@ -70,7 +70,7 @@ def compile():
                             ' main.py',
                             "--distpath='EXPORTS'",
                             '--windowed',
-                            # '-y',
+                            '-y', #confirm replace
                             # '--clean',
                             # '-F',
                             '--name',
