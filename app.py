@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         self.acCourseURLInput.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
         self.acCourseURLInput.setObjectName("acCourseURLInput")
         self.acFileNameInput = QtWidgets.QLineEdit(self.adobeConnectTab)
-        regex = QtCore.QRegExp("[0-9-a-z-A-Z_-]+")
+        regex = QtCore.QRegExp("[0-9a-zA-Z_]+")
         validator = QtGui.QRegExpValidator(regex)
         self.acFileNameInput.setValidator(validator)
         self.acFileNameInput.setGeometry(QtCore.QRect(150, 220, 281, 31))

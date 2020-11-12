@@ -85,12 +85,13 @@ class downloadACThread(QtCore.QThread):
 
 
     def create_blank_screen_video(self,duration, size, output=None):
-        img = self.generate_blank_screen_image(size[0],size[1],output=output)
-        clip = ImageClip(img).set_duration(duration)
-        clip = concatenate_videoclips([clip],method="compose")
-        clip.write_videofile(output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}'), fps=3 if size[0] * size[1] >= 422500 else 25, preset="ultrafast" ,verbose=verbose,
-            logger=logger)
-        clip.close()
+        if not pathlib.Path(output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}')).exists():
+            img = self.generate_blank_screen_image(size[0],size[1],output=output)
+            clip = ImageClip(img).set_duration(duration)
+            clip = concatenate_videoclips([clip],method="compose")
+            clip.write_videofile(output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}'), fps=3 if size[0] * size[1] >= 422500 else 25, preset="ultrafast" ,verbose=verbose,
+                logger=logger)
+            clip.close()
         return output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}')
 
     # PROGRESSBAR CONTROLLER
@@ -558,7 +559,7 @@ class downloadACThread(QtCore.QThread):
                         ff = FFmpeg(course.export_folder)
                         ff.overwrite = True
                         ff.loglevel = ff.loglevels[0] # quiet log level
-                        output = ff.convert(video.filename,video.new_filename+f'.{settings.return_output_format()}')
+                        output = ff.convert(f'\"{video.new_filename}.flv\"',f'\"{video.new_filename+f".{settings.return_output_format()}"}')
                     except:
                         continue
                     else:
@@ -594,11 +595,12 @@ class downloadACThread(QtCore.QThread):
                 for vid in course.media_streams_objects['video']:
                     try:
                         video = VideoFileClip(str(pathlib.Path(course.export_folder).joinpath(f'{vid.new_filename}.flv')))
+                        videos.append(video.set_start(tuple([milisec2sec(vid.delay)])))
                     except Exception as msg:
                         print(msg)
                         continue
                     else:
-                        videos.append(video.set_start(tuple([milisec2sec(vid.delay)])))
+                        pass
                     finally:
                         self.progressbar_add_value(1)
             except Exception as msg:
@@ -611,13 +613,12 @@ class downloadACThread(QtCore.QThread):
 
             # ADD BLANK SCREENS
             try:
-                for index, item in enumerate(videos):
+                for index, item in enumerate(videos.copy()):
                     if index == 0:
                         if item.start != 0:
                             blank_screen = VideoFileClip(
                                 self.create_blank_screen_video(duration = item.start, size=(item.w, item.h)))
                             videos.insert(0, blank_screen)
-                            continue
                     else:
                         if item.start - videos[index - 1].start - videos[index - 1].duration > 0:
                             blank_screen = VideoFileClip(self.create_blank_screen_video(
@@ -630,6 +631,7 @@ class downloadACThread(QtCore.QThread):
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
+
 
 
             # CHECK IF AUDIO EXISTS
@@ -654,8 +656,8 @@ class downloadACThread(QtCore.QThread):
                 ff = FFmpeg()
                 ff.overwrite = True
                 ff.loglevel = ff.loglevels[0] # quiet log level
-                args = (f"-i {pathlib.Path(course.export_folder).joinpath(f'audio_{course.filename}.mp3')}", # AUDIO INPUT
-                        " ".join([f"-i {video.filename}" for video in videos]), # VIDEOS INPUT
+                args = (f"-i \"{pathlib.Path(course.export_folder).joinpath(f'audio_{course.filename}.mp3')}\"" if audio_command else "", # AUDIO INPUT
+                        " ".join([f"-i \"{video.filename}\"" for video in videos]), # VIDEOS INPUT
                         "-filter_complex",
                         f'"{" ".join([f"[{index + 1 if audio_command else index}:v]fps=25[v{index + 1 if audio_command else index}];" if item.fps != 25 else "" for index, item in enumerate(videos)]).lstrip()}',
                         f'{" ".join([f"[v{index + 1 if audio_command else index}]" if item.fps != 25 else f"[{index + 1 if audio_command else index}:v]" for index, item in enumerate(videos)]).rstrip()} concat=n={len(videos)}:v=1{":a=0" if audio_command else ""} [outv]"',
@@ -665,7 +667,7 @@ class downloadACThread(QtCore.QThread):
                         f'-b:v {settings.return_output_bitrate()} -threads 3 -preset ultrafast',
                         # "-movflags +faststart",
                         '-stats',
-                        str(pathlib.Path(course.export_folder).joinpath(f'{course.filename}.{settings.return_output_format()}')))
+                        f"\"{str(pathlib.Path(course.export_folder).joinpath(f'{course.filename}.{settings.return_output_format()}'))}\"")
                 output = ff.options(" ".join(args))
             except Exception as msg:
                 logging.debug(msg)
@@ -750,7 +752,7 @@ class downloadACThread(QtCore.QThread):
         self.progressbar_add_value(1)
         for file in os.listdir(course.export_folder):
             try:
-                if file.split('.')[-1] == 'flv':
+                if file.split('.')[-1] == 'flv' or file.split('.')[-1] == 'cdata':
                     os.remove(pathlib.Path(course.export_folder).joinpath(file))
             except:
                 continue
@@ -903,6 +905,7 @@ class downloadACThread(QtCore.QThread):
             else:
                 try:
                     self.dialog_update_title(index= index, stage=downloadDialogStatus.cleanup)
+                    sleep(3)
                     assert self.course_cleanup(
                         course=course), 'ERROR IN CLEANING UP COURSE, CONTINUE TO NEXT QUEUE ITEM'
                 except Exception as msg:
