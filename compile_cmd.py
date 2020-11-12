@@ -4,10 +4,12 @@ def return_directory_tree(dirname):
     for (dirpath, dirnames, filenames) in os.walk(dirname):
         listOfFiles += [(dirpath,os.path.join(dirpath, file)) for file in filenames]
     return listOfFiles
-iconpath = 'launcher_icon.ico'
+iconpath = 'mac_launcher_icon.icns' if sys.platform == 'darwin' else 'launcher_icon.ico'
+# iconpath = 'launcher_icon.ico' if sys.platform == 'darwin' else 'launcher_icon.ico'
+
 # data_filenames = [r for directory in ['src',str(pathlib.Path('shiftIO').joinpath('grabber'))] for r in return_directory_tree(directory)]
 data_filenames = [('src','src'),('shiftIO/grabber','shiftIO/grabber'),('shiftIO/grabber/assets','shiftIO/grabber/assets')]
-data_cmd = ['--add-binary=' + f"{filename}"+f';{dirpath}' for dirpath,filename in data_filenames] if sys.platform == 'win32' else [' --add-binary=' + f"'{filename}'"+f":'{dirpath}'" for dirpath,filename in data_filenames]
+data_cmd = ['--add-binary=' + f"{filename}"+f';{dirpath}' for dirpath,filename in data_filenames] if sys.platform == 'win32' else [' --add-data=' + f"{filename}"+f":'{dirpath}'" for dirpath,filename in data_filenames]
 # data_cmd = ['--add-binary=' + f"{filename}" for dirpath,filename in data_filenames] if sys.platform == 'win32' else [' --add-data=' + f"'{filename}'"+":'DATA'" for filename in data_filenames]
 
 # subprocess.call(['pyinstaller',
@@ -38,7 +40,7 @@ def compile():
                          # '--clean',
                      '--name',
                      'ACD-Launcher',
-                     '--onefile',
+                     # '--onefile',
                      f"--icon={iconpath}",
                          r"--paths=venv\Lib\site-packages",
                          r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
@@ -50,14 +52,14 @@ def compile():
         print(' '.join(['pyinstaller',
                             ' main.py',
                             "--distpath='EXPORTS'",
-                            # '--windowed',
-                            # '-y',
+                            '--windowed',
+                            '-y',
                             # '--clean',
                             # '-F',
                             '--name',
                             'ACD-Launcher',
-                            '--onefile',
-                            f"--icon={iconpath}"
+                            # '--onefile',
+                            f"--icon={iconpath}",
                             r"--paths=venv\Lib\site-packages",
                             r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
                             # '--specpath',
@@ -67,14 +69,14 @@ def compile():
         os.system(' '.join(['pyinstaller',
                             ' main.py',
                             "--distpath='EXPORTS'",
-                            # '--windowed',
-                            # '-y',
+                            '--windowed',
+                            '-y',
                             # '--clean',
                             # '-F',
                             '--name',
                             'ACD-Launcher',
                             '--onefile',
-                            f"--icon={iconpath}"
+                            f"--icon={iconpath}",
                             r"--paths=venv\Lib\site-packages",
                             r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
                             # '--specpath',
@@ -95,7 +97,7 @@ def compile():
                          '--name',
                          'ACD-Launcher',
                          '--onefile',
-                            f"--icon={iconpath}"
+                            f"--icon={iconpath}",
                             r"--paths=venv\Lib\site-packages",
                             r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
                             # '--specpath',

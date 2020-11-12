@@ -74,10 +74,13 @@ def parsemainstream(path=None, bytesdata=None):
             except:
                 pass
             else:
-                if thename.split('.')[-1] not in ['jpg', 'jpeg', 'png'] :
-                    assets.append(
-                        assetDocument(assetURL='/system/download?download-url='+urladd)
-                    )
+                if thename.split('.')[-1] in ['jpg', 'jpeg', 'png'] :
+                    try:
+                        assets.append(
+                            assetDocument(assetURL='/system/download?download-url='+urladd)
+                        )
+                    except:
+                        continue
                     continue
 
     return list(set(assets)) if assets else []
