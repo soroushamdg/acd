@@ -1,4 +1,8 @@
 import subprocess,sys,os,pathlib
+import time
+from settings import DEBUG,SETTINGS
+
+
 def return_directory_tree(dirname):
     listOfFiles = list()
     for (dirpath, dirnames, filenames) in os.walk(dirname):
@@ -12,87 +16,54 @@ data_filenames = [('src','src'),('shiftIO/grabber','shiftIO/grabber'),('shiftIO/
 data_cmd = ['--add-binary=' + f"{filename}"+f';{dirpath}' for dirpath,filename in data_filenames] if sys.platform == 'win32' else [' --add-data=' + f"{filename}"+f":'{dirpath}'" for dirpath,filename in data_filenames]
 # data_cmd = ['--add-binary=' + f"{filename}" for dirpath,filename in data_filenames] if sys.platform == 'win32' else [' --add-data=' + f"'{filename}'"+":'DATA'" for filename in data_filenames]
 
-# subprocess.call(['pyinstaller',
-#                  '--name',
-#                  'acd',
-#                  '--onefile',
-#                  '-w',
-#                  '--icon=acd_logo_Mzn_icon.ico'
-#                  '--add-data', '"_acd_logo_1.png"', '--add-data', '"_acd_logo_icon.png"', '--add-data', '"acd_logo_Mzn_icon.ico"',
-#                  '--add-data' ,'"bug.png"', '--add-data', '"github.png"', '"--add-data"', '"it.png"', '--add-data', '"ok.png"'
-#                  ])
 def compile():
-    if sys.platform == 'win32':
-        print(" ".join(['pyinstaller',
-                         "--distpath='EXPORTS'",
-                         # '--clean',
-                     '--name',
-                     'ACD-Launcher',
-                     '--onefile',
-                     f"--icon={iconpath}",
-                         r"--paths=venv\Lib\site-packages",
-                         r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
-                     # '--specpath',
-                     # 'datas.spec'
-                     ]+data_cmd+['main.py']))
-        subprocess.call(['pyinstaller',
-                         "--distpath='EXPORTS'",
-                         # '--clean',
-                     '--name',
-                     'ACD-Launcher',
-                     '--onefile',
-                     f"--icon={iconpath}",
-                         r"--paths=venv\Lib\site-packages",
-                         r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
-                     # '--specpath',
-                     # 'datas.spec'
-                     ]+data_cmd+['main.py'],shell=False)
-    elif sys.platform == 'darwin':
-        # --add-binary = '/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary = '/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'
-        print(' '.join(['pyinstaller',
-                            ' main.py',
-                            "--distpath='EXPORTS'",
-                            '--windowed',
-                            '-y', #confirm replace
-                            # '--clean',
-                            # '-F',
-                            '--name',
-                            'ACD-Launcher',
-                            # '--onefile',
-                            f"--icon={iconpath}",
-                            r"--paths=venv\Lib\site-packages",
-                            r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
-                            # '--specpath',
-                            # 'datas.spec'
-                            ] + data_cmd) + r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'")
+    if DEBUG:
+        print('Please change settings DEBUG to False and logging.INFO')
+        return
 
-        os.system(' '.join(['pyinstaller',
+    start_time = time.time()
+    if sys.platform == 'win32':
+
+        windows_args = ['pyinstaller',
+                         "--distpath='EXPORTS'",
+                         # '--clean',
+                        '-w',
+                     '--name',
+                     'ACD-Launcher',
+                     '--onefile',
+                     f"--icon={iconpath}",
+                         r"--paths=venv\Lib\site-packages",
+                        #  r'--hidden-import=tldextract',
+                        # r'--hidden-import=pkgutil'
+                     # '--specpath',
+                     # 'datas.spec'
+                     ]+data_cmd+['main.py']
+        print(" ".join(windows_args))
+        subprocess.call(windows_args, shell=False)
+
+    elif sys.platform == 'darwin':
+
+        macos_args = ['pyinstaller',
                             ' main.py',
                             "--distpath='EXPORTS'",
                             '--windowed',
                             '-y', #confirm replace
-                            # '--clean',
+                            '--clean',
                             # '-F',
                             '--name',
                             'ACD-Launcher',
-                            # '--onefile',
+                            '--onefile',
                             f"--icon={iconpath}",
                             r"--paths=venv\Lib\site-packages",
                             r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
                             # '--specpath',
                             # 'datas.spec'
-                            ] + data_cmd) + r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'")
+                            ] + data_cmd + [r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'"]
+        print(' '.join(macos_args))
+        os.system(' '.join(macos_args))
     else:
-        print(' '.join(['pyinstaller',
-                            ' main.py',
-                         '--name',
-                         'ACD-Launcher',
-                         '--onefile',
-                         iconpath,
-                         # '--specpath',
-                         # 'datas.spec'
-                         ]) + ' '.join(data_cmd) )
-        os.system(' '.join(['pyinstaller',
+
+        linux_args = ['pyinstaller',
                             ' main.py',
                          '--name',
                          'ACD-Launcher',
@@ -102,4 +73,7 @@ def compile():
                             r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
                             # '--specpath',
                          # 'datas.spec'
-                         ] + data_cmd))
+                         ] + data_cmd
+        print(' '.join(linux_args))
+        os.system(' '.join(linux_args))
+    print(f"Compile finished in : {int((time.time()-start_time)/60)}:{int((time.time()-start_time)%60)} ")

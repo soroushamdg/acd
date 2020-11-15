@@ -121,7 +121,7 @@ class Ui_downloadEngineDialog(QtWidgets.QDialog):
         movie.start()
 
         self.progressBar = QtWidgets.QProgressBar(self)
-        self.progressBar.setGeometry(QtCore.QRect(10, 462, 281, 31))
+        self.progressBar.setGeometry(QtCore.QRect(10, 462, 281, 21))
         self.progressBar.setStyleSheet("QProgressBar{\n"
                                        "border:2px solid #484848;\n"
                                        "border-radius:9px;\n"

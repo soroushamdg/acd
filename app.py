@@ -928,8 +928,10 @@ class Ui_MainWindow(object):
         self.actionClear_cache.setObjectName("actionClear_cache")
         self.actionLogin = QtWidgets.QAction(MainWindow)
         self.actionLogin.setObjectName("actionLogin")
+
         self.actionAdd_to_queue = QtWidgets.QAction(MainWindow)
         self.actionAdd_to_queue.setObjectName("actionAdd_to_queue")
+
         self.actionExit = QtWidgets.QAction(MainWindow)
         self.actionExit.setObjectName("actionExit")
         self.actionStart = QtWidgets.QAction(MainWindow)
@@ -1000,6 +1002,7 @@ class Ui_MainWindow(object):
         self.actionShift_I_O_Engine_v1.setObjectName("actionShift_I_O_Engine_v1")
 
         self.menuFile.addAction(self.actionLogin)
+        self.menuFile.addAction(self.actionAdd_to_queue)
         self.menuFile.addAction(self.actionStart)
         self.menuFile.addSeparator()
         self.menuFile.addAction(self.actionConnect_FTP)
@@ -1086,7 +1089,7 @@ class Ui_MainWindow(object):
         self.actionClear_cache.setShortcut(_translate("MainWindow", "Ctrl+Del"))
         self.actionLogin.setText(_translate("MainWindow", "Login Adobe Connect"))
         self.actionLogin.setShortcut(_translate("MainWindow", "Ctrl+Shift+L"))
-        self.actionAdd_to_queue.setText(_translate("MainWindow", "Add to queue"))
+        self.actionAdd_to_queue.setText(_translate("MainWindow", "Add list to queue"))
         self.actionAdd_to_queue.setShortcut(_translate("MainWindow", "Ctrl+T"))
         self.actionExit.setText(_translate("MainWindow", "Exit"))
         self.actionExit.setShortcut(_translate("MainWindow", "Ctrl+Q"))

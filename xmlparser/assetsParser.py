@@ -16,6 +16,7 @@ def extract_filename(url):
     for par in query:
         if 'name=' in par:
             return par.split('name=')[1]
+    return url.split('/')[-1]
 
 def extract_filetype(filename):
         return filename.split('.')[-1]
@@ -74,10 +75,11 @@ def parsemainstream(path=None, bytesdata=None):
             except:
                 pass
             else:
-                if thename.split('.')[-1] in ['jpg', 'jpeg', 'png'] :
+                if thename.split('.')[-1] in ['jpg', 'jpeg', 'png']:
                     try:
+                        urladd = '/system/download?download-url=' + urladd
                         assets.append(
-                            assetDocument(assetURL='/system/download?download-url='+urladd)
+                            assetDocument(assetURL=urladd)
                         )
                     except:
                         continue

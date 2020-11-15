@@ -4,7 +4,6 @@ import pathlib
 
 class AudioRecording():
     def __init__(self,filename,startTime):
-        print(filename)
         self.filename = filename.split('/')[1] + '.flv'
         self.new_filename = None
         self.delay = int(startTime)

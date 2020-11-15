@@ -16,7 +16,7 @@ import logging
 
 from tornado.platform.asyncio import AnyThreadEventLoopPolicy
 
-logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'shiftio',filemode='a',level=logging.DEBUG,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=settings.SETTINGS['LOG_LEVEL'],datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
 
 def get_platform_architecture():
     if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
@@ -71,7 +71,6 @@ class shiftioUploadHandler(tornado.web.RequestHandler):
         self.redirect("/")
 
     def get(self):
-        print(settings.return_shiftio_assets_path(html=True))
         self.render(settings.return_shiftio_assets_path(html=True), file_types=' .'+" .".join(settings.return_shiftio_valid_types()))
 
 class shiftIOServerThread(QtCore.QThread):
@@ -107,7 +106,7 @@ class shiftIOServerThread(QtCore.QThread):
             server.listen(self.port)
             # logging.getLogger("tornado.access").propagate = False
         except Exception as msg:
-            print(msg)
+            logging.debug(msg)
             self.status = False
             return
         else:
@@ -116,7 +115,7 @@ class shiftIOServerThread(QtCore.QThread):
         try:
             tornado.ioloop.IOLoop.instance().start()
         except Exception as msg:
-            print(msg)
+            logging.debug(msg)
             return
 
 

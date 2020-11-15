@@ -22,10 +22,10 @@ import requests
 from xmlparser import streamParser,assetsParser
 import logging
 from clearbuffer import clear_buffer
-logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'thread',filemode='a',level=logging.INFO,datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'thread',filemode='a',level=settings.SETTINGS['LOG_LEVEL'],datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
 
-logger = 'bar'
-verbose = True
+logger = None # or 'bar'
+verbose = False # or True
 
 class downloadDialogStatus(enum.Enum):
     analyzing = 1
@@ -63,6 +63,7 @@ class downloadACThread(QtCore.QThread):
     increase_downloaded_assets_lcd_number = QtCore.pyqtSignal(int)
     increase_converted_lcd_number = QtCore.pyqtSignal(int)
     update_dialog_title = QtCore.pyqtSignal(int, downloadDialogStatus)
+    add_download_file_size_to_dialog_title = QtCore.pyqtSignal(str)
     raise_dialog = QtCore.pyqtSignal(str,str,str,bool)
     raise_errorflag = QtCore.pyqtSignal()
 
@@ -90,7 +91,7 @@ class downloadACThread(QtCore.QThread):
             clip = ImageClip(img).set_duration(duration)
             clip = concatenate_videoclips([clip],method="compose")
             clip.write_videofile(output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}'), fps=3 if size[0] * size[1] >= 422500 else 25, preset="ultrafast" ,verbose=verbose,
-                logger=logger)
+                logger=logger,temp_audiofile=settings.return_temp_path(filename='TEMP_AUDIO.mp3'))
             clip.close()
         return output if output else settings.return_temp_path(filename=str(duration) + f'.{settings.return_output_format()}')
 
@@ -120,8 +121,14 @@ class downloadACThread(QtCore.QThread):
         try:
             self.update_dialog_title.emit(index, stage)
         except Exception as msg:
-            print(msg)
-
+            logging.debug(msg)
+            
+    def dialog_add_file_download_size_title(self,sizeinbytes : int):
+        try:
+            self.add_download_file_size_to_dialog_title.emit(get_size_format(sizeinbytes))
+        except:
+            pass
+        
     # OPERATION FUNCTIONS
     def allowed_to_do(self,accourse : acCourse):
         """
@@ -144,7 +151,7 @@ class downloadACThread(QtCore.QThread):
         cleanedup = 8
         :return: returns functions that are allowed to run according to course status.
         """
-        print(accourse.status)
+
         if accourse.status == acCourseStatus.failure or accourse.status == acCourseStatus.fresh:
             return []
 
@@ -206,15 +213,16 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error('Error happened in applying acCourse cookies into session.')
-            print(msg)
+
         # SENDING GET REQUEST
         try:
-            request = session.get(course.download_url,stream=True)
+            request = session.get(course.download_url,stream=True,verify = False)
             assert request.status_code == 200, f'Request code = {request.status_code}'
+            clear_buffer()
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in requesting session, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
             return False
@@ -222,10 +230,11 @@ class downloadACThread(QtCore.QThread):
         try:
             full_size = int(request.headers['Content-length'])
             self.progressbar_set_max(full_size)
+            self.dialog_add_file_download_size_title(full_size)
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in getting request headers, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
             return False
@@ -238,14 +247,14 @@ class downloadACThread(QtCore.QThread):
                 f.write(chunk)
                 dl_size += 1048576 # 1 Mega-byte
                 self.progressbar_set_value(dl_size)
-                print(f'downloaded {get_size_format(dl_size)}/{get_size_format(full_size)}')
+
             sleep(1)
             f.close()
             assert os.path.getsize(str(pathlib.Path(course.export_folder).joinpath(f'{course.filename}.cdata'))) == full_size, 'File size not equal, corrupted download.'
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in getting request headers, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
             return False
@@ -265,7 +274,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in opening cdata file, tagged as failure. -> {course.filename}')
-            print(msg)
+
             try:
                 cdatazip.close()
             except:
@@ -282,7 +291,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in reading cdata index files, tagged as failure. -> {course.filename}')
-            print(msg)
+
             try:
                 cdatazip.close()
             except:
@@ -306,7 +315,7 @@ class downloadACThread(QtCore.QThread):
 
             logging.debug(msg)
             logging.error(f'Error happened in parsing cdata index files, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
 
@@ -331,12 +340,12 @@ class downloadACThread(QtCore.QThread):
                     session = requests.Session()
                     # SENDING GET REQUEST
                     try:
-                        course.assets_streams_objects[index].request_get = session.get(course.asset_download_url(asseturl=asset.directory), stream=True)
+                        course.assets_streams_objects[index].request_get = session.get(course.asset_download_url(asseturl=asset.directory), stream=True,verify = False)
                     except Exception as msg:
                         logging.debug(msg)
                         logging.error(f'Error happened in requesting session for asset.> {asset.filename}')
                         del course.assets_streams_objects[index]
-                        print(msg)
+
                         continue
                 for index, asset in enumerate(course.assets_streams_objects):
                     # GETTING FULL SIZE OF FILE
@@ -349,7 +358,7 @@ class downloadACThread(QtCore.QThread):
                         logging.error(
                             f'Error happened in requesting session for asset. -> {asset.filename}')
                         del course.assets_streams_objects[index]
-                        print(msg)
+
                         continue
 
                 self.progressbar_set_max(sum([byte_to_megabyte(item.filesize) for item in course.assets_streams_objects]))
@@ -362,16 +371,16 @@ class downloadACThread(QtCore.QThread):
                             f.write(chunk)
                             dl_size += 1048576  # 1 Mega-byte
                             self.progressbar_add_value(byte_to_megabyte(1048576))
-                            print(f'downloaded {get_size_format(dl_size)}/{get_size_format(full_size)}')
+
                         sleep(1)
                         f.close()
-                        print(f.closed)
+
                         assert os.path.getsize(str(pathlib.Path(course.export_folder).joinpath('assets').joinpath(f'{asset.filename}'))) == full_size, 'asset file size not equal, corrupted download.'
                     except Exception as msg:
                         logging.debug(msg)
                         logging.error(
                             f'Error happened in downloading asset, tagged as failure. -> {asset.filename}')
-                        print(msg)
+
                         continue
                     else:
                         self.increase_downloaded_assets_lcd_number.emit(1)
@@ -396,7 +405,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error happened in opening cdata file, tagged as failure. -> {course.filename}')
-            print(msg)
+
             try:
                 cdatazip.close()
             except:
@@ -424,7 +433,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in extracting course files, tagged as failure. -> {course.filename}')
-            print(msg)
+
             try:
                 cdatazip.close()
             except:
@@ -457,7 +466,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in creating audio object course files, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
             return False
@@ -472,7 +481,7 @@ class downloadACThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in creating composite audio object course files, tagged as failure. -> {course.filename}')
-            print(msg)
+
             course.status = acCourseStatus.failure
             self.acQueueManager.update_ac_course_object(course)
             return False
@@ -491,7 +500,7 @@ class downloadACThread(QtCore.QThread):
                     pass
                 logging.debug(msg)
                 logging.error(f'Error in creating composite audio object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -512,7 +521,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in generating image, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -524,7 +533,7 @@ class downloadACThread(QtCore.QThread):
                 clip.write_videofile(
                     str(pathlib.Path(course.export_folder).joinpath(f'{course.filename}.{settings.return_output_format()}')),
                     fps=10, verbose=verbose,
-            logger=logger)
+            logger=logger,temp_audiofile=settings.return_temp_path(filename='TEMP_AUDIO.mp3'))
                 clip.close()
             except Exception as msg:
                 try:
@@ -534,7 +543,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in generating output video-audio files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -569,7 +578,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in converting object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -597,7 +606,7 @@ class downloadACThread(QtCore.QThread):
                         video = VideoFileClip(str(pathlib.Path(course.export_folder).joinpath(f'{vid.new_filename}.flv')))
                         videos.append(video.set_start(tuple([milisec2sec(vid.delay)])))
                     except Exception as msg:
-                        print(msg)
+                        logging.debug(msg)
                         continue
                     else:
                         pass
@@ -606,33 +615,34 @@ class downloadACThread(QtCore.QThread):
             except Exception as msg:
                 logging.debug(msg)
                 logging.error(f'Error in creating video object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
 
             # ADD BLANK SCREENS
             try:
+                offset = 0
                 for index, item in enumerate(videos.copy()):
                     if index == 0:
                         if item.start != 0:
                             blank_screen = VideoFileClip(
                                 self.create_blank_screen_video(duration = item.start, size=(item.w, item.h)))
                             videos.insert(0, blank_screen)
+                            offset += 1
                     else:
-                        if item.start - videos[index - 1].start - videos[index - 1].duration > 0:
+                        if item.start - videos[index + offset - 1].end > 0:
                             blank_screen = VideoFileClip(self.create_blank_screen_video(
-                                duration=item.start - (videos[index - 1].start + videos[index - 1].duration),size=(item.w,item.h)))
-                            videos.insert(index, blank_screen)
+                                duration= item.start - videos[index + offset - 1].end ,size=(item.w,item.h)))
+                            videos.insert(index + offset, blank_screen.set_start(videos[index + offset -1].end))
+                            offset += 1
             except Exception as msg:
                 logging.debug(msg)
                 logging.error(f'Error in creating video object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
-
-
 
             # CHECK IF AUDIO EXISTS
             try:
@@ -642,7 +652,7 @@ class downloadACThread(QtCore.QThread):
                     logging.debug(msg)
                     logging.error(
                         f'Error in finding mixed audio object course files, tagged as failure. -> {course.filename}')
-                    print(msg)
+                    
                     course.status = acCourseStatus.failure
                     self.acQueueManager.update_ac_course_object(course)
                     return False
@@ -673,11 +683,16 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in creating merging video with audio object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
             else:
+                sleep(5)
+                try:
+                    del ff
+                except:
+                    pass
                 logging.debug(output)
                 logging.info(output)
                 self.progressbar_add_value(1)
@@ -695,7 +710,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in finding mixed audio object course files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -707,7 +722,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in generating image, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False
@@ -721,7 +736,7 @@ class downloadACThread(QtCore.QThread):
                 clip.write_videofile(
                     str(pathlib.Path(course.export_folder).joinpath(f'{course.filename}.{settings.return_output_format()}')),
                     fps=10, verbose=verbose,
-            logger=logger)
+            logger=logger,temp_audiofile=settings.return_temp_path(filename='TEMP_AUDIO.mp3'))
                 clip.close()
             except Exception as msg:
                 try:
@@ -731,7 +746,7 @@ class downloadACThread(QtCore.QThread):
                 logging.debug(msg)
                 logging.error(
                     f'Error in generating output video-audio files, tagged as failure. -> {course.filename}')
-                print(msg)
+                
                 course.status = acCourseStatus.failure
                 self.acQueueManager.update_ac_course_object(course)
                 return False

@@ -5,5 +5,5 @@ running_platform = platform.platform()
 system = platform.system()
 processor = platform.processor()
 
-def resetACD(appexit):
-    reset_program(appexit)
+def resetACD():
+    reset_program()

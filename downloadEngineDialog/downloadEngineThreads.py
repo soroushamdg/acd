@@ -70,11 +70,11 @@ class downloadEngineThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             self.raise_dialog.emit('Error', 'Error in accessing server',
-                                   'Please connect to VPN or a proxy and try again.', True)
+                                   'Please connect to VPN or a proxy and try again.\n Or check https://shecan.ir', True)
             return
         if res.status_code != 200:
             self.raise_dialog.emit('Error', 'Error in accessing server',
-                                   'Please connect to VPN or a proxy and try again.', True)
+                                   'Please connect to VPN or a proxy and try again.\n Or check https://shecan.ir', True)
             return
         try:
             res = get_url(
@@ -83,7 +83,7 @@ class downloadEngineThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             self.raise_dialog.emit('Error', 'Error in accessing server',
-                                   'Please connect to VPN or a proxy and try again.', True)
+                                   'Please connect to VPN or a proxy and try again.\n Or check https://shecan.ir', True)
             return
         self.check_dependencies_status.emit(True)
         if res.status_code == 200:
@@ -147,5 +147,5 @@ class downloadEngineThread(QtCore.QThread):
             return
         else:
             self.raise_dialog.emit('Error', 'Error in accessing server',
-                                   'Please connect to VPN or a proxy and try again.', True)
+                                   'Please connect to VPN or a proxy and try again.\n Or check https://shecan.ir', True)
             return

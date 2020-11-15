@@ -7,6 +7,7 @@ from exeinfo import BUILD_NUMBER
 import random,string
 
 DEBUG = False
+CHECK_NEW_VERSION = False
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -71,10 +72,10 @@ def check_or_create_exports_folder(DEBUG = DEBUG):
                 pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).mkdir(parents=True, exist_ok=True)
                 pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).joinpath('ADOBE CONNECT').mkdir(parents=True, exist_ok=True)
                 pathlib.Path(SETTINGS['MAIN_EXPORT_PATH']).joinpath('Transfers').mkdir(parents=True, exist_ok=True)
+                pathlib.Path(SETTINGS['FTP_EXPORT_PATH']).joinpath('FTP').mkdir(parents=True, exist_ok=True)
 
         except Exception as msg:
             logging.debug(msg)
-            print(msg)
             logging.error('ERROR IN CREATING EXPORTS FOLDER')
             return False
         else:
@@ -85,9 +86,10 @@ def check_or_create_exports_folder(DEBUG = DEBUG):
                 pathlib.Path(application_path()).joinpath('ACD_EXPORTS').mkdir(parents=True, exist_ok=True)
                 pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT').mkdir(parents=True, exist_ok=True)
                 pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('Transfers').mkdir(parents=True, exist_ok=True)
+                pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('FTP').mkdir(parents=True, exist_ok=True)
+
 
         except Exception as msg:
-            print(msg)
             logging.debug(msg)
             logging.error('ERROR IN CREATING EXPORTS FOLDER')
             return False
@@ -95,6 +97,8 @@ def check_or_create_exports_folder(DEBUG = DEBUG):
             SETTINGS['MAIN_EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS'))
             SETTINGS['EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT'))
             SETTINGS['SHIFTIO_EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('Transfers'))
+            SETTINGS['FTP_EXPORT_PATH'] = str(pathlib.Path(application_path()).joinpath('ACD_EXPORTS').joinpath('FTP'))
+
             return True
 
 def reset_program():
@@ -130,7 +134,8 @@ SETTINGS = {
     'SETTINGS_PATH' : str(pathlib.Path(application_path()).joinpath('settings.es')),
     'MAIN_EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
     'EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('ADOBE CONNECT')),
-    'SHIFTIO_EXPORT_PATH' :str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('Transfers')),
+    'SHIFTIO_EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('Transfers')),
+    'FTP_EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop")).joinpath('ACD_EXPORTS').joinpath('FTP')),
     'TEMP_PATH' : return_temp_path(),
     'APPLICATION_KEY': 'vdhOVlS0ghzlRy75aQLK0paoRHmWUvfoQ-EhWWx6D_o=',
     'ACD_ENGINE_PATH': str(pathlib.Path(application_path()).joinpath('acd_engine.acde')),

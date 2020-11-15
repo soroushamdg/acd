@@ -102,7 +102,6 @@ class acQueueManager():
         except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in removing item ACCOURSE filename : {filename}')
-            print('\n',1,msg)
             return False
         return False
 
@@ -121,10 +120,11 @@ class acQueueManager():
 
     def cancel_and_remove_files(self):
         for course in self.queue_list:
-            try:
-                shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
-            except:
-                pass
+            if course.status not in [acCourseStatus.finished, acCourseStatus.cleanedup]:
+                try:
+                    shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
+                except:
+                    pass
 
     def remove_failed_files(self):
         for course in self.queue_list:
@@ -132,4 +132,4 @@ class acQueueManager():
                 try:
                     shutil.rmtree(pathlib.Path(settings.SETTINGS['EXPORT_PATH']).joinpath(course.filename))
                 except Exception as msg:
-                    print(msg)
+                    logging.debug(msg)

@@ -24,6 +24,7 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
     errorflag = False
     def __init__(self, parent, acBrowser : Chrome,acQueueListManager : acQueueManager):
         super(Ui_downloadACDialog, self).__init__(parent)
+        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setWindowFlag(QtCore.Qt.WindowCloseButtonHint, False)
         self.acQueueListManager = acQueueListManager
         self.acBrowser = acBrowser
@@ -228,13 +229,12 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
 
     def update_dialog_title(self,index : int,status : downloadACDialogThread.downloadDialogStatus):
         index = f"{index+1}/{len(self.acQueueListManager.queue_list)}"
-        print(index)
 
         if status == downloadDialogStatus.analyzing:
             self.dialogLabel.setText(f"Analyzing course {index}")
 
         if status == downloadDialogStatus.downloading:
-            self.dialogLabel.setText(f"Downloading course {index}")
+            self.dialogLabel.setText(f"Downloading course {index} ")
 
         if status == downloadDialogStatus.processing:
             self.dialogLabel.setText(f"Processing course {index}")
@@ -254,7 +254,13 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
         if status == downloadDialogStatus.cleanup:
             self.dialogLabel.setText(f"Cleaning course {index}")
 
-        print('set dialog label')
+        QtWidgets.QApplication.processEvents()
+
+    def add_download_file_size_to_dialog_title(self,filesize : str):
+        self.dialogLabel.setText(
+            self.dialogLabel.text() + ' - ' + filesize
+        )
+
         QtWidgets.QApplication.processEvents()
 
     # CANCEL OPERATION HANDLER
@@ -358,9 +364,8 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
             for item in self.downloadACTaskThread.acQueueManager.queue_list:
                 if item.status not in [acCourseStatus.finished, acCourseStatus.cleanedup]:  # IF COURSE IS NOT FINISHED OR CLEANUP
                     failed.append(item)
-                    print('added item failed : ',item.filename,item.status)
             if failed:
-                #TODO : MOVE REMOVE FAILED FILES HERE.
+                self.downloadACTaskThread.acQueueManager.remove_failed_files()
                 msg = QMessageBox(self)
                 message = f"Failed to download or process {len(failed)} item(s) from queue"
                 msg.setText(message)
@@ -368,7 +373,6 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
                 msg.setWindowTitle('Completed downloading meetings.')
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.exec_()
-                self.downloadACTaskThread.acQueueManager.remove_failed_files()
             self.retstatus = 'COMPLETED'
             self.close()
 
@@ -387,6 +391,7 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
         self.downloadACTaskThread.fill_progressbar_devide.connect(self.fill_progressbar_devide)
 
         self.downloadACTaskThread.update_dialog_title.connect(self.update_dialog_title)
+        self.downloadACTaskThread.add_download_file_size_to_dialog_title.connect(self.add_download_file_size_to_dialog_title)
         self.downloadACTaskThread.raise_dialog.connect(self.raise_dialog)
         self.downloadACTaskThread.raise_errorflag.connect(self.raise_errorflag)
 
@@ -396,7 +401,6 @@ class Ui_downloadACDialog(QtWidgets.QDialog):
         try:
             self.downloadACTaskThread.start()
         except Exception as msg:
-            print(msg)
-
+            logging.debug(msg)
 
 import downloadACDialog.downloadACDialogResources_rc

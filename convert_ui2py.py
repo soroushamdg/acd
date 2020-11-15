@@ -61,3 +61,30 @@ def convertSplashScreenDialog():
                     '-o',
                     'splashScreenDialog\\splashScreenDialogResources_rc.py'])
     print('Ran pyrcc5')
+
+
+
+def convertFtpGetUsernamePasswordDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\ftpGetUsernamePasswordDialog\\ftpGetUsernamePasswordDialog.ui',
+                    '-o',
+                    'ftpGetUsernamePasswordDialog\\ftpGetUsernamePasswordDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\ftpGetUsernamePasswordDialog\\ftpGetUsernamePasswordDialogResources.qrc',
+                    '-o',
+                    'ftpGetUsernamePasswordDialog\\ftpGetUsernamePasswordDialogResources_rc.py'])
+    print('Ran pyrcc5')
+
+
+def convertFtpDownloadDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\ftpDownloadDialog\\ftpDownloadDialog.ui',
+                    '-o',
+                    'ftpDownloadDialog\\ftpDownloadDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\ftpDownloadDialog\\ftpDownloadDialogResources.qrc',
+                    '-o',
+                    'ftpDownloadDialog\\ftpDownloadDialogResources_rc.py'])
+    print('Ran pyrcc5')
