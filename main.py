@@ -480,6 +480,7 @@ class Main(QtWidgets.QMainWindow):
         self.ac_clear_ui_queue_list()
         self.acQueueList.queue_list.clear()
         self.ac_update_ui_queue_list()
+        self.ui.acRemoveFromQueueButton.setDisabled(True)
 
     # AC STAGE 3 : QUEUE DOWNLOAD
     def ac_start_download_action(self):

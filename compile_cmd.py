@@ -65,15 +65,19 @@ def compile():
 
         linux_args = ['pyinstaller',
                             ' main.py',
+                      "--distpath='EXPORTS'",
+                      '--windowed',
+                      '-y',  # confirm replace
                          '--name',
                          'ACD-Launcher',
                          '--onefile',
                             f"--icon={iconpath}",
                             r"--paths=venv\Lib\site-packages",
-                            r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
-                            # '--specpath',
-                         # 'datas.spec'
-                         ] + data_cmd
+                      # r'--hidden-import=tldextract',
+                      # r'--hidden-import=pkgutil'
+                      # '--specpath',
+                      # 'datas.spec'
+                      ] + data_cmd
         print(' '.join(linux_args))
         os.system(' '.join(linux_args))
     print(f"Compile finished in : {int((time.time()-start_time)/60)}:{int((time.time()-start_time)%60)} ")

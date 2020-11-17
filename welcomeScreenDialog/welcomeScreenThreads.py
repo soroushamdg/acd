@@ -82,8 +82,8 @@ class configurationThread(QtCore.QThread):
         except Exception as msg:
             logging.debug(msg)
             logging.error('Google Chrome not installed.')
-            self.raise_dialog.emit('Error', 'Chrome is not installer or corrupted',
-                                   'Please check Google Chrome installed on your computer, or if you don\'t have it, install from https://chrome.google.com', True)
+            self.raise_dialog.emit('Error', 'Chrome is not installed or corrupted',
+                                   'Please check Google Chrome installed on your computer, or if you don\'t have it, install from https://chrome.google.com\n\n Linux users should install Chromium', True)
             return
         else:
             pass

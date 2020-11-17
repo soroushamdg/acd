@@ -22,7 +22,7 @@ import requests
 from xmlparser import streamParser,assetsParser
 import logging
 from clearbuffer import clear_buffer
-logging.basicConfig(filename=settings.SETTINGS['LOG_PATH']+'thread',filemode='a',level=settings.SETTINGS['LOG_LEVEL'],datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
+logging.basicConfig(filename=settings.SETTINGS['LOG_PATH'],filemode='a',level=settings.SETTINGS['LOG_LEVEL'],datefmt='%d-%b-%y %H:%M:%S',format="%(levelname)s -- %(asctime)s -- %(name)s -- %(message)s")
 
 logger = None # or 'bar'
 verbose = False # or True
