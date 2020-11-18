@@ -5,7 +5,7 @@ APARAT_LINK = "https://aparat.com"
 YOUTUBE_LINK = "https://youtube.com"
 VIRGOOL_LINK = "https://virgool.com"
 TELEGRAM_LINK = "https://telegram.org"
-CONTACT_DEVELOPER_LINK = "https://soroushamdg.ir"
+CONTACT_DEVELOPER_LINK = "https://google.com"
 
 def open_aparat_link():
     webbrowser.open(APARAT_LINK,new=2)

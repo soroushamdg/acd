@@ -9,8 +9,6 @@
 from time import sleep
 from random import randint
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QVariantAnimation, pyqtSlot, QVariant, QEasingCurve
-from PyQt5.QtGui import QPalette, QColor
 
 
 class Ui_splashScreenDialog(QtWidgets.QDialog):

@@ -846,6 +846,9 @@ class downloadACThread(QtCore.QThread):
 
             threads.clear()
 
+
+
+
             # CHECK IF COURSE OBJECT IS NOT FAILURE
             if course.status == -1:
                 logging.error('COURSE FLAGGED AS FAILURE, CONTINUE TO NEXT QUEUE ITEM')

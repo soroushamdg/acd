@@ -1,0 +1,10 @@
+What is ftp service? This service helps you to download and explore files in a ftp server.
+
+✔ Step 1 :
+    1 - Enter your ftp address in addressbar.
+    2 - Hit connect ( or Ctrl(or Command) + Alt + C ).
+    3 - In following dialog enter your username and password for login and then hit ok. (You can leave empty if it's needed)
+    4 - Files on ftp server will be shown on left "Explore" list, you can explore through files and double click on them to add to queue.
+    5 - Use back button on the left of Explore if needed.
+    6 - After adding files to queue, hit Start button ( or Ctrl(or Command) + Alt + S ) to start downloading.
+    7 - Your files will be saved on your Desktop, ACD_EXPORTS, ftp folder.

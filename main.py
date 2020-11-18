@@ -21,7 +21,8 @@ from selenium.webdriver.chrome.options import Options
 from clearbuffer import clear_buffer
 from shiftIO import shiftioThread
 from acQueueFileParser import acQueueFileParser
-
+from catchingScreenDialog import catchingScreenDialog
+from introductionScreenDialog import introductionScreenDialog
 import tldextract
 tldextract.extract('https://google.com')
 
@@ -75,6 +76,9 @@ class Main(QtWidgets.QMainWindow):
         self.setMenuBarInformation()
         self.startupConfiguration()
         QtWidgets.QApplication.processEvents()
+
+        self.ui.helpButton.clicked.connect(self.top_right_help_button_action)
+
         self.ac_disable_all_buttons_except_login()
         self.ftp_disable_all_buttons_except_login()
         self.shiftio_prepare_before_run()
@@ -97,6 +101,30 @@ class Main(QtWidgets.QMainWindow):
         self.ui.ftpStartQueueButton.clicked.connect(self.ftp_start_download_action)
         self.ui.actionStart_FTP_Queue.triggered.connect(self.ftp_start_queue_status)
 
+
+        # INIT CATCHING DIALOG THREAD
+        self.catchingDialog = catchingScreenDialog.Ui_catchingScreenDialog(parent = self)
+
+    def top_right_help_button_action(self):
+        tabs = {
+            '0':'adobeconnect',
+            '1':'ftp',
+            '2':'shiftio'
+        }
+        tab = tabs[str(self.ui.tabWidget.currentIndex())]
+        introductionDialog = introductionScreenDialog.Ui_introductionScreenDialog(parent = self, informationText= open(settings.src_path(f"howto_{tab}"),'r',encoding='utf-8').read())
+        introductionDialog.exec_()
+        return
+
+
+
+    def show_catching_dialog(self):
+        self.catchingDialog.show()
+        QtWidgets.QApplication.processEvents()
+
+    def close_catching_dialog(self):
+        self.catchingDialog.close()
+        QtWidgets.QApplication.processEvents()
 
     def menu_bar_set_ac_output_bitrate(self):
         options_plain = ("30k",
@@ -166,8 +194,7 @@ class Main(QtWidgets.QMainWindow):
     # AC STAGE 1 : LOGIN
     def ac_disable_all_buttons_except_login(self):
         self.ui.acCourseURLInput.setDisabled(True)
-        try:
-            self.ui.acLoginButton.clicked.disconnect()
+        try:            self.ui.acLoginButton.clicked.disconnect()
         except:
             pass
         self.ui.acLoginButton.clicked.connect(self.ac_login_button_login_action)
@@ -231,22 +258,34 @@ class Main(QtWidgets.QMainWindow):
         opts.add_argument("--no-sandbox")
         self.driver1 = Chrome(options=opts, executable_path=settings.SETTINGS['ACD_ENGINE_PATH'])
         clear_buffer()
-        self.driver1.get('https://google.com')
+        try:
+            self.driver1.get('https://google.com')
+        except:
+            self.raise_error_dialog('Error', 'Please try again.')
+            self.ac_login_failed()
+            self.close_catching_dialog()
+            return
         self.ac_login_awaiting()
         QtWidgets.QApplication.processEvents()
 
     def ac_login_button_await_action(self):
         try:
-            waitMessage = QMessageBox()
-            waitMessage.setText("Catching")
-            waitMessage.setInformativeText("Please wait...")
-            waitMessage.setWindowTitle("Catching")
-            waitMessage.setStandardButtons(QMessageBox.Ok)
-            waitMessage.setDisabled(True)
-            waitMessage.show()
+            self.show_catching_dialog()
             QtWidgets.QApplication.processEvents()
         except Exception as msg:
             logging.debug(msg)
+
+        try:
+            if len(self.driver1.window_handles) != 1:
+                self.raise_error_dialog('More than one tab is open!','Please close others tabs and keep 1 .')
+                self.ac_login_failed()
+                self.close_catching_dialog()
+                return
+        except:
+            self.raise_error_dialog('Error', 'Please try again.')
+            self.ac_login_failed()
+            self.close_catching_dialog()
+            return
 
         try:
             pickle.dump(self.driver1.get_cookies(), open(settings.engine_cookie_path(), 'wb'))
@@ -255,7 +294,11 @@ class Main(QtWidgets.QMainWindow):
             self.driver1.close()
             self.driver1.quit()
         except Exception as msg:
+            self.raise_error_dialog('Error', 'Please try again.')
             logging.debug(msg)
+            self.ac_login_failed()
+            self.close_catching_dialog()
+            return
         sleep(1)
         try:
             opts = Options()
@@ -304,7 +347,7 @@ class Main(QtWidgets.QMainWindow):
             self.acBrowser.close()
             self.acBrowser.quit()
             self.ac_login_failed()
-        waitMessage.close()
+        self.close_catching_dialog()
         return
 
     # AC STAGE 2 : QUEUE CONTROLLER
@@ -581,13 +624,7 @@ class Main(QtWidgets.QMainWindow):
 
     def ftp_reconnect_login_button_action(self):
         try:
-            waitMessage = QMessageBox()
-            waitMessage.setText("Catching")
-            waitMessage.setInformativeText("Please wait...")
-            waitMessage.setWindowTitle("Catching")
-            waitMessage.setStandardButtons(QMessageBox.Ok)
-            waitMessage.setDisabled(True)
-            waitMessage.show()
+            self.show_catching_dialog()
             QtWidgets.QApplication.processEvents()
         except Exception as msg:
             logging.debug(msg)
@@ -598,11 +635,11 @@ class Main(QtWidgets.QMainWindow):
             QMessageBox.critical(self,'Error','Error in logging in into ftp account.\n Please check username and password or ftp host address and try again.',QMessageBox.Ok)
             self.ftpQueueListManager.username = None
             self.ftpQueueListManager.password = None
-            waitMessage.close()
+            self.close_catching_dialog()
             self.ftp_login_failed()
             return
         else:
-            waitMessage.close()
+            self.close_catching_dialog()
 
         self.ftp_login_succesfull()
 
@@ -616,14 +653,7 @@ class Main(QtWidgets.QMainWindow):
             return
 
         try:
-            waitMessage = QMessageBox()
-            waitMessage.setText("Catching")
-            waitMessage.setInformativeText("Please wait...")
-            waitMessage.setWindowTitle("Catching")
-            waitMessage.setStandardButtons(QMessageBox.Ok)
-            waitMessage.setDisabled(True)
-            waitMessage.show()
-            QtWidgets.QApplication.processEvents()
+            self.show_catching_dialog()
         except Exception as msg:
             logging.debug(msg)
 
@@ -635,11 +665,11 @@ class Main(QtWidgets.QMainWindow):
             QMessageBox.critical(self,'Error','Error in logging in into ftp account.\n Please check username and password or ftp host address and try again.',QMessageBox.Ok)
             self.ftpQueueListManager.username = None
             self.ftpQueueListManager.password = None
-            waitMessage.close()
+            self.close_catching_dialog()
             self.ftp_login_failed()
             return
         else:
-            waitMessage.close()
+            self.close_catching_dialog()
 
         self.ftp_login_succesfull()
 
@@ -730,13 +760,7 @@ class Main(QtWidgets.QMainWindow):
             self.ftp_add_to_queue_button_action()
         else:
             try:
-                waitMessage = QMessageBox()
-                waitMessage.setText("Catching")
-                waitMessage.setInformativeText("Please wait...")
-                waitMessage.setWindowTitle("Catching")
-                waitMessage.setStandardButtons(QMessageBox.Ok)
-                waitMessage.setDisabled(True)
-                waitMessage.show()
+                self.show_catching_dialog()
                 QtWidgets.QApplication.processEvents()
             except Exception as msg:
                 logging.debug(msg)
@@ -744,17 +768,11 @@ class Main(QtWidgets.QMainWindow):
             self.ftpQueueListManager.goto_directory("".join(self.ui.ftpExplorListView.currentItem().text().split('->')[:-1]).rstrip())
             self.ftp_update_ui_explore_list()
 
-            waitMessage.close()
+            self.close_catching_dialog()
 
     def ftp_go_back_directory(self):
         try:
-            waitMessage = QMessageBox()
-            waitMessage.setText("Catching")
-            waitMessage.setInformativeText("Please wait...")
-            waitMessage.setWindowTitle("Catching")
-            waitMessage.setStandardButtons(QMessageBox.Ok)
-            waitMessage.setDisabled(True)
-            waitMessage.show()
+            self.show_catching_dialog()
             QtWidgets.QApplication.processEvents()
         except Exception as msg:
             logging.debug(msg)
@@ -762,7 +780,7 @@ class Main(QtWidgets.QMainWindow):
         self.ftpQueueListManager.go_back_previous_directory()
         self.ftp_update_ui_explore_list()
 
-        waitMessage.close()
+        self.close_catching_dialog()
 
     def ftp_remove_from_queue_button_action(self):
         if self.selected_item_in_queue_list:

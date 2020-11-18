@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>introductionScreenDialog</class>
+ <widget class="QDialog" name="introductionScreenDialog">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>424</width>
+    <height>687</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>424</width>
+    <height>687</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>424</width>
+    <height>687</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Introduction to ACD</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="introductionScreenDialogResources.qrc">
+    <normaloff>:/media/icon.png</normaloff>:/media/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background:rgb(77, 182, 172);
+}
+QPushButton{background:#121212;border: 1px solid #f8f8f8;border-radius:15px;
+color:white;
+font: 12pt &quot;Poppins&quot;;padding:3px 6px}
+
+QPushButton:hover{background:#484848;}
+QPushButton:pressed{background:#000000;}
+
+QPlainTextEdit{
+background-color:transparent;
+border : none;
+color:rgb(51, 0, 51);
+}
+
+QScrollBar:vertical {
+    border: 0px solid #999999;
+    background:white;
+    width:10px;
+border-radius:9px;
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:vertical {
+    background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(102, 102, 204, 255), stop:1 rgba(51, 51, 153, 255));
+    min-height: 0px;
+border-radius:9px;
+
+}
+QScrollBar::add-line:vertical {
+    background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(102, 102, 204, 255), stop:1 rgba(51, 51, 153, 255));
+
+    height: 0px;
+    subcontrol-position: bottom;
+
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(102, 102, 204, 255), stop:1 rgba(51, 51, 153, 255));
+
+    height: 0 px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QLabel" name="titleQLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>381</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Poppins</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(51, 0, 51);</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string>How to?</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="introductionAnimatedGifLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>-50</y>
+     <width>361</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>600</width>
+     <height>600</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="introductionScreenDialogResources.qrc">:/media/introductionsDialogAnimation.gif</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="introductionTextQPlainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>401</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::WidgetWidth</enum>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="plainText">
+    <string>Donec venenatis vulputate lorem. Phasellus ullamcorper ipsum rutrum nunc. Duis lobortis massa imperdiet quam. Donec venenatis vulputate lorem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+
+Etiam iaculis nunc ac metus. Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Morbi mollis tellus ac sapien.
+
+Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Curabitur turpis. Praesent nec nisl a purus blandit viverra. Cras varius. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla.</string>
+   </property>
+   <property name="centerOnScroll">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>22</x>
+     <y>637</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Close</set>
+   </property>
+  </widget>
+  <zorder>introductionAnimatedGifLabel</zorder>
+  <zorder>titleQLabel</zorder>
+  <zorder>introductionTextQPlainTextEdit</zorder>
+  <zorder>buttonBox</zorder>
+ </widget>
+ <resources>
+  <include location="introductionScreenDialogResources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>introductionScreenDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>212</x>
+     <y>652</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>211</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

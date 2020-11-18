@@ -26,11 +26,11 @@ class Ui_MainWindow(object):
         icon.addPixmap(QtGui.QPixmap(":/acd-icons/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:#919dff;}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                 "border-radius:15px;\n"
+                                 "color:white;}\n"
+                                 "QPushButton:enabled{background:#6a7bff;}\n"
+                                 "QPushButton:hover{background:#919dff;}\n"
+                                 "QPushButton:pressed {background:#465bff;}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet("")
@@ -38,9 +38,9 @@ class Ui_MainWindow(object):
         self.appInfoFrame = QtWidgets.QFrame(self.centralwidget)
         self.appInfoFrame.setGeometry(QtCore.QRect(0, 0, 941, 331))
         self.appInfoFrame.setStyleSheet("#appInfoFrame{\n"
-"background-color:#13141f;\n"
-"}\n"
-"")
+                                        "background-color:#13141f;\n"
+                                        "}\n"
+                                        "")
         self.appInfoFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.appInfoFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.appInfoFrame.setObjectName("appInfoFrame")
@@ -122,16 +122,16 @@ class Ui_MainWindow(object):
         font.setFamily("Poppins")
         self.tabWidget.setFont(font)
         self.tabWidget.setStyleSheet("QTabBar{\n"
-"background-color:#f07067;\n"
-"}\n"
-"QTabBar::tab:hover{\n"
-"background-color:30b7ff;\n"
-"color:#484848;\n"
-"}\n"
-"QTabBar::tab:selected{\n"
-"background-color:#6a7bff;\n"
-"color:#ffffff;\n"
-"}")
+                                     "background-color:#f07067;\n"
+                                     "}\n"
+                                     "QTabBar::tab:hover{\n"
+                                     "background-color:30b7ff;\n"
+                                     "color:#484848;\n"
+                                     "}\n"
+                                     "QTabBar::tab:selected{\n"
+                                     "background-color:#6a7bff;\n"
+                                     "color:#ffffff;\n"
+                                     "}")
         self.tabWidget.setTabPosition(QtWidgets.QTabWidget.South)
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.tabWidget.setIconSize(QtCore.QSize(24, 30))
@@ -143,10 +143,10 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName("tabWidget")
         self.adobeConnectTab = QtWidgets.QWidget()
         self.adobeConnectTab.setStyleSheet("#adobeConnectTab{background-color:#ffffff;\n"
-"border-top-left-radius:30px;\n"
-"border-top-right-radius:30px;\n"
-"border:none;\n"
-"}")
+                                           "border-top-left-radius:30px;\n"
+                                           "border-top-right-radius:30px;\n"
+                                           "border:none;\n"
+                                           "}")
         self.adobeConnectTab.setObjectName("adobeConnectTab")
         self.acACTitleLogoLabel = QtWidgets.QLabel(self.adobeConnectTab)
         self.acACTitleLogoLabel.setGeometry(QtCore.QRect(30, 20, 51, 51))
@@ -193,12 +193,12 @@ class Ui_MainWindow(object):
         self.acLoginButton.setAcceptDrops(False)
         self.acLoginButton.setAutoFillBackground(False)
         self.acLoginButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:#919dff;}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                         "QPushButton{background:#6a7bff;\n"
+                                         "border-radius:15px;\n"
+                                         "color:white;}\n"
+                                         "QPushButton:enabled{background:#6a7bff;}\n"
+                                         "QPushButton:hover{background:#919dff;}\n"
+                                         "QPushButton:pressed {background:#465bff;}")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/button-icons/login-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.acLoginButton.setIcon(icon2)
@@ -232,12 +232,12 @@ class Ui_MainWindow(object):
         self.acAddToQueueButton.setAcceptDrops(False)
         self.acAddToQueueButton.setAutoFillBackground(False)
         self.acAddToQueueButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:rgb(145, 157, 255);}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                              "QPushButton{background:#6a7bff;\n"
+                                              "border-radius:15px;\n"
+                                              "color:white;}\n"
+                                              "QPushButton:enabled{background:#6a7bff;}\n"
+                                              "QPushButton:hover{background:rgb(145, 157, 255);}\n"
+                                              "QPushButton:pressed {background:#465bff;}")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/button-icons/add-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.acAddToQueueButton.setIcon(icon3)
@@ -307,32 +307,32 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.acMergeFilesCheckBox.setFont(font)
         self.acMergeFilesCheckBox.setStyleSheet("QCheckBox::indicator {\n"
-"    width: 18px;\n"
-"    height: 18px;\n"
-"border : 4px solid #6a7bff;\n"
-"}\n"
-"QCheckBox::indicator:hover {\n"
-"    width: 18px;\n"
-"    height: 18px;\n"
-"border : 4px solid #919dff;\n"
-"}\n"
-"QCheckBox::indicator:pressed {\n"
-"    width: 18px;\n"
-"    height: 18px;\n"
-"border : 4px solid #465bff;\n"
-"}\n"
-"QCheckBox::indicator:hover {\n"
-"    width: 18px;\n"
-"    height: 18px;\n"
-"border : 4px solid #919dff;\n"
-"}\n"
-"QCheckBox::indicator:checked {\n"
-"   image:url(:/button-icons/icons8_checkmark_64px.png);\n"
-"}\n"
-"QCheckBox{\n"
-"color:#424242;\n"
-"}\n"
-"")
+                                                "    width: 18px;\n"
+                                                "    height: 18px;\n"
+                                                "border : 4px solid #6a7bff;\n"
+                                                "}\n"
+                                                "QCheckBox::indicator:hover {\n"
+                                                "    width: 18px;\n"
+                                                "    height: 18px;\n"
+                                                "border : 4px solid #919dff;\n"
+                                                "}\n"
+                                                "QCheckBox::indicator:pressed {\n"
+                                                "    width: 18px;\n"
+                                                "    height: 18px;\n"
+                                                "border : 4px solid #465bff;\n"
+                                                "}\n"
+                                                "QCheckBox::indicator:hover {\n"
+                                                "    width: 18px;\n"
+                                                "    height: 18px;\n"
+                                                "border : 4px solid #919dff;\n"
+                                                "}\n"
+                                                "QCheckBox::indicator:checked {\n"
+                                                "   image:url(:/button-icons/icons8_checkmark_64px.png);\n"
+                                                "}\n"
+                                                "QCheckBox{\n"
+                                                "color:#424242;\n"
+                                                "}\n"
+                                                "")
         self.acMergeFilesCheckBox.setCheckable(True)
         self.acMergeFilesCheckBox.setChecked(False)
         self.acMergeFilesCheckBox.setObjectName("acMergeFilesCheckBox")
@@ -354,21 +354,21 @@ class Ui_MainWindow(object):
         self.acQueueListView.setGeometry(QtCore.QRect(515, 60, 361, 251))
         self.acQueueListView.setWordWrap(True)
         self.acQueueListView.setStyleSheet("QListWidget{\n"
-"show-decoration-selected: 1; \n"
-"border:1px solid #6a7bff;\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"   background:#6a7bff;\n"
-"color:white;\n"
-"}\n"
-"\n"
-"\n"
-"QListWidget::item:hover {\n"
-"    background: #919dff;\n"
-"color:white;\n"
-"}")
+                                           "show-decoration-selected: 1; \n"
+                                           "border:1px solid #6a7bff;\n"
+                                           "border-radius:5px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QListWidget::item:selected {\n"
+                                           "   background:#6a7bff;\n"
+                                           "color:white;\n"
+                                           "}\n"
+                                           "\n"
+                                           "\n"
+                                           "QListWidget::item:hover {\n"
+                                           "    background: #919dff;\n"
+                                           "color:white;\n"
+                                           "}")
         self.acQueueListView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.acQueueListView.setTabKeyNavigation(True)
         self.acQueueListView.setProperty("showDropIndicator", False)
@@ -386,12 +386,12 @@ class Ui_MainWindow(object):
         self.acStartQueueButton.setAcceptDrops(False)
         self.acStartQueueButton.setAutoFillBackground(False)
         self.acStartQueueButton.setStyleSheet("\n"
-"QPushButton{background:#f07067;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#f07067;}\n"
-"QPushButton:hover{background:rgb(255, 116, 109);}\n"
-"QPushButton:pressed {background:rgb(221, 101, 94);}")
+                                              "QPushButton{background:#f07067;\n"
+                                              "border-radius:15px;\n"
+                                              "color:white;}\n"
+                                              "QPushButton:enabled{background:#f07067;}\n"
+                                              "QPushButton:hover{background:rgb(255, 116, 109);}\n"
+                                              "QPushButton:pressed {background:rgb(221, 101, 94);}")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/button-icons/start-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.acStartQueueButton.setIcon(icon4)
@@ -415,13 +415,13 @@ class Ui_MainWindow(object):
         self.acRemoveFromQueueButton.setToolTipDuration(-1)
         self.acRemoveFromQueueButton.setAutoFillBackground(False)
         self.acRemoveFromQueueButton.setStyleSheet("\n"
-"QPushButton{background:#f07067;\n"
-"border-radius:15px;\n"
-"color:white;\n"
-"text-align:center;}\n"
-"QPushButton:enabled{background:#f07067;}\n"
-"QPushButton:hover{background:rgb(255, 116, 109);}\n"
-"QPushButton:pressed {background:rgb(221, 101, 94);}")
+                                                   "QPushButton{background:#f07067;\n"
+                                                   "border-radius:15px;\n"
+                                                   "color:white;\n"
+                                                   "text-align:center;}\n"
+                                                   "QPushButton:enabled{background:#f07067;}\n"
+                                                   "QPushButton:hover{background:rgb(255, 116, 109);}\n"
+                                                   "QPushButton:pressed {background:rgb(221, 101, 94);}")
         self.acRemoveFromQueueButton.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/button-icons/remove-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -436,12 +436,12 @@ class Ui_MainWindow(object):
         self.acProgressBar.setGeometry(QtCore.QRect(625, 320, 251, 31))
         self.acProgressBar.setAutoFillBackground(False)
         self.acProgressBar.setStyleSheet("QProgressBar{\n"
-"border:3px solid #6a7bff;\n"
-"border-radius:6px;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"background-color:#6a7bff;\n"
-"}")
+                                         "border:3px solid #6a7bff;\n"
+                                         "border-radius:6px;\n"
+                                         "}\n"
+                                         "QProgressBar::chunk{\n"
+                                         "background-color:#6a7bff;\n"
+                                         "}")
         self.acProgressBar.setProperty("value", 0)
         self.acProgressBar.setAlignment(QtCore.Qt.AlignCenter)
         self.acProgressBar.setTextVisible(True)
@@ -472,9 +472,9 @@ class Ui_MainWindow(object):
         self.ftpTab = QtWidgets.QWidget()
         self.ftpTab.setEnabled(True)
         self.ftpTab.setStyleSheet("background-color:#ffffff;\n"
-"border-top-left-radius:30px;\n"
-"border-top-right-radius:30px;\n"
-"border:none;")
+                                  "border-top-left-radius:30px;\n"
+                                  "border-top-right-radius:30px;\n"
+                                  "border:none;")
         self.ftpTab.setObjectName("ftpTab")
         self.ftpStartQueueButton = QtWidgets.QPushButton(self.ftpTab)
         self.ftpStartQueueButton.setEnabled(True)
@@ -488,12 +488,12 @@ class Ui_MainWindow(object):
         self.ftpStartQueueButton.setAcceptDrops(False)
         self.ftpStartQueueButton.setAutoFillBackground(False)
         self.ftpStartQueueButton.setStyleSheet("\n"
-"QPushButton{background:#f07067;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#f07067;}\n"
-"QPushButton:hover{background:rgb(255, 116, 109);}\n"
-"QPushButton:pressed {background:rgb(221, 101, 94);}")
+                                               "QPushButton{background:#f07067;\n"
+                                               "border-radius:15px;\n"
+                                               "color:white;}\n"
+                                               "QPushButton:enabled{background:#f07067;}\n"
+                                               "QPushButton:hover{background:rgb(255, 116, 109);}\n"
+                                               "QPushButton:pressed {background:rgb(221, 101, 94);}")
         self.ftpStartQueueButton.setIcon(icon4)
         self.ftpStartQueueButton.setIconSize(QtCore.QSize(30, 24))
         self.ftpStartQueueButton.setCheckable(False)
@@ -535,12 +535,12 @@ class Ui_MainWindow(object):
         self.ftpProgressBar.setGeometry(QtCore.QRect(600, 330, 281, 31))
         self.ftpProgressBar.setAutoFillBackground(False)
         self.ftpProgressBar.setStyleSheet("QProgressBar{\n"
-"border:3px solid #6a7bff;\n"
-"border-radius:6px;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"background-color:#6a7bff;\n"
-"}")
+                                          "border:3px solid #6a7bff;\n"
+                                          "border-radius:6px;\n"
+                                          "}\n"
+                                          "QProgressBar::chunk{\n"
+                                          "background-color:#6a7bff;\n"
+                                          "}")
         self.ftpProgressBar.setProperty("value", 0)
         self.ftpProgressBar.setAlignment(QtCore.Qt.AlignCenter)
         self.ftpProgressBar.setTextVisible(True)
@@ -575,13 +575,13 @@ class Ui_MainWindow(object):
         self.ftpRemoveFromQueueButton.setAcceptDrops(False)
         self.ftpRemoveFromQueueButton.setAutoFillBackground(False)
         self.ftpRemoveFromQueueButton.setStyleSheet("\n"
-"QPushButton{background:#f07067;\n"
-"border-radius:15px;\n"
-"color:white;\n"
-"text-align:center;}\n"
-"QPushButton:enabled{background:#f07067;}\n"
-"QPushButton:hover{background:rgb(255, 116, 109);}\n"
-"QPushButton:pressed {background:rgb(221, 101, 94);}")
+                                                    "QPushButton{background:#f07067;\n"
+                                                    "border-radius:15px;\n"
+                                                    "color:white;\n"
+                                                    "text-align:center;}\n"
+                                                    "QPushButton:enabled{background:#f07067;}\n"
+                                                    "QPushButton:hover{background:rgb(255, 116, 109);}\n"
+                                                    "QPushButton:pressed {background:rgb(221, 101, 94);}")
         self.ftpRemoveFromQueueButton.setText("")
         self.ftpRemoveFromQueueButton.setIcon(icon5)
         self.ftpRemoveFromQueueButton.setIconSize(QtCore.QSize(30, 30))
@@ -600,12 +600,12 @@ class Ui_MainWindow(object):
         self.ftpConnectButton.setAcceptDrops(False)
         self.ftpConnectButton.setAutoFillBackground(False)
         self.ftpConnectButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:#919dff;}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                            "QPushButton{background:#6a7bff;\n"
+                                            "border-radius:15px;\n"
+                                            "color:white;}\n"
+                                            "QPushButton:enabled{background:#6a7bff;}\n"
+                                            "QPushButton:hover{background:#919dff;}\n"
+                                            "QPushButton:pressed {background:#465bff;}")
         self.ftpConnectButton.setIcon(icon2)
         self.ftpConnectButton.setIconSize(QtCore.QSize(30, 27))
         self.ftpConnectButton.setCheckable(False)
@@ -621,21 +621,21 @@ class Ui_MainWindow(object):
         self.ftpQueueListView = QtWidgets.QListWidget(self.ftpTab)
         self.ftpQueueListView.setGeometry(QtCore.QRect(480, 120, 401, 191))
         self.ftpQueueListView.setStyleSheet("QListWidget{\n"
-"show-decoration-selected: 1; \n"
-"border:1px solid #6a7bff;\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"   background:#6a7bff;\n"
-"color:white;\n"
-"}\n"
-"\n"
-"\n"
-"QListWidget::item:hover {\n"
-"    background: #919dff;\n"
-"color:white;\n"
-"}")
+                                            "show-decoration-selected: 1; \n"
+                                            "border:1px solid #6a7bff;\n"
+                                            "border-radius:5px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QListWidget::item:selected {\n"
+                                            "   background:#6a7bff;\n"
+                                            "color:white;\n"
+                                            "}\n"
+                                            "\n"
+                                            "\n"
+                                            "QListWidget::item:hover {\n"
+                                            "    background: #919dff;\n"
+                                            "color:white;\n"
+                                            "}")
         self.ftpQueueListView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.ftpQueueListView.setTabKeyNavigation(True)
         self.ftpQueueListView.setProperty("showDropIndicator", False)
@@ -652,12 +652,12 @@ class Ui_MainWindow(object):
         self.ftpAddToQueueButton.setAcceptDrops(False)
         self.ftpAddToQueueButton.setAutoFillBackground(False)
         self.ftpAddToQueueButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:rgb(145, 157, 255);}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                               "QPushButton{background:#6a7bff;\n"
+                                               "border-radius:15px;\n"
+                                               "color:white;}\n"
+                                               "QPushButton:enabled{background:#6a7bff;}\n"
+                                               "QPushButton:hover{background:rgb(145, 157, 255);}\n"
+                                               "QPushButton:pressed {background:#465bff;}")
         self.ftpAddToQueueButton.setText("")
         self.ftpAddToQueueButton.setIcon(icon3)
         self.ftpAddToQueueButton.setIconSize(QtCore.QSize(30, 27))
@@ -715,12 +715,12 @@ class Ui_MainWindow(object):
         self.ftpBackDirectoryButton.setAcceptDrops(False)
         self.ftpBackDirectoryButton.setAutoFillBackground(False)
         self.ftpBackDirectoryButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:rgb(145, 157, 255);}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                                  "QPushButton{background:#6a7bff;\n"
+                                                  "border-radius:15px;\n"
+                                                  "color:white;}\n"
+                                                  "QPushButton:enabled{background:#6a7bff;}\n"
+                                                  "QPushButton:hover{background:rgb(145, 157, 255);}\n"
+                                                  "QPushButton:pressed {background:#465bff;}")
         self.ftpBackDirectoryButton.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap(":/button-icons/back-button.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -733,21 +733,21 @@ class Ui_MainWindow(object):
         self.ftpExplorListView = QtWidgets.QListWidget(self.ftpTab)
         self.ftpExplorListView.setGeometry(QtCore.QRect(50, 120, 381, 191))
         self.ftpExplorListView.setStyleSheet("QListWidget{\n"
-"show-decoration-selected: 1; \n"
-"border:1px solid #6a7bff;\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"QListWidget::item:selected {\n"
-"   background:#6a7bff;\n"
-"color:white;\n"
-"}\n"
-"\n"
-"\n"
-"QListWidget::item:hover {\n"
-"    background: #919dff;\n"
-"color:white;\n"
-"}")
+                                             "show-decoration-selected: 1; \n"
+                                             "border:1px solid #6a7bff;\n"
+                                             "border-radius:5px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QListWidget::item:selected {\n"
+                                             "   background:#6a7bff;\n"
+                                             "color:white;\n"
+                                             "}\n"
+                                             "\n"
+                                             "\n"
+                                             "QListWidget::item:hover {\n"
+                                             "    background: #919dff;\n"
+                                             "color:white;\n"
+                                             "}")
         self.ftpExplorListView.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.ftpExplorListView.setTabKeyNavigation(True)
         self.ftpExplorListView.setProperty("showDropIndicator", False)
@@ -758,9 +758,9 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.ftpTab, icon8, "")
         self.shiftIOTab = QtWidgets.QWidget()
         self.shiftIOTab.setStyleSheet("background-color:#ffffff;\n"
-"border-top-left-radius:30px;\n"
-"border-top-right-radius:30px;\n"
-"border:none;")
+                                      "border-top-left-radius:30px;\n"
+                                      "border-top-right-radius:30px;\n"
+                                      "border:none;")
         self.shiftIOTab.setObjectName("shiftIOTab")
         self.shiftIOGraphicalIllustrationLabel = QtWidgets.QLabel(self.shiftIOTab)
         self.shiftIOGraphicalIllustrationLabel.setGeometry(QtCore.QRect(0, 0, 371, 371))
@@ -813,12 +813,12 @@ class Ui_MainWindow(object):
         self.shiftIOStartButton.setAcceptDrops(False)
         self.shiftIOStartButton.setAutoFillBackground(False)
         self.shiftIOStartButton.setStyleSheet("\n"
-"QPushButton{background:#6a7bff;\n"
-"border-radius:15px;\n"
-"color:white;}\n"
-"QPushButton:enabled{background:#6a7bff;}\n"
-"QPushButton:hover{background:#919dff;}\n"
-"QPushButton:pressed {background:#465bff;}")
+                                              "QPushButton{background:#6a7bff;\n"
+                                              "border-radius:15px;\n"
+                                              "color:white;}\n"
+                                              "QPushButton:enabled{background:#6a7bff;}\n"
+                                              "QPushButton:hover{background:#919dff;}\n"
+                                              "QPushButton:pressed {background:#465bff;}")
         self.shiftIOStartButton.setIcon(icon2)
         self.shiftIOStartButton.setIconSize(QtCore.QSize(30, 27))
         self.shiftIOStartButton.setCheckable(False)
@@ -879,8 +879,8 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.shiftIOIPAddressLabel.setFont(font)
         self.shiftIOIPAddressLabel.setStyleSheet("color:#424242;\n"
-"border : 3px solid #6A7BFF;\n"
-"border-radius: 15px;")
+                                                 "border : 3px solid #6A7BFF;\n"
+                                                 "border-radius: 15px;")
         self.shiftIOIPAddressLabel.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.shiftIOIPAddressLabel.setFrameShadow(QtWidgets.QFrame.Plain)
         self.shiftIOIPAddressLabel.setTextFormat(QtCore.Qt.AutoText)
@@ -1125,4 +1125,6 @@ class Ui_MainWindow(object):
         self.actionACD_Engine_Version_86.setText(_translate("MainWindow", "ACD Engine Version : 86"))
         self.actionShift_I_O_Buffer_1024B.setText(_translate("MainWindow", "Shift I/O Buffer : 1024B"))
         self.actionShift_I_O_Engine_v1.setText(_translate("MainWindow", "Shift I/O Engine v1"))
+
+
 import resources_rc

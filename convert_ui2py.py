@@ -88,3 +88,27 @@ def convertFtpDownloadDialog():
                     '-o',
                     'ftpDownloadDialog\\ftpDownloadDialogResources_rc.py'])
     print('Ran pyrcc5')
+
+def convertCatchingScreenDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\catchingScreenDialog\\catchingScreenDialog.ui',
+                    '-o',
+                    'catchingScreenDialog\\catchingScreenDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\catchingScreenDialog\\catchingScreenDialogResources.qrc',
+                    '-o',
+                    'catchingScreenDialog\\catchingScreenDialogResources_rc.py'])
+    print('Ran pyrcc5')
+
+def convertIntroductionScreenDialog():
+    subprocess.run(['pyuic5',
+                    'Design\\qtDesigner\\introductionScreenDialog\\introductionScreenDialog.ui',
+                    '-o',
+                    'introductionScreenDialog\\introductionScreenDialog.py'])
+    print('Ran pyuic5')
+    subprocess.run(['pyrcc5',
+                    'Design\\qtDesigner\\introductionScreenDialog\\introductionScreenDialogResources.qrc',
+                    '-o',
+                    'introductionScreenDialog\\introductionScreenDialogResources_rc.py'])
+    print('Ran pyrcc5')
