@@ -43,22 +43,28 @@ def compile():
 
     elif sys.platform == 'darwin':
 
-        macos_args = ['pyinstaller',
-                            ' main.py',
-                            "--distpath='EXPORTS'",
-                            '--windowed',
-                            '-y', #confirm replace
-                            '--clean',
-                            # '-F',
-                            '--name',
-                            'ACD-Launcher',
-                            '--onefile',
-                            f"--icon={iconpath}",
-                            r"--paths=venv\Lib\site-packages",
-                            r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
-                            # '--specpath',
-                            # 'datas.spec'
-                            ] + data_cmd + [r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'"]
+        if os.path.exists('ACD-Launcher.spec'):
+            macos_args = ['pyinstaller',
+                          '--noconfirm',
+                          'ACD-Launcher.spec']
+        else:
+            macos_args = ['pyinstaller',
+                          ' main.py',
+                          "--distpath='EXPORTS'",
+                          '--windowed',
+                          '-y',  # confirm replace
+                          '--clean',
+                          # '-F',
+                          '--name',
+                          'ACD-Launcher',
+                          '--onefile',
+                          f"--icon={iconpath}",
+                          r"--paths=venv/Lib/site-packages",
+                          r'--hidden-import=tldextract', r'--hidden-import=pkgutil'
+                          # '--specpath',
+                          # 'datas.spec'
+                          ] + data_cmd + [
+                             r" --add-binary='/System/Library/Frameworks/Tk.framework/Tk':'tk' --add-binary='/System/Library/Frameworks/Tcl.framework/Tcl':'tcl'"]
         print(' '.join(macos_args))
         os.system(' '.join(macos_args))
     else:
