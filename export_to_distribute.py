@@ -29,7 +29,7 @@ def mac_sign_exported_app():
     sign_command = [
         'codesign',
         '-s',
-        'Jupiter',
+        'soroushdev@outlook.com',
         '-v',
         '--deep',
         '--timestamp',
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     if pathlib.Path("EXPORTS").exists():
         filename = os.listdir("EXPORTS")[0]
         zipfile = ZipFile(pathlib.Path("GITHUB").joinpath("RELEASE").joinpath(f"acd_{get_platform_architecture()}.zip"),'w')
-        zipfile.write(pathlib.Path("'EXPORTS'").joinpath(filename),basename(filename))
+        zipfile.write(pathlib.Path("EXPORTS").joinpath(filename),basename(filename))
 
     elif pathlib.Path("'EXPORTS'").exists():
         filename = os.listdir("'EXPORTS'")[0]
