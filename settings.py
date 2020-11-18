@@ -7,7 +7,7 @@ from exeinfo import BUILD_NUMBER
 import random,string
 
 DEBUG = False
-CHECK_NEW_VERSION = False
+CHECK_NEW_VERSION = True
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """

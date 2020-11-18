@@ -1,10 +1,10 @@
 import webbrowser
 
 
-APARAT_LINK = "https://aparat.com"
-YOUTUBE_LINK = "https://youtube.com"
-VIRGOOL_LINK = "https://virgool.com"
-TELEGRAM_LINK = "https://telegram.org"
+APARAT_LINK = "https://www.aparat.com/v/iEfC9"
+YOUTUBE_LINK = "https://youtu.be/91rU8TxNSi8"
+VIRGOOL_LINK = "https://vrgl.ir/KkEL5"
+TELEGRAM_LINK = "https://t.me/iranpythoneers"
 CONTACT_DEVELOPER_LINK = "https://google.com"
 
 def open_aparat_link():

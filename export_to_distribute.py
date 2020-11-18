@@ -29,7 +29,7 @@ def mac_sign_exported_app():
     sign_command = [
         'codesign',
         '-s',
-        'soroushdev@outlook.com',
+        'Developer',
         '-v',
         '--deep',
         '--timestamp',
