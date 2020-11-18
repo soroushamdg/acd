@@ -730,7 +730,7 @@ class Main(QtWidgets.QMainWindow):
             return
         try:
             self.ftp_add_item_to_queue_manager(self.selected_item_in_explore_list)
-        except:
+        except Exception as msg:
             logging.debug(msg)
             logging.error(f'Error in adding item to ftp queue manager -> {self.selected_item_in_explore_list} ')
             self.raise_error_dialog('Error in adding item to FTP queue', f'Please check your connection and try again.')
