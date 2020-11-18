@@ -62,7 +62,7 @@ Using ACD v.2 is way more easier than ACD v.1, it's built for 6th grades. But st
 
 
 
-<img src="howto_ac" alt="image-20201118184213685" style="zoom: 33%;" /><img src="howto_ftp" alt="image-20201118184230754" style="zoom: 33%;" /><img src="howto_shiftio" alt="image-20201118184257842" style="zoom: 33%;" />
+<img src="howto_ac" alt="image-20201118184213685" style="max-width: 33%;" /><img src="howto_ftp" alt="image-20201118184230754" style="max-width: 33%;" /><img src="howto_shiftio" alt="image-20201118184257842" style="max-width: 33%;" />
 
 
 
