@@ -1,8 +1,12 @@
-<img src="C:\Users\Soroush\PycharmProjects\acdii\GITHUB\acd\cover.gif"  />
+<img src="cover.gif" />
 
 
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-crayons.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)![build](https://img.shields.io/badge/Build-passing-green)![GitHub release (latest by date)](https://img.shields.io/github/v/release/soroushamdg/acd?style=for-the-badge)![GitHub all releases](https://img.shields.io/github/downloads/soroushamdg/acd/total?color=red&logo=github&style=for-the-badge)
+
+
+
+[<img src="https://img.shields.io/badge/Download-Latest%20Version-blue?style=for-the-badge&logo=github" style="zoom: 150%;align:center;">](https://github.com/soroushamdg/acd/releases/latest)
 
 
 
