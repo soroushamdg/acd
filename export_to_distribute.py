@@ -33,12 +33,12 @@ if __name__ == "__main__":
     print('Zipping...')
     if pathlib.Path("EXPORTS").exists():
         filename = os.listdir("EXPORTS")[0]
-        zipfile = ZipFile(pathlib.Path("EXPORTS").joinpath(f"acd_{get_platform_architecture()}.zip"),'w')
+        zipfile = ZipFile(pathlib.Path("GITHUB").joinpath("RELEASE").joinpath(f"acd_{get_platform_architecture()}.zip"),'w')
         zipfile.write(pathlib.Path("'EXPORTS'").joinpath(filename),basename(filename))
 
     elif pathlib.Path("'EXPORTS'").exists():
         filename = os.listdir("'EXPORTS'")[0]
-        zipfile = ZipFile(pathlib.Path("'EXPORTS'").joinpath(f"acd_{get_platform_architecture()}.zip"),'w')
+        zipfile = ZipFile(pathlib.Path("GITHUB").joinpath("RELEASE").joinpath(f"acd_{get_platform_architecture()}.zip"),'w')
         zipfile.write(pathlib.Path("'EXPORTS'").joinpath(filename),basename(filename))
     else:
         print("NO EXPORTS FOLDER")
