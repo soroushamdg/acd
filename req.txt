@@ -63,6 +63,7 @@ prompt-toolkit==3.0.7
 pycparser==2.20
 pyffmpeg==2.0
 Pygments==2.7.1
+pygount==1.2.4
 PyInstaller==3.6
 pyinstaller-hooks-contrib==2020.9
 pylint==2.6.0

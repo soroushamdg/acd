@@ -39,7 +39,7 @@ def compile():
                      # 'datas.spec'
                      ]+data_cmd+['main.py']
         print(" ".join(windows_args))
-        subprocess.call(windows_args, shell=False)
+        subprocess.call(windows_args, shell=False,stdin=None, stdout=None, stderr=None,)
 
     elif sys.platform == 'darwin':
 

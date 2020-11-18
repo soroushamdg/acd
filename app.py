@@ -1105,7 +1105,7 @@ class Ui_MainWindow(object):
         self.actionACD_v2.setText(_translate("MainWindow", "ACD v2"))
         self.action_soroushamdg_made_it.setText(_translate("MainWindow", "@soroushamdg made it."))
         self.actionWritten_in_Python_JS_and_C.setText(_translate("MainWindow", "Written in Python, JS and C++"))
-        self.actionWritten_in_86_hours_and_made_possible_by_342_315_lines_of_code.setText(_translate("MainWindow", "Written in 86 hours and made possible by 342,315 lines of code."))
+        self.actionWritten_in_86_hours_and_made_possible_by_342_315_lines_of_code.setText(_translate("MainWindow", "Written in 91 hours and made possible by 652,733 lines of code."))
         self.actionConnect_FTP.setText(_translate("MainWindow", "Connect FTP"))
         self.actionConnect_FTP.setShortcut(_translate("MainWindow", "Ctrl+Alt+C"))
         self.actionStart_FTP_Queue.setText(_translate("MainWindow", "Start FTP Queue"))

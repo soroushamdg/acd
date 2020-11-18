@@ -129,7 +129,7 @@ def clear_cache():
 SETTINGS = {
     'BUILD_NUMBER':BUILD_NUMBER, # by increasing build number, it will show welcome screen.
     'LOG_LEVEL':logging.INFO,
-    'LOG_PATH' : str(pathlib.Path(application_path()).joinpath('log.log')),
+    'LOG_PATH' : str(pathlib.Path(return_temp_path()).joinpath('log.log')),
     'EXE_PATH': str(pathlib.Path(application_path())),
     'SETTINGS_PATH' : str(pathlib.Path(application_path()).joinpath('settings.es')),
     'MAIN_EXPORT_PATH' : str(pathlib.Path(os.path.expanduser("~/Desktop/ACD_EXPORTS"))),
