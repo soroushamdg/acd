@@ -74,7 +74,7 @@ class Ui_splashScreenDialog(QtWidgets.QDialog):
     def retranslateUi(self, welcomeScreenDialog):
         _translate = QtCore.QCoreApplication.translate
         welcomeScreenDialog.setWindowTitle(_translate("welcomeScreenDialog", "Welcome to ACD"))
-        self.mottoAnimatedQLabel.setText(_translate("welcomeScreenDialog", "Coded with  💗  and  ☕  by @soroushamdg"))
+        self.mottoAnimatedQLabel.setText(_translate("welcomeScreenDialog", "Coded with  ♥️  and  ☕  by @soroushamdg"))
 
 
     def finished_dialog(self):
