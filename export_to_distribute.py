@@ -23,11 +23,79 @@ def get_platform_architecture():
 tutorials = [pathlib.Path().joinpath("Design").joinpath("Tutorial Videos").joinpath("ac_tutorial_low.mp4"),
              pathlib.Path().joinpath("Design").joinpath("Tutorial Videos").joinpath("acd_shiftio_tutorial_low.mp4")]
 
+
+def mac_sign_exported_app():
+    print("Start signing STAGE -> 1")
+    sign_command = [
+        'codesign',
+        '-s',
+        'Jupiter',
+        '-v',
+        '--deep',
+        '--timestamp',
+        '--entitlements',
+        'EXPORTS/entitlements.plist',
+         '-o',
+        'runtime',
+        "EXPORTS/ACD-Launcher.app"
+    ]
+    print(' '.join(sign_command))
+    os.system(' '.join(sign_command))
+    print("Finished siging STAGE -> 1")
+    print("Starting siging STAGE -> 2")
+    sign_command = ['ditto',
+ '-c',
+ '-k',
+ '--keepParent',
+ '"EXPORTS/ACD-Launcher.app"',
+ 'EXPORTS/ACD.zip',
+ 'xcrun',
+ 'altool',
+ '--notarize-app',
+ '-t',
+ 'osx',
+ '-f',
+ 'EXPORTS/ACD.zip',
+ '--primary-bundle-id',
+ 'com.acd.acdlauncher',
+ '-u',
+ 'soroushdev@outlook.com',
+ '--password',
+ '"@keychain:AC_PASSWORD"']
+    print(' '.join(sign_command))
+    os.system(' '.join(sign_command))
+    print("Finished siging STAGE -> 2")
+    print("Starting siging STAGE -> 3")
+    sign_command = ['xcrun', 'stapler', 'staple', '"EXPORTS/ACD-Launcher.app"']
+    print(' '.join(sign_command))
+    os.system(' '.join(sign_command))
+    print("Finished siging STAGE -> 3")
+    print("Starting siging STAGE -> 4")
+    sign_command = ['spctl',
+ '--assess',
+ '--type',
+ 'execute',
+ '-vvv',
+ '"EXPORTS/ACD-Launcher.app"']
+    print(' '.join(sign_command))
+    os.system(' '.join(sign_command))
+    print("Finished siging STAGE -> 4")
+
+
+
+
 if __name__ == "__main__":
     print('Starting...')
     start = time.time()
     # Compile Binary
     compile()
+
+    if sys.platform == 'darwin':
+        print("Starting to sign...")
+        mac_sign_exported_app()
+        print("Ended siging")
+
+
 
     # Create zip file
     print('Zipping...')
