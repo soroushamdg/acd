@@ -12,11 +12,11 @@
 
 ### ❓ What was the problem? What is ACD?
 
-ACD solves three main problems that students may face by online courses and online teaching during quantine. What I tried to do was package some tools to solve them a little bit, but still, there is a lot more to fix.
+ACD solves three main problems that students may face in online courses and online learning during quantine. What I tried to do was packaging some tools to solve those a bit, but still, there is a lot more to fix.
 
-- Adobe Connect Classes : As most public schools and universities can't afford fast and powerful servers to host Adobe Connect meetings, they lack one main feature, exporting meetings for offline use. So students(including me) couldn't download courses and had to watch them online, and problems start to show up when you have unstable internet connection. So the solution was to download and merge meetings manually, this is ACD's main feature.
+- Adobe Connect Classes : As most public schools and universities can't afford fast and powerful servers to host Adobe Connect meetings, they lack one main feature, exporting meetings for offline usage. So students(including me) couldn't download courses and had to watch them online, and problems start to show up when you have unstable internet connection. So the solution was to download and merge meetings manually, this is ACD's main feature.
 - FTP : Another problem was most students couldn't use ftps. So I came up with straight answer, ACD's FTP downloader, fast, easy to use.
-- Shift I/O : This one also solves another problem, imagine you're taking an exam and you have to take a picture of your paper, scan and export it to .pdf file, and then upload it to you portal, there are many ways to send files from mobile phones to PC or laptop, but they ain't Shift I/O ( :D ). Cause Shift I/O is fast and easy to use, and most importantly, easy to setup. No additional app required, just start the service, connect, ready-to-go!
+- Shift I/O : This one also solves another problem, imagine you're taking an exam and you have to take a picture of your paper, scan and export it to .pdf file, and then upload it to you portal, there are many ways to send files from mobile phones to PC or laptop, but they ain't Shift I/O ( :D ). Cause Shift I/O is fast and easy to use, and most importantly, easy to setup. No additional app required, just start the service, connect and it's ready-to-go!
 
 ### 🔨 Installation 
 
