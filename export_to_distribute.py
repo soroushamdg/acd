@@ -9,13 +9,13 @@ import pathlib
 def get_platform_architecture():
     if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
         platform = 'linux'
-        architecture = '64'
+        architecture = ''
     elif sys.platform == 'darwin':
         platform = 'mac'
         architecture = '64'
     elif sys.platform.startswith('win'):
-        platform = 'win'
-        architecture = '32'
+        platform = 'windows'
+        architecture = ''
     else:
         raise RuntimeError('Could not determine chromedriver download URL for this platform.')
     return platform+architecture

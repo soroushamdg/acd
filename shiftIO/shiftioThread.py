@@ -8,6 +8,7 @@ import tornado.web
 import tornado.ioloop
 import socket
 import settings
+import ipaddress
 from netifaces import interfaces, ifaddresses, AF_INET
 from PyQt5 import QtCore
 import threading
@@ -53,8 +54,11 @@ def find_ip_address(ret_single_ip=False):
     addresses = []
     for ifaceame in interfaces():
         for i in ifaddresses(ifaceame).setdefault(AF_INET, [{'addr': 'No IP addr'}]):
-            if '192.168' in i['addr']:
-                addresses.append(i['addr'])
+            try:
+                if ipaddress.ip_address(i['addr']).is_private and not ipaddress.ip_address(i['addr']).is_loopback:
+                    addresses.append(i['addr'])
+            except:
+                pass
     return addresses if not ret_single_ip else addresses[0]
 
 
