@@ -80,4 +80,4 @@ Also here's a short video of Adobe Connect Downloader and Shift I/O instructions
 
 ### 👨‍🏫 How it works?
 
-Well, it's really complicated, there are too many hand writings, diagrams and flow charts, but I guess they aren't necessary, so I let a debugger draw accurate flowchart of applications workflow, It really doesn't show how ACD works, but it's sexy :p 
+Well, it's really complicated, there are too many hand writings, diagrams and flow charts, but I guess they aren't necessary, so I let a debugger draw accurate flowchart of application's workflow, It really doesn't show how ACD works, but it's sexy :p 
