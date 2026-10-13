@@ -1,0 +1,6 @@
+/dist/
+/build/
+/venv/
+/github/
+/.vscode/
+/.idea/

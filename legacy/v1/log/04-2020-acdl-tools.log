@@ -1,0 +1,1170 @@
+file creation date : 22 April 2020 23:53:32, , 
+time,origin,message
+22 April 2020 23:53:32,LOGGER_MODULE,session Started.
+22 April 2020 23:54:58,LOGGER_MODULE,session Started.
+22 April 2020 23:55:47,LOGGER_MODULE,session Started.
+22 April 2020 23:57:20,LOGGER_MODULE,session Started.
+22 April 2020 23:58:59,LOGGER_MODULE,session Started.
+23 April 2020 00:00:25,LOGGER_MODULE,session Started.
+23 April 2020 00:01:43,LOGGER_MODULE,session Started.
+23 April 2020 00:03:20,LOGGER_MODULE,session Started.
+23 April 2020 00:40:01,LOGGER_MODULE,session Started.
+23 April 2020 00:42:01,LOGGER_MODULE,session Started.
+23 April 2020 00:42:03,__main__,Application closed.
+23 April 2020 00:48:26,LOGGER_MODULE,session Started.
+23 April 2020 00:48:26,__main__,Application closed.
+23 April 2020 00:49:04,LOGGER_MODULE,session Started.
+23 April 2020 00:49:04,__main__,Application closed.
+23 April 2020 00:50:31,LOGGER_MODULE,session Started.
+23 April 2020 00:50:32,__main__,Application closed.
+23 April 2020 00:50:46,LOGGER_MODULE,session Started.
+23 April 2020 00:50:48,__main__,Application closed.
+23 April 2020 00:51:19,LOGGER_MODULE,session Started.
+23 April 2020 00:51:20,__main__,Application closed.
+23 April 2020 00:51:48,LOGGER_MODULE,session Started.
+23 April 2020 00:51:48,__main__,Application closed.
+23 April 2020 00:57:14,LOGGER_MODULE,session Started.
+23 April 2020 00:57:15,__main__,Application closed.
+23 April 2020 00:58:38,LOGGER_MODULE,session Started.
+23 April 2020 00:58:40,__main__,Application closed.
+23 April 2020 00:59:05,LOGGER_MODULE,session Started.
+23 April 2020 00:59:07,__main__,Application closed.
+23 April 2020 01:00:22,LOGGER_MODULE,session Started.
+23 April 2020 01:00:23,__main__,Application closed.
+23 April 2020 01:01:33,LOGGER_MODULE,session Started.
+23 April 2020 01:01:34,__main__,Application closed.
+23 April 2020 01:02:52,LOGGER_MODULE,session Started.
+23 April 2020 01:02:53,__main__,Application closed.
+23 April 2020 01:04:05,LOGGER_MODULE,session Started.
+23 April 2020 01:04:06,__main__,Application closed.
+23 April 2020 01:06:16,LOGGER_MODULE,session Started.
+23 April 2020 01:06:17,__main__,Application closed.
+23 April 2020 01:06:59,LOGGER_MODULE,session Started.
+23 April 2020 01:07:00,__main__,Application closed.
+23 April 2020 01:09:02,LOGGER_MODULE,session Started.
+23 April 2020 01:09:03,__main__,Application closed.
+23 April 2020 01:09:41,LOGGER_MODULE,session Started.
+23 April 2020 01:09:42,__main__,Application closed.
+23 April 2020 01:12:43,LOGGER_MODULE,session Started.
+23 April 2020 01:12:44,__main__,Application closed.
+23 April 2020 01:14:16,LOGGER_MODULE,session Started.
+23 April 2020 01:14:16,__main__,Application closed.
+23 April 2020 01:18:33,LOGGER_MODULE,session Started.
+23 April 2020 01:18:44,LOGGER_MODULE,session Started.
+23 April 2020 01:19:03,LOGGER_MODULE,session Started.
+23 April 2020 01:19:04,__main__,Application closed.
+23 April 2020 01:21:49,LOGGER_MODULE,session Started.
+23 April 2020 01:21:50,__main__,Application closed.
+23 April 2020 01:22:21,LOGGER_MODULE,session Started.
+23 April 2020 01:22:22,__main__,Application closed.
+23 April 2020 01:23:32,LOGGER_MODULE,session Started.
+23 April 2020 01:23:33,__main__,Application closed.
+23 April 2020 01:24:20,LOGGER_MODULE,session Started.
+23 April 2020 01:24:21,__main__,Application closed.
+23 April 2020 01:25:05,LOGGER_MODULE,session Started.
+23 April 2020 01:25:06,__main__,Application closed.
+23 April 2020 01:25:34,LOGGER_MODULE,session Started.
+23 April 2020 01:25:35,__main__,Application closed.
+23 April 2020 01:26:00,LOGGER_MODULE,session Started.
+23 April 2020 01:26:00,__main__,Application closed.
+23 April 2020 01:26:19,LOGGER_MODULE,session Started.
+23 April 2020 01:26:19,__main__,Application closed.
+23 April 2020 01:34:32,LOGGER_MODULE,session Started.
+23 April 2020 01:34:33,__main__,Application closed.
+23 April 2020 01:38:08,LOGGER_MODULE,session Started.
+23 April 2020 01:38:09,__main__,Application closed.
+23 April 2020 01:44:57,LOGGER_MODULE,session Started.
+23 April 2020 01:44:58,__main__,Application closed.
+23 April 2020 01:45:22,LOGGER_MODULE,session Started.
+23 April 2020 01:45:23,__main__,Application closed.
+23 April 2020 01:47:09,LOGGER_MODULE,session Started.
+23 April 2020 01:47:10,__main__,Application closed.
+23 April 2020 01:48:10,LOGGER_MODULE,session Started.
+23 April 2020 01:48:10,__main__,can't load options file.
+23 April 2020 01:49:47,LOGGER_MODULE,session Started.
+23 April 2020 01:49:47,__main__,can't load options file.
+23 April 2020 01:49:59,LOGGER_MODULE,session Started.
+23 April 2020 01:50:00,__main__,can't load options file.
+23 April 2020 01:51:36,LOGGER_MODULE,session Started.
+23 April 2020 01:51:37,__main__,Application closed.
+23 April 2020 01:51:54,LOGGER_MODULE,session Started.
+23 April 2020 01:51:55,__main__,Application closed.
+23 April 2020 01:54:00,LOGGER_MODULE,session Started.
+23 April 2020 01:54:03,LOGGER_MODULE,session Started.
+23 April 2020 01:55:11,LOGGER_MODULE,session Started.
+23 April 2020 01:55:12,__main__,can't load options file.
+23 April 2020 01:55:32,LOGGER_MODULE,session Started.
+23 April 2020 01:56:02,LOGGER_MODULE,session Started.
+23 April 2020 01:56:15,LOGGER_MODULE,session Started.
+23 April 2020 01:56:15,__main__,can't load options file.
+23 April 2020 01:56:51,LOGGER_MODULE,session Started.
+23 April 2020 01:56:51,__main__,Application closed.
+23 April 2020 01:57:05,LOGGER_MODULE,session Started.
+23 April 2020 01:57:06,__main__,Application closed.
+23 April 2020 10:52:58,LOGGER_MODULE,session Started.
+23 April 2020 10:53:01,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 10:59:20,LOGGER_MODULE,session Started.
+23 April 2020 10:59:21,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 11:00:30,LOGGER_MODULE,session Started.
+23 April 2020 11:00:35,__main__,Driver launched and found successfully.
+23 April 2020 11:00:36,__main__,Application closed.
+23 April 2020 11:01:13,LOGGER_MODULE,session Started.
+23 April 2020 11:01:16,__main__,Driver launched and found successfully.
+23 April 2020 11:01:17,__main__,Application closed.
+23 April 2020 11:02:12,LOGGER_MODULE,session Started.
+23 April 2020 11:03:03,LOGGER_MODULE,session Started.
+23 April 2020 11:03:03,__main__,"file saved in options doesn't work, can't run it."
+23 April 2020 11:03:03,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 11:06:49,LOGGER_MODULE,session Started.
+23 April 2020 11:06:50,__main__,"file saved in options doesn't work, can't run it."
+23 April 2020 11:06:50,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 11:07:47,LOGGER_MODULE,session Started.
+23 April 2020 11:07:48,__main__,"file saved in options doesn't work, can't run it."
+23 April 2020 11:07:48,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 11:07:56,__main__,Driver launched and found successfully.
+23 April 2020 11:07:56,__main__,Application closed.
+23 April 2020 11:08:08,LOGGER_MODULE,session Started.
+23 April 2020 11:08:12,__main__,Driver launched and found successfully.
+23 April 2020 11:08:12,__main__,Application closed.
+23 April 2020 11:31:54,LOGGER_MODULE,session Started.
+23 April 2020 11:31:58,__main__,Driver launched and found successfully.
+23 April 2020 11:31:59,__main__,Application closed.
+23 April 2020 11:32:25,LOGGER_MODULE,session Started.
+23 April 2020 11:32:29,__main__,Driver launched and found successfully.
+23 April 2020 11:32:30,__main__,Application closed.
+23 April 2020 11:35:27,LOGGER_MODULE,session Started.
+23 April 2020 11:35:31,__main__,Driver launched and found successfully.
+23 April 2020 11:35:31,__main__,Application closed.
+23 April 2020 11:38:00,LOGGER_MODULE,session Started.
+23 April 2020 11:38:04,__main__,Driver launched and found successfully.
+23 April 2020 11:38:05,__main__,Application closed.
+23 April 2020 11:40:47,LOGGER_MODULE,session Started.
+23 April 2020 11:40:51,__main__,Driver launched and found successfully.
+23 April 2020 11:40:51,__main__,Application closed.
+23 April 2020 12:15:11,LOGGER_MODULE,session Started.
+23 April 2020 12:15:15,__main__,Driver launched and found successfully.
+23 April 2020 12:20:04,LOGGER_MODULE,session Started.
+23 April 2020 12:20:08,__main__,Driver launched and found successfully.
+23 April 2020 12:20:11,__main__,Application closed.
+23 April 2020 12:49:29,LOGGER_MODULE,session Started.
+23 April 2020 12:49:33,__main__,Driver launched and found successfully.
+23 April 2020 12:49:37,__main__,Application closed.
+23 April 2020 12:50:47,LOGGER_MODULE,session Started.
+23 April 2020 12:50:51,__main__,Driver launched and found successfully.
+23 April 2020 12:50:55,__main__,Application closed.
+23 April 2020 12:52:08,LOGGER_MODULE,session Started.
+23 April 2020 12:52:12,__main__,Driver launched and found successfully.
+23 April 2020 12:52:16,__main__,Application closed.
+23 April 2020 12:53:32,LOGGER_MODULE,session Started.
+23 April 2020 12:53:36,__main__,Driver launched and found successfully.
+23 April 2020 12:53:40,__main__,Application closed.
+23 April 2020 12:56:57,LOGGER_MODULE,session Started.
+23 April 2020 12:57:01,__main__,Driver launched and found successfully.
+23 April 2020 12:57:05,__main__,Application closed.
+23 April 2020 12:58:08,LOGGER_MODULE,session Started.
+23 April 2020 12:58:12,__main__,Driver launched and found successfully.
+23 April 2020 12:58:15,__main__,Application closed.
+23 April 2020 12:59:48,LOGGER_MODULE,session Started.
+23 April 2020 12:59:52,__main__,Driver launched and found successfully.
+23 April 2020 13:00:02,__main__,Application closed.
+23 April 2020 13:00:53,LOGGER_MODULE,session Started.
+23 April 2020 13:00:57,__main__,Driver launched and found successfully.
+23 April 2020 13:01:08,__main__,Application closed.
+23 April 2020 13:01:15,LOGGER_MODULE,session Started.
+23 April 2020 13:01:18,__main__,Driver launched and found successfully.
+23 April 2020 13:01:52,adc-dl-bc-20420,login successful.
+23 April 2020 13:02:17,__main__,Application closed.
+23 April 2020 13:09:23,LOGGER_MODULE,session Started.
+23 April 2020 13:09:27,__main__,Driver launched and found successfully.
+23 April 2020 13:10:05,adc-dl-bc-20420,login successful.
+23 April 2020 13:10:22,__main__,Application closed.
+23 April 2020 13:25:30,LOGGER_MODULE,session Started.
+23 April 2020 13:25:33,__main__,Driver launched and found successfully.
+23 April 2020 13:26:13,adc-dl-bc-20420,login successful.
+23 April 2020 13:28:00,__main__,Application closed.
+23 April 2020 13:29:23,LOGGER_MODULE,session Started.
+23 April 2020 13:29:27,__main__,Driver launched and found successfully.
+23 April 2020 13:30:09,adc-dl-bc-20420,login successful.
+23 April 2020 13:32:50,__main__,Application closed.
+23 April 2020 13:32:55,LOGGER_MODULE,session Started.
+23 April 2020 13:32:59,__main__,Driver launched and found successfully.
+23 April 2020 13:33:31,adc-dl-bc-20420,login successful.
+23 April 2020 13:34:23,__main__,Application closed.
+23 April 2020 13:35:58,LOGGER_MODULE,session Started.
+23 April 2020 13:36:01,__main__,Driver launched and found successfully.
+23 April 2020 13:36:38,adc-dl-bc-20420,login successful.
+23 April 2020 13:38:37,__main__,Application closed.
+23 April 2020 13:47:55,LOGGER_MODULE,session Started.
+23 April 2020 13:47:58,__main__,Driver launched and found successfully.
+23 April 2020 13:48:31,adc-dl-bc-20420,login successful.
+23 April 2020 13:48:45,__main__,Application closed.
+23 April 2020 13:48:51,LOGGER_MODULE,session Started.
+23 April 2020 13:48:54,__main__,Driver launched and found successfully.
+23 April 2020 13:49:27,adc-dl-bc-20420,login successful.
+23 April 2020 13:49:56,__main__,Application closed.
+23 April 2020 15:03:20,LOGGER_MODULE,session Started.
+23 April 2020 15:03:23,__main__,Driver launched and found successfully.
+23 April 2020 15:04:23,adc-dl-bc-20420,login successful.
+23 April 2020 15:04:32,__main__,Application closed.
+23 April 2020 15:25:09,LOGGER_MODULE,session Started.
+23 April 2020 15:25:13,__main__,Driver launched and found successfully.
+23 April 2020 15:25:50,adc-dl-bc-20420,login successful.
+23 April 2020 15:25:59,__main__,Application closed.
+23 April 2020 15:28:54,LOGGER_MODULE,session Started.
+23 April 2020 15:28:58,__main__,Driver launched and found successfully.
+23 April 2020 15:29:05,__main__,Application closed.
+23 April 2020 15:33:44,LOGGER_MODULE,session Started.
+23 April 2020 15:33:54,LOGGER_MODULE,session Started.
+23 April 2020 15:45:29,LOGGER_MODULE,session Started.
+23 April 2020 15:45:42,LOGGER_MODULE,session Started.
+23 April 2020 15:45:46,__main__,Driver launched and found successfully.
+23 April 2020 15:46:58,__main__,Application closed.
+23 April 2020 15:47:16,LOGGER_MODULE,session Started.
+23 April 2020 15:47:19,__main__,Driver launched and found successfully.
+23 April 2020 15:48:31,__main__,Application closed.
+23 April 2020 15:48:35,LOGGER_MODULE,session Started.
+23 April 2020 15:48:39,__main__,Driver launched and found successfully.
+23 April 2020 15:49:04,__main__,Application closed.
+23 April 2020 15:53:57,LOGGER_MODULE,session Started.
+23 April 2020 15:54:02,__main__,Driver launched and found successfully.
+23 April 2020 15:54:23,__main__,Application closed.
+23 April 2020 16:01:12,LOGGER_MODULE,session Started.
+23 April 2020 16:01:15,__main__,Driver launched and found successfully.
+23 April 2020 16:01:53,__main__,Application closed.
+23 April 2020 16:05:56,LOGGER_MODULE,session Started.
+23 April 2020 16:07:32,LOGGER_MODULE,session Started.
+23 April 2020 16:07:36,__main__,Driver launched and found successfully.
+23 April 2020 16:07:56,__main__,Application closed.
+23 April 2020 16:08:34,LOGGER_MODULE,session Started.
+23 April 2020 16:08:38,__main__,Driver launched and found successfully.
+23 April 2020 16:09:07,__main__,Application closed.
+23 April 2020 16:10:34,LOGGER_MODULE,session Started.
+23 April 2020 16:10:38,__main__,Driver launched and found successfully.
+23 April 2020 16:11:50,__main__,Application closed.
+23 April 2020 16:16:05,LOGGER_MODULE,session Started.
+23 April 2020 16:16:08,__main__,Driver launched and found successfully.
+23 April 2020 16:17:13,__main__,Application closed.
+23 April 2020 16:17:16,LOGGER_MODULE,session Started.
+23 April 2020 16:17:20,__main__,Driver launched and found successfully.
+23 April 2020 16:21:40,__main__,Application closed.
+23 April 2020 16:31:00,LOGGER_MODULE,session Started.
+23 April 2020 16:31:03,LOGGER_MODULE,session Started.
+23 April 2020 16:31:32,LOGGER_MODULE,session Started.
+23 April 2020 16:31:57,LOGGER_MODULE,session Started.
+23 April 2020 16:32:01,__main__,Driver launched and found successfully.
+23 April 2020 16:32:16,__main__,Application closed.
+23 April 2020 16:36:28,LOGGER_MODULE,session Started.
+23 April 2020 16:36:32,__main__,Driver launched and found successfully.
+23 April 2020 16:37:02,__main__,Application closed.
+23 April 2020 17:17:42,LOGGER_MODULE,session Started.
+23 April 2020 17:17:47,__main__,Driver launched and found successfully.
+23 April 2020 17:17:57,__main__,Application closed.
+23 April 2020 18:06:38,LOGGER_MODULE,session Started.
+23 April 2020 18:06:42,__main__,Driver launched and found successfully.
+23 April 2020 18:07:12,adc-dl-bc-20420,login successful.
+23 April 2020 18:07:18,__main__,added jobs to threads. round 1
+23 April 2020 18:07:27,__main__,added jobs to threads. round 2
+23 April 2020 18:12:48,__main__,Application closed.
+23 April 2020 18:19:02,LOGGER_MODULE,session Started.
+23 April 2020 18:19:03,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 18:19:18,__main__,Driver launched and found successfully.
+23 April 2020 18:20:37,__main__,Application closed.
+23 April 2020 18:24:06,LOGGER_MODULE,session Started.
+23 April 2020 18:24:10,__main__,Driver launched and found successfully.
+23 April 2020 18:24:14,__main__,Application closed.
+23 April 2020 18:24:20,LOGGER_MODULE,session Started.
+23 April 2020 18:24:21,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 18:24:30,__main__,Driver launched and found successfully.
+23 April 2020 18:26:17,__main__,Application closed.
+23 April 2020 18:26:22,LOGGER_MODULE,session Started.
+23 April 2020 18:26:26,__main__,Driver launched and found successfully.
+23 April 2020 18:27:08,adc-dl-bc-20420,login successful.
+23 April 2020 18:27:20,adc-dl-bc-20420,p98hrd1py57 -> 274306 bytes downloaded. in progress.
+23 April 2020 18:27:23,adc-dl-bc-20420,p98hrd1py57 -> 2161506 bytes downloaded. in progress.
+23 April 2020 18:27:26,adc-dl-bc-20420,p98hrd1py57 -> 2672506 bytes downloaded. in progress.
+23 April 2020 18:27:29,adc-dl-bc-20420,p98hrd1py57 -> 3273106 bytes downloaded. in progress.
+23 April 2020 18:27:33,adc-dl-bc-20420,p98hrd1py57 -> 3931098 bytes downloaded. in progress.
+23 April 2020 18:27:36,adc-dl-bc-20420,p98hrd1py57 -> 4884506 bytes downloaded. in progress.
+23 April 2020 18:27:39,adc-dl-bc-20420,p98hrd1py57 -> 6626106 bytes downloaded. in progress.
+23 April 2020 18:27:42,adc-dl-bc-20420,p98hrd1py57 -> 8930066 bytes downloaded. in progress.
+23 April 2020 18:27:45,adc-dl-bc-20420,p98hrd1py57 -> 11258242 bytes downloaded. in progress.
+23 April 2020 18:27:48,adc-dl-bc-20420,p98hrd1py57 -> 13343570 bytes downloaded. in progress.
+23 April 2020 18:27:51,adc-dl-bc-20420,p98hrd1py57 -> 15503690 bytes downloaded. in progress.
+23 April 2020 18:27:54,adc-dl-bc-20420,p98hrd1py57 -> 17603690 bytes downloaded. in progress.
+23 April 2020 18:27:57,adc-dl-bc-20420,p98hrd1py57 -> 18615402 bytes downloaded. in progress.
+23 April 2020 18:28:01,adc-dl-bc-20420,p98hrd1py57 -> 20971520 bytes downloaded. in progress.
+23 April 2020 18:28:04,adc-dl-bc-20420,p98hrd1py57 -> 23310538 bytes downloaded. in progress.
+23 April 2020 18:28:07,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+23 April 2020 18:28:10,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+23 April 2020 18:28:10,__main__,added jobs to threads. round 1
+23 April 2020 18:28:10,adc-dl-bc-20420,problem to read cached data.
+23 April 2020 18:28:10,#5,error in parsing files
+23 April 2020 18:28:10,__main__,added jobs to threads. round 2
+23 April 2020 18:32:49,__main__,Application closed.
+23 April 2020 18:32:53,LOGGER_MODULE,session Started.
+23 April 2020 18:32:57,__main__,Driver launched and found successfully.
+23 April 2020 18:33:50,adc-dl-bc-20420,login successful.
+23 April 2020 18:34:03,__main__,added jobs to threads. round 1
+23 April 2020 18:34:03,__main__,added jobs to threads. round 2
+23 April 2020 18:34:29,__main__,Application closed.
+23 April 2020 18:34:32,LOGGER_MODULE,session Started.
+23 April 2020 18:34:36,__main__,Driver launched and found successfully.
+23 April 2020 18:35:15,adc-dl-bc-20420,login successful.
+23 April 2020 18:35:21,__main__,added jobs to threads. round 1
+23 April 2020 18:35:30,__main__,added jobs to threads. round 2
+23 April 2020 18:35:51,__main__,Application closed.
+23 April 2020 18:37:15,LOGGER_MODULE,session Started.
+23 April 2020 18:37:19,__main__,Driver launched and found successfully.
+23 April 2020 18:39:06,adc-dl-bc-20420,login successful.
+23 April 2020 18:39:18,__main__,added jobs to threads. round 1
+23 April 2020 18:39:28,__main__,added jobs to threads. round 2
+23 April 2020 18:40:04,__main__,Application closed.
+23 April 2020 18:41:27,LOGGER_MODULE,session Started.
+23 April 2020 18:41:27,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 18:41:43,__main__,Driver launched and found successfully.
+23 April 2020 18:42:45,adc-dl-bc-20420,login successful.
+23 April 2020 18:43:32,__main__,added jobs to threads. round 1
+23 April 2020 18:43:40,adc-dl-bc-20420,error in removing old cache.
+23 April 2020 18:43:40,__main__,added jobs to threads. round 2
+23 April 2020 18:47:41,__main__,Application closed.
+23 April 2020 18:47:46,LOGGER_MODULE,session Started.
+23 April 2020 18:47:49,__main__,Driver launched and found successfully.
+23 April 2020 18:48:13,adc-dl-bc-20420,login successful.
+23 April 2020 18:48:39,__main__,added jobs to threads. round 1
+23 April 2020 18:48:45,__main__,added jobs to threads. round 2
+23 April 2020 18:49:18,__main__,Application closed.
+23 April 2020 18:55:43,LOGGER_MODULE,session Started.
+23 April 2020 18:55:43,__main__,"can't find acd_engine, openning dialog."
+23 April 2020 18:55:52,__main__,Driver launched and found successfully.
+23 April 2020 18:56:01,__main__,Application closed.
+23 April 2020 18:57:52,LOGGER_MODULE,session Started.
+23 April 2020 18:57:55,__main__,Driver launched and found successfully.
+23 April 2020 18:58:08,__main__,Application closed.
+23 April 2020 18:58:16,LOGGER_MODULE,session Started.
+23 April 2020 18:58:19,__main__,Driver launched and found successfully.
+23 April 2020 18:58:48,adc-dl-bc-20420,login successful.
+23 April 2020 18:58:58,__main__,added jobs to threads. round 1
+23 April 2020 18:59:08,__main__,added jobs to threads. round 2
+23 April 2020 19:00:23,__main__,Application closed.
+23 April 2020 19:29:39,LOGGER_MODULE,session Started.
+23 April 2020 19:29:42,__main__,Driver launched and found successfully.
+23 April 2020 19:30:06,adc-dl-bc-20420,login successful.
+23 April 2020 19:30:22,__main__,Application closed.
+23 April 2020 19:35:59,LOGGER_MODULE,session Started.
+23 April 2020 19:36:03,__main__,Driver launched and found successfully.
+23 April 2020 19:37:02,adc-dl-bc-20420,login successful.
+23 April 2020 19:37:49,__main__,added jobs to threads. round 1
+23 April 2020 19:38:16,__main__,added jobs to threads. round 2
+23 April 2020 19:38:19,__main__,Application closed.
+23 April 2020 21:02:14,LOGGER_MODULE,session Started.
+23 April 2020 21:02:20,__main__,Driver launched and found successfully.
+23 April 2020 21:02:53,adc-dl-bc-20420,login successful.
+23 April 2020 21:03:16,__main__,added jobs to threads. round 1
+23 April 2020 21:04:16,__main__,added jobs to threads. round 2
+23 April 2020 21:05:20,__main__,Application closed.
+23 April 2020 21:05:23,LOGGER_MODULE,session Started.
+23 April 2020 21:05:28,__main__,Driver launched and found successfully.
+23 April 2020 21:06:00,adc-dl-bc-20420,login successful.
+23 April 2020 21:06:06,__main__,added jobs to threads. round 1
+23 April 2020 21:06:20,__main__,added jobs to threads. round 2
+23 April 2020 21:06:23,__main__,Application closed.
+23 April 2020 21:25:32,LOGGER_MODULE,session Started.
+23 April 2020 21:25:38,__main__,Driver launched and found successfully.
+23 April 2020 21:26:23,adc-dl-bc-20420,login successful.
+23 April 2020 21:26:27,__main__,added jobs to threads. round 1
+23 April 2020 21:26:41,__main__,added jobs to threads. round 2
+23 April 2020 21:26:51,__main__,Application closed.
+23 April 2020 23:17:22,LOGGER_MODULE,session Started.
+23 April 2020 23:17:27,__main__,Driver launched and found successfully.
+23 April 2020 23:18:13,adc-dl-bc-20420,login successful.
+23 April 2020 23:18:24,__main__,added jobs to threads. round 1
+23 April 2020 23:18:35,adc-dl-bc-20420,p8cy1asicfg -> 2185802 bytes downloaded. in progress.
+23 April 2020 23:18:38,adc-dl-bc-20420,p8cy1asicfg -> 4473146 bytes downloaded. in progress.
+23 April 2020 23:18:41,adc-dl-bc-20420,p8cy1asicfg -> 5465746 bytes downloaded. in progress.
+23 April 2020 23:18:44,adc-dl-bc-20420,p8cy1asicfg -> 6270458 bytes downloaded. in progress.
+23 April 2020 23:18:47,adc-dl-bc-20420,p8cy1asicfg -> 7544538 bytes downloaded. in progress.
+23 April 2020 23:18:50,adc-dl-bc-20420,p8cy1asicfg -> 9314834 bytes downloaded. in progress.
+23 April 2020 23:18:53,adc-dl-bc-20420,p8cy1asicfg -> 10965938 bytes downloaded. in progress.
+23 April 2020 23:18:56,adc-dl-bc-20420,p8cy1asicfg -> 12466674 bytes downloaded. in progress.
+23 April 2020 23:18:59,adc-dl-bc-20420,p8cy1asicfg -> 14231746 bytes downloaded. in progress.
+23 April 2020 23:19:02,adc-dl-bc-20420,p8cy1asicfg -> 16229242 bytes downloaded. in progress.
+23 April 2020 23:19:05,adc-dl-bc-20420,p8cy1asicfg -> 18162866 bytes downloaded. in progress.
+23 April 2020 23:19:08,adc-dl-bc-20420,p8cy1asicfg -> 20125890 bytes downloaded. in progress.
+23 April 2020 23:19:11,adc-dl-bc-20420,p8cy1asicfg -> 22124210 bytes downloaded. in progress.
+23 April 2020 23:19:14,adc-dl-bc-20420,p8cy1asicfg -> 23924516 bytes downloaded. in progress.
+23 April 2020 23:19:17,adc-dl-bc-20420,p8cy1asicfg download finished.24026916 bytes downloaded.
+23 April 2020 23:19:19,__main__,added jobs to threads. round 2
+23 April 2020 23:19:19,adc-dl-bc-20420,error in converting
+23 April 2020 23:19:19,#5,error in converting files
+23 April 2020 23:19:33,adc-dl-bc-20420,p37wttedz16 -> 1506022 bytes downloaded. in progress.
+23 April 2020 23:19:36,adc-dl-bc-20420,p37wttedz16 -> 2437022 bytes downloaded. in progress.
+23 April 2020 23:19:39,adc-dl-bc-20420,p37wttedz16 -> 3452158 bytes downloaded. in progress.
+23 April 2020 23:19:42,adc-dl-bc-20420,p37wttedz16 -> 5010870 bytes downloaded. in progress.
+23 April 2020 23:19:45,adc-dl-bc-20420,p37wttedz16 -> 7136270 bytes downloaded. in progress.
+23 April 2020 23:19:48,adc-dl-bc-20420,p37wttedz16 -> 9439102 bytes downloaded. in progress.
+23 April 2020 23:19:51,adc-dl-bc-20420,p37wttedz16 -> 11733638 bytes downloaded. in progress.
+23 April 2020 23:19:54,adc-dl-bc-20420,p37wttedz16 -> 13807396 bytes downloaded. in progress.
+23 April 2020 23:19:57,adc-dl-bc-20420,p37wttedz16 -> 15572942 bytes downloaded. in progress.
+23 April 2020 23:20:00,adc-dl-bc-20420,p37wttedz16 -> 17368494 bytes downloaded. in progress.
+23 April 2020 23:20:03,adc-dl-bc-20420,p37wttedz16 -> 19022654 bytes downloaded. in progress.
+23 April 2020 23:20:06,adc-dl-bc-20420,p37wttedz16 -> 20687086 bytes downloaded. in progress.
+23 April 2020 23:20:09,adc-dl-bc-20420,p37wttedz16 -> 22235336 bytes downloaded. in progress.
+23 April 2020 23:20:12,adc-dl-bc-20420,p37wttedz16 -> 24217022 bytes downloaded. in progress.
+23 April 2020 23:20:15,adc-dl-bc-20420,p37wttedz16 download finished.24319422 bytes downloaded.
+23 April 2020 23:20:20,__main__,added jobs to threads. round 3
+23 April 2020 23:20:21,adc-dl-bc-20420,error in converting
+23 April 2020 23:20:21,#5,error in converting files
+23 April 2020 23:22:28,__main__,added jobs to threads. round 1
+23 April 2020 23:22:41,adc-dl-bc-20420,p6nz5jtoath -> 1716488 bytes downloaded. in progress.
+23 April 2020 23:22:45,adc-dl-bc-20420,p6nz5jtoath -> 3194880 bytes downloaded. in progress.
+23 April 2020 23:22:48,adc-dl-bc-20420,p6nz5jtoath -> 4713304 bytes downloaded. in progress.
+23 April 2020 23:22:51,adc-dl-bc-20420,p6nz5jtoath -> 6076904 bytes downloaded. in progress.
+23 April 2020 23:22:54,adc-dl-bc-20420,p6nz5jtoath -> 7588904 bytes downloaded. in progress.
+23 April 2020 23:22:57,adc-dl-bc-20420,p6nz5jtoath -> 9873696 bytes downloaded. in progress.
+23 April 2020 23:23:00,adc-dl-bc-20420,p6nz5jtoath -> 12199096 bytes downloaded. in progress.
+23 April 2020 23:23:03,adc-dl-bc-20420,p6nz5jtoath -> 14479696 bytes downloaded. in progress.
+23 April 2020 23:23:06,adc-dl-bc-20420,p6nz5jtoath -> 15823696 bytes downloaded. in progress.
+23 April 2020 23:23:09,adc-dl-bc-20420,p6nz5jtoath -> 16820496 bytes downloaded. in progress.
+23 April 2020 23:23:12,adc-dl-bc-20420,p6nz5jtoath -> 17587696 bytes downloaded. in progress.
+23 April 2020 23:23:15,adc-dl-bc-20420,p6nz5jtoath -> 18938752 bytes downloaded. in progress.
+23 April 2020 23:23:18,adc-dl-bc-20420,p6nz5jtoath -> 21241752 bytes downloaded. in progress.
+23 April 2020 23:23:21,adc-dl-bc-20420,p6nz5jtoath -> 23544744 bytes downloaded. in progress.
+23 April 2020 23:23:24,adc-dl-bc-20420,p6nz5jtoath -> 24194360 bytes downloaded. in progress.
+23 April 2020 23:23:27,adc-dl-bc-20420,p6nz5jtoath -> 24194660 bytes downloaded. in progress.
+23 April 2020 23:23:30,adc-dl-bc-20420,p6nz5jtoath -> 24194960 bytes downloaded. in progress.
+23 April 2020 23:23:33,adc-dl-bc-20420,p6nz5jtoath -> 24195260 bytes downloaded. in progress.
+23 April 2020 23:23:36,adc-dl-bc-20420,p6nz5jtoath download finished.24296560 bytes downloaded.
+23 April 2020 23:23:39,__main__,added jobs to threads. round 2
+23 April 2020 23:23:40,adc-dl-bc-20420,error in converting
+23 April 2020 23:23:40,#5,error in converting files
+23 April 2020 23:26:03,__main__,added jobs to threads. round 1
+23 April 2020 23:26:17,adc-dl-bc-20420,p98hrd1py57 -> 1472488 bytes downloaded. in progress.
+23 April 2020 23:26:20,adc-dl-bc-20420,p98hrd1py57 -> 3053080 bytes downloaded. in progress.
+23 April 2020 23:26:23,adc-dl-bc-20420,p98hrd1py57 -> 5325280 bytes downloaded. in progress.
+23 April 2020 23:26:26,adc-dl-bc-20420,p98hrd1py57 -> 6481680 bytes downloaded. in progress.
+23 April 2020 23:26:29,adc-dl-bc-20420,p98hrd1py57 -> 7577880 bytes downloaded. in progress.
+23 April 2020 23:26:32,adc-dl-bc-20420,p98hrd1py57 -> 8620880 bytes downloaded. in progress.
+23 April 2020 23:26:35,adc-dl-bc-20420,p98hrd1py57 -> 9663880 bytes downloaded. in progress.
+23 April 2020 23:26:38,adc-dl-bc-20420,p98hrd1py57 -> 10809080 bytes downloaded. in progress.
+23 April 2020 23:26:41,adc-dl-bc-20420,p98hrd1py57 -> 11846480 bytes downloaded. in progress.
+23 April 2020 23:26:44,adc-dl-bc-20420,p98hrd1py57 -> 12802672 bytes downloaded. in progress.
+23 April 2020 23:26:48,adc-dl-bc-20420,p98hrd1py57 -> 13742522 bytes downloaded. in progress.
+23 April 2020 23:26:51,adc-dl-bc-20420,p98hrd1py57 -> 14754186 bytes downloaded. in progress.
+23 April 2020 23:26:54,adc-dl-bc-20420,p98hrd1py57 -> 15394986 bytes downloaded. in progress.
+23 April 2020 23:26:57,adc-dl-bc-20420,p98hrd1py57 -> 15770202 bytes downloaded. in progress.
+23 April 2020 23:27:00,adc-dl-bc-20420,p98hrd1py57 -> 16429218 bytes downloaded. in progress.
+23 April 2020 23:27:03,adc-dl-bc-20420,p98hrd1py57 -> 17008818 bytes downloaded. in progress.
+23 April 2020 23:27:06,adc-dl-bc-20420,p98hrd1py57 -> 17546418 bytes downloaded. in progress.
+23 April 2020 23:27:09,adc-dl-bc-20420,p98hrd1py57 -> 18476018 bytes downloaded. in progress.
+23 April 2020 23:27:12,adc-dl-bc-20420,p98hrd1py57 -> 19429210 bytes downloaded. in progress.
+23 April 2020 23:27:15,adc-dl-bc-20420,p98hrd1py57 -> 20510218 bytes downloaded. in progress.
+23 April 2020 23:27:18,adc-dl-bc-20420,p98hrd1py57 -> 21724018 bytes downloaded. in progress.
+23 April 2020 23:27:21,adc-dl-bc-20420,p98hrd1py57 -> 22741818 bytes downloaded. in progress.
+23 April 2020 23:27:24,adc-dl-bc-20420,p98hrd1py57 -> 23787938 bytes downloaded. in progress.
+23 April 2020 23:27:27,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+23 April 2020 23:27:28,__main__,added jobs to threads. round 2
+23 April 2020 23:27:29,adc-dl-bc-20420,error in converting
+23 April 2020 23:27:29,#5,error in converting files
+23 April 2020 23:28:56,__main__,Application closed.
+24 April 2020 15:53:22,LOGGER_MODULE,session Started.
+24 April 2020 15:53:55,__main__,Driver launched and found successfully.
+24 April 2020 15:54:53,adc-dl-bc-20420,login successful.
+24 April 2020 15:54:59,__main__,added jobs to threads. round 1
+24 April 2020 15:55:13,adc-dl-bc-20420,p39omp7tpy2 -> 2476288 bytes downloaded. in progress.
+24 April 2020 15:55:16,adc-dl-bc-20420,p39omp7tpy2 -> 4642904 bytes downloaded. in progress.
+24 April 2020 15:55:19,adc-dl-bc-20420,p39omp7tpy2 -> 7005664 bytes downloaded. in progress.
+24 April 2020 15:55:22,adc-dl-bc-20420,p39omp7tpy2 -> 9351376 bytes downloaded. in progress.
+24 April 2020 15:55:25,adc-dl-bc-20420,p39omp7tpy2 -> 11470312 bytes downloaded. in progress.
+24 April 2020 15:55:28,adc-dl-bc-20420,p39omp7tpy2 -> 12104824 bytes downloaded. in progress.
+24 April 2020 15:55:31,adc-dl-bc-20420,p39omp7tpy2 -> 13389160 bytes downloaded. in progress.
+24 April 2020 15:55:34,adc-dl-bc-20420,p39omp7tpy2 -> 15692768 bytes downloaded. in progress.
+24 April 2020 15:55:37,adc-dl-bc-20420,p39omp7tpy2 -> 17996584 bytes downloaded. in progress.
+24 April 2020 15:55:40,adc-dl-bc-20420,p39omp7tpy2 -> 19205413 bytes downloaded. in progress.
+24 April 2020 15:55:43,adc-dl-bc-20420,p39omp7tpy2 download finished.19205413 bytes downloaded.
+24 April 2020 15:55:44,__main__,added jobs to threads. round 2
+24 April 2020 15:55:59,adc-dl-bc-20420,error in converting
+24 April 2020 15:56:19,__main__,added jobs to threads. round 1
+24 April 2020 15:56:33,adc-dl-bc-20420,p98hrd1py57 -> 2463528 bytes downloaded. in progress.
+24 April 2020 15:56:36,adc-dl-bc-20420,p98hrd1py57 -> 4754616 bytes downloaded. in progress.
+24 April 2020 15:56:39,adc-dl-bc-20420,p98hrd1py57 -> 7049216 bytes downloaded. in progress.
+24 April 2020 15:56:42,adc-dl-bc-20420,p98hrd1py57 -> 9356088 bytes downloaded. in progress.
+24 April 2020 15:56:45,adc-dl-bc-20420,p98hrd1py57 -> 11663280 bytes downloaded. in progress.
+24 April 2020 15:56:48,adc-dl-bc-20420,p98hrd1py57 -> 13935464 bytes downloaded. in progress.
+24 April 2020 15:56:51,adc-dl-bc-20420,p98hrd1py57 -> 16225856 bytes downloaded. in progress.
+24 April 2020 15:56:54,adc-dl-bc-20420,p98hrd1py57 -> 18491056 bytes downloaded. in progress.
+24 April 2020 15:56:57,adc-dl-bc-20420,p98hrd1py57 -> 20795528 bytes downloaded. in progress.
+24 April 2020 15:57:00,adc-dl-bc-20420,p98hrd1py57 -> 23091520 bytes downloaded. in progress.
+24 April 2020 15:57:03,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 15:57:04,__main__,added jobs to threads. round 2
+24 April 2020 15:57:05,#5,error in converting files
+24 April 2020 15:59:50,__main__,Application closed.
+24 April 2020 16:00:20,LOGGER_MODULE,session Started.
+24 April 2020 16:00:26,__main__,Driver launched and found successfully.
+24 April 2020 16:00:52,adc-dl-bc-20420,login successful.
+24 April 2020 16:01:17,__main__,added jobs to threads. round 1
+24 April 2020 16:01:30,adc-dl-bc-20420,p98hrd1py57 -> 2490994 bytes downloaded. in progress.
+24 April 2020 16:01:33,adc-dl-bc-20420,p98hrd1py57 -> 4274514 bytes downloaded. in progress.
+24 April 2020 16:01:36,adc-dl-bc-20420,p98hrd1py57 -> 6575482 bytes downloaded. in progress.
+24 April 2020 16:01:39,adc-dl-bc-20420,p98hrd1py57 -> 8869658 bytes downloaded. in progress.
+24 April 2020 16:01:42,adc-dl-bc-20420,p98hrd1py57 -> 11187586 bytes downloaded. in progress.
+24 April 2020 16:01:45,adc-dl-bc-20420,p98hrd1py57 -> 13488026 bytes downloaded. in progress.
+24 April 2020 16:01:48,adc-dl-bc-20420,p98hrd1py57 -> 15785058 bytes downloaded. in progress.
+24 April 2020 16:01:51,adc-dl-bc-20420,p98hrd1py57 -> 18086434 bytes downloaded. in progress.
+24 April 2020 16:01:54,adc-dl-bc-20420,p98hrd1py57 -> 20387146 bytes downloaded. in progress.
+24 April 2020 16:01:57,adc-dl-bc-20420,p98hrd1py57 -> 22690458 bytes downloaded. in progress.
+24 April 2020 16:02:00,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 16:02:03,__main__,added jobs to threads. round 2
+24 April 2020 16:02:03,#5,error in converting files
+24 April 2020 16:02:18,__main__,Application closed.
+24 April 2020 16:03:55,LOGGER_MODULE,session Started.
+24 April 2020 16:04:01,__main__,Driver launched and found successfully.
+24 April 2020 16:04:26,adc-dl-bc-20420,login successful.
+24 April 2020 16:04:38,__main__,added jobs to threads. round 1
+24 April 2020 16:04:51,adc-dl-bc-20420,p98hrd1py57 -> 2441954 bytes downloaded. in progress.
+24 April 2020 16:04:54,adc-dl-bc-20420,p98hrd1py57 -> 4795850 bytes downloaded. in progress.
+24 April 2020 16:04:57,adc-dl-bc-20420,p98hrd1py57 -> 6971186 bytes downloaded. in progress.
+24 April 2020 16:05:00,adc-dl-bc-20420,p98hrd1py57 -> 9397426 bytes downloaded. in progress.
+24 April 2020 16:05:03,adc-dl-bc-20420,p98hrd1py57 -> 11689322 bytes downloaded. in progress.
+24 April 2020 16:05:06,adc-dl-bc-20420,p98hrd1py57 -> 13955026 bytes downloaded. in progress.
+24 April 2020 16:05:09,adc-dl-bc-20420,p98hrd1py57 -> 15927186 bytes downloaded. in progress.
+24 April 2020 16:05:12,adc-dl-bc-20420,p98hrd1py57 -> 18265106 bytes downloaded. in progress.
+24 April 2020 16:05:15,adc-dl-bc-20420,p98hrd1py57 -> 20551402 bytes downloaded. in progress.
+24 April 2020 16:05:18,adc-dl-bc-20420,p98hrd1py57 -> 22838210 bytes downloaded. in progress.
+24 April 2020 16:05:21,adc-dl-bc-20420,p98hrd1py57 -> 24394454 bytes downloaded. in progress.
+24 April 2020 16:05:24,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 16:05:29,__main__,added jobs to threads. round 2
+24 April 2020 16:05:32,adc-dl-bc-20420,error in converting
+24 April 2020 16:05:34,adc-dl-bc-20420,error in converting
+24 April 2020 16:05:46,adc-dl-bc-20420,error in converting
+24 April 2020 16:06:02,adc-dl-bc-20420,error in converting
+24 April 2020 16:09:17,__main__,Application closed.
+24 April 2020 16:09:22,LOGGER_MODULE,session Started.
+24 April 2020 16:09:28,__main__,Driver launched and found successfully.
+24 April 2020 16:10:00,adc-dl-bc-20420,login successful.
+24 April 2020 16:10:20,__main__,added jobs to threads. round 1
+24 April 2020 16:10:33,adc-dl-bc-20420,p98hrd1py57 -> 2051962 bytes downloaded. in progress.
+24 April 2020 16:10:36,adc-dl-bc-20420,p98hrd1py57 -> 4350530 bytes downloaded. in progress.
+24 April 2020 16:10:39,adc-dl-bc-20420,p98hrd1py57 -> 6647930 bytes downloaded. in progress.
+24 April 2020 16:10:42,adc-dl-bc-20420,p98hrd1py57 -> 8740930 bytes downloaded. in progress.
+24 April 2020 16:10:45,adc-dl-bc-20420,p98hrd1py57 -> 10521730 bytes downloaded. in progress.
+24 April 2020 16:10:48,adc-dl-bc-20420,p98hrd1py57 -> 11202130 bytes downloaded. in progress.
+24 April 2020 16:10:51,adc-dl-bc-20420,p98hrd1py57 -> 11878482 bytes downloaded. in progress.
+24 April 2020 16:10:54,adc-dl-bc-20420,p98hrd1py57 -> 12938130 bytes downloaded. in progress.
+24 April 2020 16:10:58,adc-dl-bc-20420,p98hrd1py57 -> 13818730 bytes downloaded. in progress.
+24 April 2020 16:11:01,adc-dl-bc-20420,p98hrd1py57 -> 15073426 bytes downloaded. in progress.
+24 April 2020 16:11:05,adc-dl-bc-20420,p98hrd1py57 -> 16087770 bytes downloaded. in progress.
+24 April 2020 16:11:08,adc-dl-bc-20420,p98hrd1py57 -> 18628890 bytes downloaded. in progress.
+24 April 2020 16:11:11,adc-dl-bc-20420,p98hrd1py57 -> 20433490 bytes downloaded. in progress.
+24 April 2020 16:11:14,adc-dl-bc-20420,p98hrd1py57 -> 22079890 bytes downloaded. in progress.
+24 April 2020 16:11:17,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+24 April 2020 16:11:20,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 16:11:21,__main__,added jobs to threads. round 2
+24 April 2020 16:11:25,#5,error in converting files
+24 April 2020 16:11:37,adc-dl-bc-20420,p6whf3bntr3 -> 2158138 bytes downloaded. in progress.
+24 April 2020 16:11:40,adc-dl-bc-20420,p6whf3bntr3 -> 4278954 bytes downloaded. in progress.
+24 April 2020 16:11:43,adc-dl-bc-20420,p6whf3bntr3 -> 6293546 bytes downloaded. in progress.
+24 April 2020 16:11:46,adc-dl-bc-20420,p6whf3bntr3 -> 8438762 bytes downloaded. in progress.
+24 April 2020 16:11:49,adc-dl-bc-20420,p6whf3bntr3 -> 10182418 bytes downloaded. in progress.
+24 April 2020 16:11:52,adc-dl-bc-20420,p6whf3bntr3 -> 12281010 bytes downloaded. in progress.
+24 April 2020 16:11:55,adc-dl-bc-20420,p6whf3bntr3 -> 14269010 bytes downloaded. in progress.
+24 April 2020 16:11:58,adc-dl-bc-20420,p6whf3bntr3 -> 16397394 bytes downloaded. in progress.
+24 April 2020 16:12:01,adc-dl-bc-20420,p6whf3bntr3 -> 18389586 bytes downloaded. in progress.
+24 April 2020 16:12:04,adc-dl-bc-20420,p6whf3bntr3 -> 20126682 bytes downloaded. in progress.
+24 April 2020 16:12:07,adc-dl-bc-20420,p6whf3bntr3 download finished.21513746 bytes downloaded.
+24 April 2020 16:12:11,__main__,added jobs to threads. round 3
+24 April 2020 16:12:29,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:14:27,__main__,added jobs to threads. round 1
+24 April 2020 16:14:39,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 16:14:42,__main__,added jobs to threads. round 2
+24 April 2020 16:14:47,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:14:48,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:14:55,adc-dl-bc-20420,p6whf3bntr3 download finished.21513746 bytes downloaded.
+24 April 2020 16:14:58,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:15:08,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:15:08,__main__,added jobs to threads. round 3
+24 April 2020 16:15:27,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 16:16:43,__main__,Application closed.
+24 April 2020 16:31:04,LOGGER_MODULE,session Started.
+24 April 2020 16:31:10,__main__,Driver launched and found successfully.
+24 April 2020 16:31:19,__main__,Application closed.
+24 April 2020 16:34:30,LOGGER_MODULE,session Started.
+24 April 2020 16:34:36,__main__,Driver launched and found successfully.
+24 April 2020 16:34:44,__main__,Application closed.
+24 April 2020 17:49:05,LOGGER_MODULE,session Started.
+24 April 2020 17:49:11,__main__,Driver launched and found successfully.
+24 April 2020 17:51:33,adc-dl-bc-20420,login successful.
+24 April 2020 17:53:42,__main__,Application closed.
+24 April 2020 18:49:22,LOGGER_MODULE,session Started.
+24 April 2020 18:49:28,__main__,Driver launched and found successfully.
+24 April 2020 18:50:17,adc-dl-bc-20420,login successful.
+24 April 2020 18:50:36,__main__,added jobs to threads. round 1
+24 April 2020 18:50:55,adc-dl-bc-20420,p98hrd1py57 -> 127549 bytes downloaded. in progress.
+24 April 2020 18:50:56,adc-dl-bc-20420,p98hrd1py57 -> 272855 bytes downloaded. in progress.
+24 April 2020 18:50:57,adc-dl-bc-20420,p98hrd1py57 -> 371989 bytes downloaded. in progress.
+24 April 2020 18:50:58,adc-dl-bc-20420,p98hrd1py57 -> 528749 bytes downloaded. in progress.
+24 April 2020 18:50:59,adc-dl-bc-20420,p98hrd1py57 -> 588501 bytes downloaded. in progress.
+24 April 2020 18:51:00,adc-dl-bc-20420,p98hrd1py57 -> 741955 bytes downloaded. in progress.
+24 April 2020 18:51:01,adc-dl-bc-20420,p98hrd1py57 -> 821171 bytes downloaded. in progress.
+24 April 2020 18:51:02,adc-dl-bc-20420,p98hrd1py57 -> 916231 bytes downloaded. in progress.
+24 April 2020 18:51:03,adc-dl-bc-20420,p98hrd1py57 -> 1024277 bytes downloaded. in progress.
+24 April 2020 18:51:04,adc-dl-bc-20420,p98hrd1py57 -> 1142963 bytes downloaded. in progress.
+24 April 2020 18:51:05,adc-dl-bc-20420,p98hrd1py57 -> 1273331 bytes downloaded. in progress.
+24 April 2020 18:51:06,adc-dl-bc-20420,p98hrd1py57 -> 1411722 bytes downloaded. in progress.
+24 April 2020 18:51:07,adc-dl-bc-20420,p98hrd1py57 -> 1521395 bytes downloaded. in progress.
+24 April 2020 18:51:08,adc-dl-bc-20420,p98hrd1py57 -> 1644973 bytes downloaded. in progress.
+24 April 2020 18:51:09,adc-dl-bc-20420,p98hrd1py57 -> 1684355 bytes downloaded. in progress.
+24 April 2020 18:51:10,adc-dl-bc-20420,p98hrd1py57 -> 1740033 bytes downloaded. in progress.
+24 April 2020 18:51:11,adc-dl-bc-20420,p98hrd1py57 -> 1791637 bytes downloaded. in progress.
+24 April 2020 18:51:12,adc-dl-bc-20420,p98hrd1py57 -> 1866327 bytes downloaded. in progress.
+24 April 2020 18:51:13,adc-dl-bc-20420,p98hrd1py57 -> 1898514 bytes downloaded. in progress.
+24 April 2020 18:51:14,adc-dl-bc-20420,p98hrd1py57 -> 1937703 bytes downloaded. in progress.
+24 April 2020 18:51:15,adc-dl-bc-20420,p98hrd1py57 -> 1958073 bytes downloaded. in progress.
+24 April 2020 18:51:16,adc-dl-bc-20420,p98hrd1py57 -> 1986591 bytes downloaded. in progress.
+24 April 2020 18:51:17,adc-dl-bc-20420,p98hrd1py57 -> 2031405 bytes downloaded. in progress.
+24 April 2020 18:51:19,adc-dl-bc-20420,p98hrd1py57 -> 2099427 bytes downloaded. in progress.
+24 April 2020 18:51:20,adc-dl-bc-20420,p98hrd1py57 -> 2169362 bytes downloaded. in progress.
+24 April 2020 18:51:21,adc-dl-bc-20420,p98hrd1py57 -> 2241336 bytes downloaded. in progress.
+24 April 2020 18:51:22,adc-dl-bc-20420,p98hrd1py57 -> 2330504 bytes downloaded. in progress.
+24 April 2020 18:51:23,adc-dl-bc-20420,p98hrd1py57 -> 2414078 bytes downloaded. in progress.
+24 April 2020 18:51:24,adc-dl-bc-20420,p98hrd1py57 -> 2521360 bytes downloaded. in progress.
+24 April 2020 18:51:25,adc-dl-bc-20420,p98hrd1py57 -> 2645636 bytes downloaded. in progress.
+24 April 2020 18:51:26,adc-dl-bc-20420,p98hrd1py57 -> 2751560 bytes downloaded. in progress.
+24 April 2020 18:51:27,adc-dl-bc-20420,p98hrd1py57 -> 2847978 bytes downloaded. in progress.
+24 April 2020 18:51:28,adc-dl-bc-20420,p98hrd1py57 -> 2973708 bytes downloaded. in progress.
+24 April 2020 18:51:29,adc-dl-bc-20420,p98hrd1py57 -> 3127162 bytes downloaded. in progress.
+24 April 2020 18:51:30,adc-dl-bc-20420,p98hrd1py57 -> 3301142 bytes downloaded. in progress.
+24 April 2020 18:51:31,adc-dl-bc-20420,p98hrd1py57 -> 3460028 bytes downloaded. in progress.
+24 April 2020 18:51:32,adc-dl-bc-20420,p98hrd1py57 -> 3654173 bytes downloaded. in progress.
+24 April 2020 18:51:33,adc-dl-bc-20420,p98hrd1py57 -> 3841068 bytes downloaded. in progress.
+24 April 2020 18:51:34,adc-dl-bc-20420,p98hrd1py57 -> 4036620 bytes downloaded. in progress.
+24 April 2020 18:51:35,adc-dl-bc-20420,p98hrd1py57 -> 4262540 bytes downloaded. in progress.
+24 April 2020 18:51:36,adc-dl-bc-20420,p98hrd1py57 -> 4469080 bytes downloaded. in progress.
+24 April 2020 18:51:37,adc-dl-bc-20420,p98hrd1py57 -> 4645673 bytes downloaded. in progress.
+24 April 2020 18:51:38,adc-dl-bc-20420,p98hrd1py57 -> 4835025 bytes downloaded. in progress.
+24 April 2020 18:51:39,adc-dl-bc-20420,p98hrd1py57 -> 5080584 bytes downloaded. in progress.
+24 April 2020 18:51:40,adc-dl-bc-20420,p98hrd1py57 -> 5346001 bytes downloaded. in progress.
+24 April 2020 18:51:41,adc-dl-bc-20420,p98hrd1py57 -> 5551785 bytes downloaded. in progress.
+24 April 2020 18:51:42,adc-dl-bc-20420,p98hrd1py57 -> 5658337 bytes downloaded. in progress.
+24 April 2020 18:51:43,adc-dl-bc-20420,p98hrd1py57 -> 5768804 bytes downloaded. in progress.
+24 April 2020 18:51:44,adc-dl-bc-20420,p98hrd1py57 -> 5911394 bytes downloaded. in progress.
+24 April 2020 18:51:45,adc-dl-bc-20420,p98hrd1py57 -> 6017702 bytes downloaded. in progress.
+24 April 2020 18:51:46,adc-dl-bc-20420,p98hrd1py57 -> 6165724 bytes downloaded. in progress.
+24 April 2020 18:51:47,adc-dl-bc-20420,p98hrd1py57 -> 6349913 bytes downloaded. in progress.
+24 April 2020 18:51:48,adc-dl-bc-20420,p98hrd1py57 -> 6542530 bytes downloaded. in progress.
+24 April 2020 18:51:49,adc-dl-bc-20420,p98hrd1py57 -> 6739440 bytes downloaded. in progress.
+24 April 2020 18:51:50,adc-dl-bc-20420,p98hrd1py57 -> 6952462 bytes downloaded. in progress.
+24 April 2020 18:51:51,adc-dl-bc-20420,p98hrd1py57 -> 7194850 bytes downloaded. in progress.
+24 April 2020 18:51:52,adc-dl-bc-20420,p98hrd1py57 -> 7432727 bytes downloaded. in progress.
+24 April 2020 18:51:53,adc-dl-bc-20420,p98hrd1py57 -> 7708005 bytes downloaded. in progress.
+24 April 2020 18:51:54,adc-dl-bc-20420,p98hrd1py57 -> 7988740 bytes downloaded. in progress.
+24 April 2020 18:51:55,adc-dl-bc-20420,p98hrd1py57 -> 8276667 bytes downloaded. in progress.
+24 April 2020 18:51:56,adc-dl-bc-20420,p98hrd1py57 -> 8574069 bytes downloaded. in progress.
+24 April 2020 18:51:57,adc-dl-bc-20420,p98hrd1py57 -> 8826978 bytes downloaded. in progress.
+24 April 2020 18:51:58,adc-dl-bc-20420,p98hrd1py57 -> 9122119 bytes downloaded. in progress.
+24 April 2020 18:51:59,adc-dl-bc-20420,p98hrd1py57 -> 9348191 bytes downloaded. in progress.
+24 April 2020 18:52:00,adc-dl-bc-20420,p98hrd1py57 -> 9667321 bytes downloaded. in progress.
+24 April 2020 18:52:01,adc-dl-bc-20420,p98hrd1py57 -> 9930858 bytes downloaded. in progress.
+24 April 2020 18:52:02,adc-dl-bc-20420,p98hrd1py57 -> 10232737 bytes downloaded. in progress.
+24 April 2020 18:52:03,adc-dl-bc-20420,p98hrd1py57 -> 10496950 bytes downloaded. in progress.
+24 April 2020 18:52:04,adc-dl-bc-20420,p98hrd1py57 -> 10700088 bytes downloaded. in progress.
+24 April 2020 18:52:05,adc-dl-bc-20420,p98hrd1py57 -> 10894259 bytes downloaded. in progress.
+24 April 2020 18:52:06,adc-dl-bc-20420,p98hrd1py57 -> 11044079 bytes downloaded. in progress.
+24 April 2020 18:52:07,adc-dl-bc-20420,p98hrd1py57 -> 11219261 bytes downloaded. in progress.
+24 April 2020 18:52:08,adc-dl-bc-20420,p98hrd1py57 -> 11394679 bytes downloaded. in progress.
+24 April 2020 18:52:09,adc-dl-bc-20420,p98hrd1py57 -> 11434061 bytes downloaded. in progress.
+24 April 2020 18:52:10,adc-dl-bc-20420,p98hrd1py57 -> 11572577 bytes downloaded. in progress.
+24 April 2020 18:52:11,adc-dl-bc-20420,p98hrd1py57 -> 11688619 bytes downloaded. in progress.
+24 April 2020 18:52:12,adc-dl-bc-20420,p98hrd1py57 -> 11795901 bytes downloaded. in progress.
+24 April 2020 18:52:13,adc-dl-bc-20420,p98hrd1py57 -> 11914271 bytes downloaded. in progress.
+24 April 2020 18:52:14,adc-dl-bc-20420,p98hrd1py57 -> 12043244 bytes downloaded. in progress.
+24 April 2020 18:52:15,adc-dl-bc-20420,p98hrd1py57 -> 12141020 bytes downloaded. in progress.
+24 April 2020 18:52:16,adc-dl-bc-20420,p98hrd1py57 -> 12215710 bytes downloaded. in progress.
+24 April 2020 18:52:17,adc-dl-bc-20420,p98hrd1py57 -> 12279536 bytes downloaded. in progress.
+24 April 2020 18:52:18,adc-dl-bc-20420,p98hrd1py57 -> 12372693 bytes downloaded. in progress.
+24 April 2020 18:52:19,adc-dl-bc-20420,p98hrd1py57 -> 12455531 bytes downloaded. in progress.
+24 April 2020 18:52:20,adc-dl-bc-20420,p98hrd1py57 -> 12484049 bytes downloaded. in progress.
+24 April 2020 18:52:21,adc-dl-bc-20420,p98hrd1py57 -> 12538369 bytes downloaded. in progress.
+24 April 2020 18:52:22,adc-dl-bc-20420,p98hrd1py57 -> 12589973 bytes downloaded. in progress.
+24 April 2020 18:52:23,adc-dl-bc-20420,p98hrd1py57 -> 12656515 bytes downloaded. in progress.
+24 April 2020 18:52:24,adc-dl-bc-20420,p98hrd1py57 -> 12714909 bytes downloaded. in progress.
+24 April 2020 18:52:25,adc-dl-bc-20420,p98hrd1py57 -> 12792315 bytes downloaded. in progress.
+24 April 2020 18:52:26,adc-dl-bc-20420,p98hrd1py57 -> 12881664 bytes downloaded. in progress.
+24 April 2020 18:52:27,adc-dl-bc-20420,p98hrd1py57 -> 12959070 bytes downloaded. in progress.
+24 April 2020 18:52:28,adc-dl-bc-20420,p98hrd1py57 -> 13040550 bytes downloaded. in progress.
+24 April 2020 18:52:29,adc-dl-bc-20420,p98hrd1py57 -> 13125112 bytes downloaded. in progress.
+24 April 2020 18:52:30,adc-dl-bc-20420,p98hrd1py57 -> 13187580 bytes downloaded. in progress.
+24 April 2020 18:52:31,adc-dl-bc-20420,p98hrd1py57 -> 13262270 bytes downloaded. in progress.
+24 April 2020 18:52:32,adc-dl-bc-20420,p98hrd1py57 -> 13350540 bytes downloaded. in progress.
+24 April 2020 18:52:33,adc-dl-bc-20420,p98hrd1py57 -> 13457512 bytes downloaded. in progress.
+24 April 2020 18:52:34,adc-dl-bc-20420,p98hrd1py57 -> 13552439 bytes downloaded. in progress.
+24 April 2020 18:52:35,adc-dl-bc-20420,p98hrd1py57 -> 13617623 bytes downloaded. in progress.
+24 April 2020 18:52:36,adc-dl-bc-20420,p98hrd1py57 -> 13714041 bytes downloaded. in progress.
+24 April 2020 18:52:37,adc-dl-bc-20420,p98hrd1py57 -> 13746633 bytes downloaded. in progress.
+24 April 2020 18:52:38,adc-dl-bc-20420,p98hrd1py57 -> 13792797 bytes downloaded. in progress.
+24 April 2020 18:52:39,adc-dl-bc-20420,p98hrd1py57 -> 13810451 bytes downloaded. in progress.
+24 April 2020 18:52:40,adc-dl-bc-20420,p98hrd1py57 -> 13852549 bytes downloaded. in progress.
+24 April 2020 18:52:41,adc-dl-bc-20420,p98hrd1py57 -> 13913659 bytes downloaded. in progress.
+24 April 2020 18:52:42,adc-dl-bc-20420,p98hrd1py57 -> 13970573 bytes downloaded. in progress.
+24 April 2020 18:52:43,adc-dl-bc-20420,p98hrd1py57 -> 14028967 bytes downloaded. in progress.
+24 April 2020 18:52:44,adc-dl-bc-20420,p98hrd1py57 -> 14087361 bytes downloaded. in progress.
+24 April 2020 18:52:45,adc-dl-bc-20420,p98hrd1py57 -> 14148108 bytes downloaded. in progress.
+24 April 2020 18:52:46,adc-dl-bc-20420,p98hrd1py57 -> 14219368 bytes downloaded. in progress.
+24 April 2020 18:52:47,adc-dl-bc-20420,p98hrd1py57 -> 14264182 bytes downloaded. in progress.
+24 April 2020 18:52:48,adc-dl-bc-20420,p98hrd1py57 -> 14338872 bytes downloaded. in progress.
+24 April 2020 18:52:49,adc-dl-bc-20420,p98hrd1py57 -> 14414847 bytes downloaded. in progress.
+24 April 2020 18:52:50,adc-dl-bc-20420,p98hrd1py57 -> 14496756 bytes downloaded. in progress.
+24 April 2020 18:52:51,adc-dl-bc-20420,p98hrd1py57 -> 14614244 bytes downloaded. in progress.
+24 April 2020 18:52:52,adc-dl-bc-20420,p98hrd1py57 -> 14739601 bytes downloaded. in progress.
+24 April 2020 18:52:53,adc-dl-bc-20420,p98hrd1py57 -> 14880552 bytes downloaded. in progress.
+24 April 2020 18:52:54,adc-dl-bc-20420,p98hrd1py57 -> 15024500 bytes downloaded. in progress.
+24 April 2020 18:52:55,adc-dl-bc-20420,p98hrd1py57 -> 15196991 bytes downloaded. in progress.
+24 April 2020 18:52:56,adc-dl-bc-20420,p98hrd1py57 -> 15378614 bytes downloaded. in progress.
+24 April 2020 18:52:57,adc-dl-bc-20420,p98hrd1py57 -> 15572889 bytes downloaded. in progress.
+24 April 2020 18:52:58,adc-dl-bc-20420,p98hrd1py57 -> 15790054 bytes downloaded. in progress.
+24 April 2020 18:52:59,adc-dl-bc-20420,p98hrd1py57 -> 15977458 bytes downloaded. in progress.
+24 April 2020 18:53:00,adc-dl-bc-20420,p98hrd1py57 -> 16184330 bytes downloaded. in progress.
+24 April 2020 18:53:01,adc-dl-bc-20420,p98hrd1py57 -> 16409758 bytes downloaded. in progress.
+24 April 2020 18:53:02,adc-dl-bc-20420,p98hrd1py57 -> 16630624 bytes downloaded. in progress.
+24 April 2020 18:53:03,adc-dl-bc-20420,p98hrd1py57 -> 16895531 bytes downloaded. in progress.
+24 April 2020 18:53:04,adc-dl-bc-20420,p98hrd1py57 -> 17152010 bytes downloaded. in progress.
+24 April 2020 18:53:05,adc-dl-bc-20420,p98hrd1py57 -> 17419255 bytes downloaded. in progress.
+24 April 2020 18:53:06,adc-dl-bc-20420,p98hrd1py57 -> 17698800 bytes downloaded. in progress.
+24 April 2020 18:53:07,adc-dl-bc-20420,p98hrd1py57 -> 17975370 bytes downloaded. in progress.
+24 April 2020 18:53:08,adc-dl-bc-20420,p98hrd1py57 -> 18305113 bytes downloaded. in progress.
+24 April 2020 18:53:09,adc-dl-bc-20420,p98hrd1py57 -> 18659150 bytes downloaded. in progress.
+24 April 2020 18:53:10,adc-dl-bc-20420,p98hrd1py57 -> 19003866 bytes downloaded. in progress.
+24 April 2020 18:53:11,adc-dl-bc-20420,p98hrd1py57 -> 19388150 bytes downloaded. in progress.
+24 April 2020 18:53:12,adc-dl-bc-20420,p98hrd1py57 -> 19796154 bytes downloaded. in progress.
+24 April 2020 18:53:13,adc-dl-bc-20420,p98hrd1py57 -> 20249801 bytes downloaded. in progress.
+24 April 2020 18:53:14,adc-dl-bc-20420,p98hrd1py57 -> 20744497 bytes downloaded. in progress.
+24 April 2020 18:53:15,adc-dl-bc-20420,p98hrd1py57 -> 21055422 bytes downloaded. in progress.
+24 April 2020 18:53:16,adc-dl-bc-20420,p98hrd1py57 -> 21329368 bytes downloaded. in progress.
+24 April 2020 18:53:17,adc-dl-bc-20420,p98hrd1py57 -> 21439366 bytes downloaded. in progress.
+24 April 2020 18:53:18,adc-dl-bc-20420,p98hrd1py57 -> 21500476 bytes downloaded. in progress.
+24 April 2020 18:53:19,adc-dl-bc-20420,p98hrd1py57 -> 21600968 bytes downloaded. in progress.
+24 April 2020 18:53:21,adc-dl-bc-20420,p98hrd1py57 -> 21704139 bytes downloaded. in progress.
+24 April 2020 18:53:22,adc-dl-bc-20420,p98hrd1py57 -> 21808034 bytes downloaded. in progress.
+24 April 2020 18:53:23,adc-dl-bc-20420,p98hrd1py57 -> 21871860 bytes downloaded. in progress.
+24 April 2020 18:53:24,adc-dl-bc-20420,p98hrd1py57 -> 21951501 bytes downloaded. in progress.
+24 April 2020 18:53:25,adc-dl-bc-20420,p98hrd1py57 -> 22018043 bytes downloaded. in progress.
+24 April 2020 18:53:26,adc-dl-bc-20420,p98hrd1py57 -> 22115519 bytes downloaded. in progress.
+24 April 2020 18:53:27,adc-dl-bc-20420,p98hrd1py57 -> 22221114 bytes downloaded. in progress.
+24 April 2020 18:53:28,adc-dl-bc-20420,p98hrd1py57 -> 22306668 bytes downloaded. in progress.
+24 April 2020 18:53:29,adc-dl-bc-20420,p98hrd1py57 -> 22435367 bytes downloaded. in progress.
+24 April 2020 18:53:30,adc-dl-bc-20420,p98hrd1py57 -> 22564377 bytes downloaded. in progress.
+24 April 2020 18:53:31,adc-dl-bc-20420,p98hrd1py57 -> 22681397 bytes downloaded. in progress.
+24 April 2020 18:53:32,adc-dl-bc-20420,p98hrd1py57 -> 22836655 bytes downloaded. in progress.
+24 April 2020 18:53:33,adc-dl-bc-20420,p98hrd1py57 -> 22960233 bytes downloaded. in progress.
+24 April 2020 18:53:34,adc-dl-bc-20420,p98hrd1py57 -> 23112967 bytes downloaded. in progress.
+24 April 2020 18:53:35,adc-dl-bc-20420,p98hrd1py57 -> 23250662 bytes downloaded. in progress.
+24 April 2020 18:53:36,adc-dl-bc-20420,p98hrd1py57 -> 23332648 bytes downloaded. in progress.
+24 April 2020 18:53:37,adc-dl-bc-20420,p98hrd1py57 -> 23447618 bytes downloaded. in progress.
+24 April 2020 18:53:38,adc-dl-bc-20420,p98hrd1py57 -> 23546584 bytes downloaded. in progress.
+24 April 2020 18:53:39,adc-dl-bc-20420,p98hrd1py57 -> 23630780 bytes downloaded. in progress.
+24 April 2020 18:53:40,adc-dl-bc-20420,p98hrd1py57 -> 23707987 bytes downloaded. in progress.
+24 April 2020 18:53:41,adc-dl-bc-20420,p98hrd1py57 -> 23796257 bytes downloaded. in progress.
+24 April 2020 18:53:42,adc-dl-bc-20420,p98hrd1py57 -> 23872331 bytes downloaded. in progress.
+24 April 2020 18:53:43,adc-dl-bc-20420,p98hrd1py57 -> 23980971 bytes downloaded. in progress.
+24 April 2020 18:53:44,adc-dl-bc-20420,p98hrd1py57 -> 24083135 bytes downloaded. in progress.
+24 April 2020 18:53:45,adc-dl-bc-20420,p98hrd1py57 -> 24204600 bytes downloaded. in progress.
+24 April 2020 18:53:46,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+24 April 2020 20:12:37,LOGGER_MODULE,session Started.
+24 April 2020 20:12:45,__main__,Driver launched and found successfully.
+24 April 2020 20:13:06,adc-dl-bc-20420,login successful.
+24 April 2020 20:13:18,__main__,added jobs to threads. round 1
+24 April 2020 20:13:27,adc-dl-bc-20420,p98hrd1py57 -> 771795 bytes downloaded. in progress.
+24 April 2020 20:13:28,adc-dl-bc-20420,p98hrd1py57 -> 1538987 bytes downloaded. in progress.
+24 April 2020 20:13:29,adc-dl-bc-20420,p98hrd1py57 -> 2310819 bytes downloaded. in progress.
+24 April 2020 20:13:30,adc-dl-bc-20420,p98hrd1py57 -> 3081907 bytes downloaded. in progress.
+24 April 2020 20:13:31,adc-dl-bc-20420,p98hrd1py57 -> 3852315 bytes downloaded. in progress.
+24 April 2020 20:13:32,adc-dl-bc-20420,p98hrd1py57 -> 4620867 bytes downloaded. in progress.
+24 April 2020 20:13:33,adc-dl-bc-20420,p98hrd1py57 -> 5392779 bytes downloaded. in progress.
+24 April 2020 20:13:34,adc-dl-bc-20420,p98hrd1py57 -> 6163499 bytes downloaded. in progress.
+24 April 2020 20:13:35,adc-dl-bc-20420,p98hrd1py57 -> 6936915 bytes downloaded. in progress.
+24 April 2020 20:13:36,adc-dl-bc-20420,p98hrd1py57 -> 7683371 bytes downloaded. in progress.
+24 April 2020 20:13:37,adc-dl-bc-20420,p98hrd1py57 -> 8454493 bytes downloaded. in progress.
+24 April 2020 20:13:38,adc-dl-bc-20420,p98hrd1py57 -> 9077219 bytes downloaded. in progress.
+24 April 2020 20:13:39,adc-dl-bc-20420,p98hrd1py57 -> 9997043 bytes downloaded. in progress.
+24 April 2020 20:13:40,adc-dl-bc-20420,p98hrd1py57 -> 10767715 bytes downloaded. in progress.
+24 April 2020 20:13:41,adc-dl-bc-20420,p98hrd1py57 -> 11539739 bytes downloaded. in progress.
+24 April 2020 20:13:42,adc-dl-bc-20420,p98hrd1py57 -> 12312059 bytes downloaded. in progress.
+24 April 2020 20:13:43,adc-dl-bc-20420,p98hrd1py57 -> 13084243 bytes downloaded. in progress.
+24 April 2020 20:13:44,adc-dl-bc-20420,p98hrd1py57 -> 13854755 bytes downloaded. in progress.
+24 April 2020 20:13:45,adc-dl-bc-20420,p98hrd1py57 -> 14625947 bytes downloaded. in progress.
+24 April 2020 20:13:46,adc-dl-bc-20420,p98hrd1py57 -> 15397595 bytes downloaded. in progress.
+24 April 2020 20:13:47,adc-dl-bc-20420,p98hrd1py57 -> 16168579 bytes downloaded. in progress.
+24 April 2020 20:13:48,adc-dl-bc-20420,p98hrd1py57 -> 16943547 bytes downloaded. in progress.
+24 April 2020 20:13:49,adc-dl-bc-20420,p98hrd1py57 -> 17425059 bytes downloaded. in progress.
+24 April 2020 20:13:50,adc-dl-bc-20420,p98hrd1py57 -> 18486755 bytes downloaded. in progress.
+24 April 2020 20:13:51,adc-dl-bc-20420,p98hrd1py57 -> 19259079 bytes downloaded. in progress.
+24 April 2020 20:13:52,adc-dl-bc-20420,p98hrd1py57 -> 20032145 bytes downloaded. in progress.
+24 April 2020 20:13:53,adc-dl-bc-20420,p98hrd1py57 -> 20807227 bytes downloaded. in progress.
+24 April 2020 20:13:54,adc-dl-bc-20420,p98hrd1py57 -> 21578163 bytes downloaded. in progress.
+24 April 2020 20:13:55,adc-dl-bc-20420,p98hrd1py57 -> 22343115 bytes downloaded. in progress.
+24 April 2020 20:13:56,adc-dl-bc-20420,p98hrd1py57 -> 23116739 bytes downloaded. in progress.
+24 April 2020 20:13:57,adc-dl-bc-20420,p98hrd1py57 -> 23888867 bytes downloaded. in progress.
+24 April 2020 20:13:58,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+24 April 2020 20:13:59,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 20:13:59,__main__,added jobs to threads. round 2
+24 April 2020 20:14:01,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:14:02,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:14:10,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:14:22,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:15:51,__main__,Application closed.
+24 April 2020 20:15:56,LOGGER_MODULE,session Started.
+24 April 2020 20:16:03,__main__,Driver launched and found successfully.
+24 April 2020 20:16:57,adc-dl-bc-20420,login successful.
+24 April 2020 20:17:10,__main__,added jobs to threads. round 1
+24 April 2020 20:17:19,adc-dl-bc-20420,p98hrd1py57 -> 770363 bytes downloaded. in progress.
+24 April 2020 20:17:20,adc-dl-bc-20420,p98hrd1py57 -> 1541763 bytes downloaded. in progress.
+24 April 2020 20:17:21,adc-dl-bc-20420,p98hrd1py57 -> 2205979 bytes downloaded. in progress.
+24 April 2020 20:17:22,adc-dl-bc-20420,p98hrd1py57 -> 2975979 bytes downloaded. in progress.
+24 April 2020 20:17:23,adc-dl-bc-20420,p98hrd1py57 -> 3736227 bytes downloaded. in progress.
+24 April 2020 20:17:24,adc-dl-bc-20420,p98hrd1py57 -> 4503267 bytes downloaded. in progress.
+24 April 2020 20:17:25,adc-dl-bc-20420,p98hrd1py57 -> 5253659 bytes downloaded. in progress.
+24 April 2020 20:17:26,adc-dl-bc-20420,p98hrd1py57 -> 6011059 bytes downloaded. in progress.
+24 April 2020 20:17:27,adc-dl-bc-20420,p98hrd1py57 -> 6744659 bytes downloaded. in progress.
+24 April 2020 20:17:28,adc-dl-bc-20420,p98hrd1py57 -> 7509051 bytes downloaded. in progress.
+24 April 2020 20:17:29,adc-dl-bc-20420,p98hrd1py57 -> 8253851 bytes downloaded. in progress.
+24 April 2020 20:17:30,adc-dl-bc-20420,p98hrd1py57 -> 9018251 bytes downloaded. in progress.
+24 April 2020 20:17:31,adc-dl-bc-20420,p98hrd1py57 -> 9779851 bytes downloaded. in progress.
+24 April 2020 20:17:32,adc-dl-bc-20420,p98hrd1py57 -> 10214699 bytes downloaded. in progress.
+24 April 2020 20:17:33,adc-dl-bc-20420,p98hrd1py57 -> 10800483 bytes downloaded. in progress.
+24 April 2020 20:17:34,adc-dl-bc-20420,p98hrd1py57 -> 11571883 bytes downloaded. in progress.
+24 April 2020 20:17:35,adc-dl-bc-20420,p98hrd1py57 -> 12336283 bytes downloaded. in progress.
+24 April 2020 20:17:36,adc-dl-bc-20420,p98hrd1py57 -> 12856619 bytes downloaded. in progress.
+24 April 2020 20:17:37,adc-dl-bc-20420,p98hrd1py57 -> 13309459 bytes downloaded. in progress.
+24 April 2020 20:17:38,adc-dl-bc-20420,p98hrd1py57 -> 14078059 bytes downloaded. in progress.
+24 April 2020 20:17:39,adc-dl-bc-20420,p98hrd1py57 -> 14838251 bytes downloaded. in progress.
+24 April 2020 20:17:40,adc-dl-bc-20420,p98hrd1py57 -> 15556459 bytes downloaded. in progress.
+24 April 2020 20:17:41,adc-dl-bc-20420,p98hrd1py57 -> 16263459 bytes downloaded. in progress.
+24 April 2020 20:17:42,adc-dl-bc-20420,p98hrd1py57 -> 17004043 bytes downloaded. in progress.
+24 April 2020 20:17:43,adc-dl-bc-20420,p98hrd1py57 -> 17763627 bytes downloaded. in progress.
+24 April 2020 20:17:44,adc-dl-bc-20420,p98hrd1py57 -> 18517123 bytes downloaded. in progress.
+24 April 2020 20:17:45,adc-dl-bc-20420,p98hrd1py57 -> 19285723 bytes downloaded. in progress.
+24 April 2020 20:17:46,adc-dl-bc-20420,p98hrd1py57 -> 20058523 bytes downloaded. in progress.
+24 April 2020 20:17:47,adc-dl-bc-20420,p98hrd1py57 -> 20829923 bytes downloaded. in progress.
+24 April 2020 20:17:48,adc-dl-bc-20420,p98hrd1py57 -> 21601323 bytes downloaded. in progress.
+24 April 2020 20:17:49,adc-dl-bc-20420,p98hrd1py57 -> 22371323 bytes downloaded. in progress.
+24 April 2020 20:17:50,adc-dl-bc-20420,p98hrd1py57 -> 23142723 bytes downloaded. in progress.
+24 April 2020 20:17:51,adc-dl-bc-20420,p98hrd1py57 -> 23908827 bytes downloaded. in progress.
+24 April 2020 20:17:52,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+24 April 2020 20:17:53,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 20:17:53,__main__,added jobs to threads. round 2
+24 April 2020 20:17:56,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:17:57,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:18:06,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:18:23,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:18:27,__main__,Application closed.
+24 April 2020 20:25:13,LOGGER_MODULE,session Started.
+24 April 2020 20:25:19,__main__,Driver launched and found successfully.
+24 April 2020 20:25:54,adc-dl-bc-20420,login successful.
+24 April 2020 20:26:12,__main__,added jobs to threads. round 1
+24 April 2020 20:26:21,adc-dl-bc-20420,p98hrd1py57 -> 771763 bytes downloaded. in progress.
+24 April 2020 20:26:22,adc-dl-bc-20420,p98hrd1py57 -> 1541763 bytes downloaded. in progress.
+24 April 2020 20:26:23,adc-dl-bc-20420,p98hrd1py57 -> 2313595 bytes downloaded. in progress.
+24 April 2020 20:26:24,adc-dl-bc-20420,p98hrd1py57 -> 3097595 bytes downloaded. in progress.
+24 April 2020 20:26:25,adc-dl-bc-20420,p98hrd1py57 -> 3871787 bytes downloaded. in progress.
+24 April 2020 20:26:26,adc-dl-bc-20420,p98hrd1py57 -> 4643195 bytes downloaded. in progress.
+24 April 2020 20:26:27,adc-dl-bc-20420,p98hrd1py57 -> 5415995 bytes downloaded. in progress.
+24 April 2020 20:26:28,adc-dl-bc-20420,p98hrd1py57 -> 6187523 bytes downloaded. in progress.
+24 April 2020 20:26:29,adc-dl-bc-20420,p98hrd1py57 -> 6957523 bytes downloaded. in progress.
+24 April 2020 20:26:30,adc-dl-bc-20420,p98hrd1py57 -> 7726123 bytes downloaded. in progress.
+24 April 2020 20:26:31,adc-dl-bc-20420,p98hrd1py57 -> 8496115 bytes downloaded. in progress.
+24 April 2020 20:26:32,adc-dl-bc-20420,p98hrd1py57 -> 9167670 bytes downloaded. in progress.
+24 April 2020 20:26:33,adc-dl-bc-20420,p98hrd1py57 -> 9844931 bytes downloaded. in progress.
+24 April 2020 20:26:34,adc-dl-bc-20420,p98hrd1py57 -> 10712707 bytes downloaded. in progress.
+24 April 2020 20:26:35,adc-dl-bc-20420,p98hrd1py57 -> 11478579 bytes downloaded. in progress.
+24 April 2020 20:26:36,adc-dl-bc-20420,p98hrd1py57 -> 12241963 bytes downloaded. in progress.
+24 April 2020 20:26:37,adc-dl-bc-20420,p98hrd1py57 -> 12987491 bytes downloaded. in progress.
+24 April 2020 20:26:38,adc-dl-bc-20420,p98hrd1py57 -> 13685027 bytes downloaded. in progress.
+24 April 2020 20:26:39,adc-dl-bc-20420,p98hrd1py57 -> 14349587 bytes downloaded. in progress.
+24 April 2020 20:26:40,adc-dl-bc-20420,p98hrd1py57 -> 14944867 bytes downloaded. in progress.
+24 April 2020 20:26:41,adc-dl-bc-20420,p98hrd1py57 -> 15706403 bytes downloaded. in progress.
+24 April 2020 20:26:42,adc-dl-bc-20420,p98hrd1py57 -> 16476867 bytes downloaded. in progress.
+24 April 2020 20:26:43,adc-dl-bc-20420,p98hrd1py57 -> 17246187 bytes downloaded. in progress.
+24 April 2020 20:26:44,adc-dl-bc-20420,p98hrd1py57 -> 18018883 bytes downloaded. in progress.
+24 April 2020 20:26:45,adc-dl-bc-20420,p98hrd1py57 -> 18723055 bytes downloaded. in progress.
+24 April 2020 20:26:46,adc-dl-bc-20420,p98hrd1py57 -> 19376683 bytes downloaded. in progress.
+24 April 2020 20:26:47,adc-dl-bc-20420,p98hrd1py57 -> 20019700 bytes downloaded. in progress.
+24 April 2020 20:26:48,adc-dl-bc-20420,p98hrd1py57 -> 20660899 bytes downloaded. in progress.
+24 April 2020 20:26:49,adc-dl-bc-20420,p98hrd1py57 -> 21091195 bytes downloaded. in progress.
+24 April 2020 20:26:50,adc-dl-bc-20420,p98hrd1py57 -> 21606299 bytes downloaded. in progress.
+24 April 2020 20:26:51,adc-dl-bc-20420,p98hrd1py57 -> 21969235 bytes downloaded. in progress.
+24 April 2020 20:26:52,adc-dl-bc-20420,p98hrd1py57 -> 22584651 bytes downloaded. in progress.
+24 April 2020 20:26:53,adc-dl-bc-20420,p98hrd1py57 -> 23217011 bytes downloaded. in progress.
+24 April 2020 20:26:54,adc-dl-bc-20420,p98hrd1py57 -> 23988307 bytes downloaded. in progress.
+24 April 2020 20:26:55,adc-dl-bc-20420,p98hrd1py57 -> 24292054 bytes downloaded. in progress.
+24 April 2020 20:26:56,adc-dl-bc-20420,p98hrd1py57 download finished.24394454 bytes downloaded.
+24 April 2020 20:27:01,__main__,added jobs to threads. round 2
+24 April 2020 20:27:03,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:27:03,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:27:11,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:27:21,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:34:52,__main__,Application closed.
+24 April 2020 20:35:38,LOGGER_MODULE,session Started.
+24 April 2020 20:35:44,__main__,Driver launched and found successfully.
+24 April 2020 20:36:18,adc-dl-bc-20420,login successful.
+24 April 2020 20:38:41,__main__,added jobs to threads. round 1
+24 April 2020 20:38:53,adc-dl-bc-20420,p37wttedz16 -> 775288 bytes downloaded. in progress.
+24 April 2020 20:38:54,adc-dl-bc-20420,p37wttedz16 -> 1547606 bytes downloaded. in progress.
+24 April 2020 20:38:55,adc-dl-bc-20420,p37wttedz16 -> 2319006 bytes downloaded. in progress.
+24 April 2020 20:38:56,adc-dl-bc-20420,p37wttedz16 -> 3076406 bytes downloaded. in progress.
+24 April 2020 20:38:57,adc-dl-bc-20420,p37wttedz16 -> 3483806 bytes downloaded. in progress.
+24 April 2020 20:38:58,adc-dl-bc-20420,p37wttedz16 -> 3720406 bytes downloaded. in progress.
+24 April 2020 20:38:59,adc-dl-bc-20420,p37wttedz16 -> 3880686 bytes downloaded. in progress.
+24 April 2020 20:39:00,adc-dl-bc-20420,p37wttedz16 -> 4037742 bytes downloaded. in progress.
+24 April 2020 20:39:01,adc-dl-bc-20420,p37wttedz16 -> 4808562 bytes downloaded. in progress.
+24 April 2020 20:39:02,adc-dl-bc-20420,p37wttedz16 -> 5581230 bytes downloaded. in progress.
+24 April 2020 20:39:03,adc-dl-bc-20420,p37wttedz16 -> 6351044 bytes downloaded. in progress.
+24 April 2020 20:39:04,adc-dl-bc-20420,p37wttedz16 -> 7121697 bytes downloaded. in progress.
+24 April 2020 20:39:05,adc-dl-bc-20420,p37wttedz16 -> 7894094 bytes downloaded. in progress.
+24 April 2020 20:39:06,adc-dl-bc-20420,p37wttedz16 -> 8666838 bytes downloaded. in progress.
+24 April 2020 20:39:07,adc-dl-bc-20420,p37wttedz16 -> 9402510 bytes downloaded. in progress.
+24 April 2020 20:39:08,adc-dl-bc-20420,p37wttedz16 -> 9912190 bytes downloaded. in progress.
+24 April 2020 20:39:09,adc-dl-bc-20420,p37wttedz16 -> 10380014 bytes downloaded. in progress.
+24 April 2020 20:39:10,adc-dl-bc-20420,p37wttedz16 -> 10822798 bytes downloaded. in progress.
+24 April 2020 20:39:11,adc-dl-bc-20420,p37wttedz16 -> 11045630 bytes downloaded. in progress.
+24 April 2020 20:39:12,adc-dl-bc-20420,p37wttedz16 -> 11890494 bytes downloaded. in progress.
+24 April 2020 20:39:13,adc-dl-bc-20420,p37wttedz16 -> 12662614 bytes downloaded. in progress.
+24 April 2020 20:39:14,adc-dl-bc-20420,p37wttedz16 -> 13432974 bytes downloaded. in progress.
+24 April 2020 20:39:15,adc-dl-bc-20420,p37wttedz16 -> 14203958 bytes downloaded. in progress.
+24 April 2020 20:39:16,adc-dl-bc-20420,p37wttedz16 -> 14966918 bytes downloaded. in progress.
+24 April 2020 20:39:17,adc-dl-bc-20420,p37wttedz16 -> 15524942 bytes downloaded. in progress.
+24 April 2020 20:39:18,adc-dl-bc-20420,p37wttedz16 -> 15818038 bytes downloaded. in progress.
+24 April 2020 20:39:19,adc-dl-bc-20420,p37wttedz16 -> 16068835 bytes downloaded. in progress.
+24 April 2020 20:39:20,adc-dl-bc-20420,p37wttedz16 -> 16244078 bytes downloaded. in progress.
+24 April 2020 20:39:21,adc-dl-bc-20420,p37wttedz16 -> 16388278 bytes downloaded. in progress.
+24 April 2020 20:39:22,adc-dl-bc-20420,p37wttedz16 -> 16518478 bytes downloaded. in progress.
+24 April 2020 20:39:23,adc-dl-bc-20420,p37wttedz16 -> 16643046 bytes downloaded. in progress.
+24 April 2020 20:39:24,adc-dl-bc-20420,p37wttedz16 -> 16754990 bytes downloaded. in progress.
+24 April 2020 20:39:25,adc-dl-bc-20420,p37wttedz16 -> 16856766 bytes downloaded. in progress.
+24 April 2020 20:39:27,adc-dl-bc-20420,p37wttedz16 -> 16947758 bytes downloaded. in progress.
+24 April 2020 20:39:28,adc-dl-bc-20420,p37wttedz16 -> 17761326 bytes downloaded. in progress.
+24 April 2020 20:39:29,adc-dl-bc-20420,p37wttedz16 -> 18227062 bytes downloaded. in progress.
+24 April 2020 20:39:30,adc-dl-bc-20420,p37wttedz16 -> 18770582 bytes downloaded. in progress.
+24 April 2020 20:39:31,adc-dl-bc-20420,p37wttedz16 -> 19085102 bytes downloaded. in progress.
+24 April 2020 20:39:32,adc-dl-bc-20420,p37wttedz16 -> 19607310 bytes downloaded. in progress.
+24 April 2020 20:39:33,adc-dl-bc-20420,p37wttedz16 -> 20147264 bytes downloaded. in progress.
+24 April 2020 20:39:34,adc-dl-bc-20420,p37wttedz16 -> 20474006 bytes downloaded. in progress.
+24 April 2020 20:39:35,adc-dl-bc-20420,p37wttedz16 -> 21043550 bytes downloaded. in progress.
+24 April 2020 20:39:36,adc-dl-bc-20420,p37wttedz16 -> 21390726 bytes downloaded. in progress.
+24 April 2020 20:39:37,adc-dl-bc-20420,p37wttedz16 -> 21928095 bytes downloaded. in progress.
+24 April 2020 20:39:38,adc-dl-bc-20420,p37wttedz16 -> 22267166 bytes downloaded. in progress.
+24 April 2020 20:39:39,adc-dl-bc-20420,p37wttedz16 -> 22760398 bytes downloaded. in progress.
+24 April 2020 20:39:40,adc-dl-bc-20420,p37wttedz16 -> 23526710 bytes downloaded. in progress.
+24 April 2020 20:39:41,adc-dl-bc-20420,p37wttedz16 -> 24217022 bytes downloaded. in progress.
+24 April 2020 20:39:42,adc-dl-bc-20420,p37wttedz16 download finished.24319422 bytes downloaded.
+24 April 2020 20:39:42,__main__,added jobs to threads. round 2
+24 April 2020 20:39:44,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:45,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:45,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:46,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:46,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:47,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:49,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:39:52,adc-dl-bc-20420,p6whf3bntr3 -> 289714 bytes downloaded. in progress.
+24 April 2020 20:39:53,adc-dl-bc-20420,p6whf3bntr3 -> 886114 bytes downloaded. in progress.
+24 April 2020 20:39:54,adc-dl-bc-20420,p6whf3bntr3 -> 1657514 bytes downloaded. in progress.
+24 April 2020 20:39:55,adc-dl-bc-20420,p6whf3bntr3 -> 2430306 bytes downloaded. in progress.
+24 April 2020 20:39:56,adc-dl-bc-20420,p6whf3bntr3 -> 3187178 bytes downloaded. in progress.
+24 April 2020 20:39:57,adc-dl-bc-20420,p6whf3bntr3 -> 3960538 bytes downloaded. in progress.
+24 April 2020 20:39:58,adc-dl-bc-20420,p6whf3bntr3 -> 4733338 bytes downloaded. in progress.
+24 April 2020 20:39:59,adc-dl-bc-20420,p6whf3bntr3 -> 5409538 bytes downloaded. in progress.
+24 April 2020 20:40:00,adc-dl-bc-20420,p6whf3bntr3 -> 5724538 bytes downloaded. in progress.
+24 April 2020 20:40:01,adc-dl-bc-20420,p6whf3bntr3 -> 6070338 bytes downloaded. in progress.
+24 April 2020 20:40:02,adc-dl-bc-20420,p6whf3bntr3 -> 6389538 bytes downloaded. in progress.
+24 April 2020 20:40:03,adc-dl-bc-20420,p6whf3bntr3 -> 6617738 bytes downloaded. in progress.
+24 April 2020 20:40:04,adc-dl-bc-20420,p6whf3bntr3 -> 7198738 bytes downloaded. in progress.
+24 April 2020 20:40:05,adc-dl-bc-20420,p6whf3bntr3 -> 7967338 bytes downloaded. in progress.
+24 April 2020 20:40:06,adc-dl-bc-20420,p6whf3bntr3 -> 8727538 bytes downloaded. in progress.
+24 April 2020 20:40:07,adc-dl-bc-20420,p6whf3bntr3 -> 9500338 bytes downloaded. in progress.
+24 April 2020 20:40:08,adc-dl-bc-20420,p6whf3bntr3 -> 10273138 bytes downloaded. in progress.
+24 April 2020 20:40:09,adc-dl-bc-20420,p6whf3bntr3 -> 11044538 bytes downloaded. in progress.
+24 April 2020 20:40:10,adc-dl-bc-20420,p6whf3bntr3 -> 11652138 bytes downloaded. in progress.
+24 April 2020 20:40:11,adc-dl-bc-20420,p6whf3bntr3 -> 11943338 bytes downloaded. in progress.
+24 April 2020 20:40:11,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:40:12,adc-dl-bc-20420,p6whf3bntr3 -> 12170138 bytes downloaded. in progress.
+24 April 2020 20:40:13,adc-dl-bc-20420,p6whf3bntr3 -> 12669938 bytes downloaded. in progress.
+24 April 2020 20:40:14,adc-dl-bc-20420,p6whf3bntr3 -> 13439938 bytes downloaded. in progress.
+24 April 2020 20:40:15,adc-dl-bc-20420,p6whf3bntr3 -> 14209930 bytes downloaded. in progress.
+24 April 2020 20:40:16,adc-dl-bc-20420,p6whf3bntr3 -> 14972930 bytes downloaded. in progress.
+24 April 2020 20:40:17,adc-dl-bc-20420,p6whf3bntr3 -> 15741530 bytes downloaded. in progress.
+24 April 2020 20:40:18,adc-dl-bc-20420,p6whf3bntr3 -> 16510130 bytes downloaded. in progress.
+24 April 2020 20:40:19,adc-dl-bc-20420,p6whf3bntr3 -> 17282930 bytes downloaded. in progress.
+24 April 2020 20:40:20,adc-dl-bc-20420,p6whf3bntr3 -> 18054330 bytes downloaded. in progress.
+24 April 2020 20:40:21,adc-dl-bc-20420,p6whf3bntr3 -> 18557506 bytes downloaded. in progress.
+24 April 2020 20:40:22,adc-dl-bc-20420,p6whf3bntr3 -> 18826298 bytes downloaded. in progress.
+24 April 2020 20:40:23,adc-dl-bc-20420,p6whf3bntr3 -> 19155306 bytes downloaded. in progress.
+24 April 2020 20:40:24,adc-dl-bc-20420,p6whf3bntr3 -> 19749510 bytes downloaded. in progress.
+24 April 2020 20:40:25,adc-dl-bc-20420,p6whf3bntr3 -> 19882010 bytes downloaded. in progress.
+24 April 2020 20:40:26,adc-dl-bc-20420,p6whf3bntr3 -> 20707018 bytes downloaded. in progress.
+24 April 2020 20:40:27,adc-dl-bc-20420,p6whf3bntr3 -> 21411346 bytes downloaded. in progress.
+24 April 2020 20:40:28,adc-dl-bc-20420,p6whf3bntr3 download finished.21513746 bytes downloaded.
+24 April 2020 20:40:28,__main__,added jobs to threads. round 3
+24 April 2020 20:40:58,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:41:11,__main__,Application closed.
+24 April 2020 20:43:52,LOGGER_MODULE,session Started.
+24 April 2020 20:43:58,__main__,Driver launched and found successfully.
+24 April 2020 20:44:27,adc-dl-bc-20420,login successful.
+24 April 2020 20:45:57,__main__,added jobs to threads. round 1
+24 April 2020 20:46:10,adc-dl-bc-20420,p5ss7pj4t59 -> 345501 bytes downloaded. in progress.
+24 April 2020 20:46:11,adc-dl-bc-20420,p5ss7pj4t59 -> 967101 bytes downloaded. in progress.
+24 April 2020 20:46:12,adc-dl-bc-20420,p5ss7pj4t59 -> 1721701 bytes downloaded. in progress.
+24 April 2020 20:46:13,adc-dl-bc-20420,p5ss7pj4t59 -> 2382501 bytes downloaded. in progress.
+24 April 2020 20:46:14,adc-dl-bc-20420,p5ss7pj4t59 -> 2640101 bytes downloaded. in progress.
+24 April 2020 20:46:15,adc-dl-bc-20420,p5ss7pj4t59 -> 2918701 bytes downloaded. in progress.
+24 April 2020 20:46:16,adc-dl-bc-20420,p5ss7pj4t59 -> 3078301 bytes downloaded. in progress.
+24 April 2020 20:46:17,adc-dl-bc-20420,p5ss7pj4t59 -> 3330301 bytes downloaded. in progress.
+24 April 2020 20:46:18,adc-dl-bc-20420,p5ss7pj4t59 -> 3586501 bytes downloaded. in progress.
+24 April 2020 20:46:19,adc-dl-bc-20420,p5ss7pj4t59 -> 4210901 bytes downloaded. in progress.
+24 April 2020 20:46:20,adc-dl-bc-20420,p5ss7pj4t59 -> 4982301 bytes downloaded. in progress.
+24 April 2020 20:46:21,adc-dl-bc-20420,p5ss7pj4t59 -> 5753701 bytes downloaded. in progress.
+24 April 2020 20:46:22,adc-dl-bc-20420,p5ss7pj4t59 -> 6523701 bytes downloaded. in progress.
+24 April 2020 20:46:23,adc-dl-bc-20420,p5ss7pj4t59 -> 7293701 bytes downloaded. in progress.
+24 April 2020 20:46:24,adc-dl-bc-20420,p5ss7pj4t59 -> 7965701 bytes downloaded. in progress.
+24 April 2020 20:46:25,adc-dl-bc-20420,p5ss7pj4t59 -> 8265301 bytes downloaded. in progress.
+24 April 2020 20:46:26,adc-dl-bc-20420,p5ss7pj4t59 -> 8598501 bytes downloaded. in progress.
+24 April 2020 20:46:27,adc-dl-bc-20420,p5ss7pj4t59 -> 8795901 bytes downloaded. in progress.
+24 April 2020 20:46:28,adc-dl-bc-20420,p5ss7pj4t59 -> 9183701 bytes downloaded. in progress.
+24 April 2020 20:46:29,adc-dl-bc-20420,p5ss7pj4t59 -> 9908901 bytes downloaded. in progress.
+24 April 2020 20:46:30,adc-dl-bc-20420,p5ss7pj4t59 -> 10659277 bytes downloaded. in progress.
+24 April 2020 20:46:31,adc-dl-bc-20420,p5ss7pj4t59 -> 11418077 bytes downloaded. in progress.
+24 April 2020 20:46:32,adc-dl-bc-20420,p5ss7pj4t59 -> 12090077 bytes downloaded. in progress.
+24 April 2020 20:46:33,adc-dl-bc-20420,p5ss7pj4t59 -> 12813877 bytes downloaded. in progress.
+24 April 2020 20:46:34,adc-dl-bc-20420,p5ss7pj4t59 -> 13585277 bytes downloaded. in progress.
+24 April 2020 20:46:35,adc-dl-bc-20420,p5ss7pj4t59 -> 14299277 bytes downloaded. in progress.
+24 April 2020 20:46:36,adc-dl-bc-20420,p5ss7pj4t59 -> 14772477 bytes downloaded. in progress.
+24 April 2020 20:46:37,adc-dl-bc-20420,p5ss7pj4t59 -> 15044077 bytes downloaded. in progress.
+24 April 2020 20:46:38,adc-dl-bc-20420,p5ss7pj4t59 -> 15549477 bytes downloaded. in progress.
+24 April 2020 20:46:39,adc-dl-bc-20420,p5ss7pj4t59 -> 15856077 bytes downloaded. in progress.
+24 April 2020 20:46:40,adc-dl-bc-20420,p5ss7pj4t59 -> 16129077 bytes downloaded. in progress.
+24 April 2020 20:46:41,adc-dl-bc-20420,p5ss7pj4t59 -> 16330677 bytes downloaded. in progress.
+24 April 2020 20:46:42,adc-dl-bc-20420,p5ss7pj4t59 -> 16466477 bytes downloaded. in progress.
+24 April 2020 20:46:43,adc-dl-bc-20420,p5ss7pj4t59 -> 16631677 bytes downloaded. in progress.
+24 April 2020 20:46:44,adc-dl-bc-20420,p5ss7pj4t59 -> 16666677 bytes downloaded. in progress.
+24 April 2020 20:46:45,adc-dl-bc-20420,p5ss7pj4t59 -> 16889277 bytes downloaded. in progress.
+24 April 2020 20:46:46,adc-dl-bc-20420,p5ss7pj4t59 -> 17396077 bytes downloaded. in progress.
+24 April 2020 20:46:48,adc-dl-bc-20420,p5ss7pj4t59 -> 17862277 bytes downloaded. in progress.
+24 April 2020 20:46:50,adc-dl-bc-20420,p5ss7pj4t59 -> 18531477 bytes downloaded. in progress.
+24 April 2020 20:46:51,adc-dl-bc-20420,p5ss7pj4t59 -> 19374277 bytes downloaded. in progress.
+24 April 2020 20:46:52,adc-dl-bc-20420,p5ss7pj4t59 -> 19833477 bytes downloaded. in progress.
+24 April 2020 20:46:53,adc-dl-bc-20420,p5ss7pj4t59 -> 20450877 bytes downloaded. in progress.
+24 April 2020 20:46:54,adc-dl-bc-20420,p5ss7pj4t59 -> 20987077 bytes downloaded. in progress.
+24 April 2020 20:46:55,adc-dl-bc-20420,p5ss7pj4t59 -> 21520477 bytes downloaded. in progress.
+24 April 2020 20:46:56,adc-dl-bc-20420,p5ss7pj4t59 -> 21799077 bytes downloaded. in progress.
+24 April 2020 20:46:57,adc-dl-bc-20420,p5ss7pj4t59 -> 22674077 bytes downloaded. in progress.
+24 April 2020 20:46:58,adc-dl-bc-20420,p5ss7pj4t59 -> 23193477 bytes downloaded. in progress.
+24 April 2020 20:46:59,adc-dl-bc-20420,p5ss7pj4t59 -> 23479077 bytes downloaded. in progress.
+24 April 2020 20:47:00,adc-dl-bc-20420,p5ss7pj4t59 -> 24317677 bytes downloaded. in progress.
+24 April 2020 20:47:01,adc-dl-bc-20420,p5ss7pj4t59 -> 24821677 bytes downloaded. in progress.
+24 April 2020 20:47:02,adc-dl-bc-20420,p5ss7pj4t59 -> 25321477 bytes downloaded. in progress.
+24 April 2020 20:47:03,adc-dl-bc-20420,p5ss7pj4t59 -> 25920677 bytes downloaded. in progress.
+24 April 2020 20:47:04,adc-dl-bc-20420,p5ss7pj4t59 -> 26420477 bytes downloaded. in progress.
+24 April 2020 20:47:05,adc-dl-bc-20420,p5ss7pj4t59 -> 26931477 bytes downloaded. in progress.
+24 April 2020 20:47:06,adc-dl-bc-20420,p5ss7pj4t59 -> 27478877 bytes downloaded. in progress.
+24 April 2020 20:47:07,adc-dl-bc-20420,p5ss7pj4t59 -> 28010877 bytes downloaded. in progress.
+24 April 2020 20:47:08,adc-dl-bc-20420,p5ss7pj4t59 -> 28612877 bytes downloaded. in progress.
+24 April 2020 20:47:09,adc-dl-bc-20420,p5ss7pj4t59 -> 29384277 bytes downloaded. in progress.
+24 April 2020 20:47:10,adc-dl-bc-20420,p5ss7pj4t59 -> 30155677 bytes downloaded. in progress.
+24 April 2020 20:47:11,adc-dl-bc-20420,p5ss7pj4t59 -> 30925677 bytes downloaded. in progress.
+24 April 2020 20:47:12,adc-dl-bc-20420,p5ss7pj4t59 -> 31617953 bytes downloaded. in progress.
+24 April 2020 20:47:13,adc-dl-bc-20420,p5ss7pj4t59 download finished.31720353 bytes downloaded.
+24 April 2020 20:47:13,__main__,added jobs to threads. round 2
+24 April 2020 20:47:13,adc-dl-bc-20420,error in finding time.
+24 April 2020 20:47:13,adc-dl-bc-20420,error in finding time.
+24 April 2020 20:47:16,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:47:16,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:47:16,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:47:24,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:47:39,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:47:40,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 20:49:12,__main__,added jobs to threads. round 1
+24 April 2020 20:49:19,__main__,added jobs to threads. round 2
+24 April 2020 20:56:58,__main__,Application closed.
+24 April 2020 20:57:25,LOGGER_MODULE,session Started.
+24 April 2020 20:57:30,__main__,Driver launched and found successfully.
+24 April 2020 20:58:05,adc-dl-bc-20420,login successful.
+24 April 2020 20:58:11,__main__,added jobs to threads. round 1
+24 April 2020 20:58:23,adc-dl-bc-20420,p39omp7tpy2 -> 775141 bytes downloaded. in progress.
+24 April 2020 20:58:24,adc-dl-bc-20420,p39omp7tpy2 -> 1547301 bytes downloaded. in progress.
+24 April 2020 20:58:25,adc-dl-bc-20420,p39omp7tpy2 -> 2316013 bytes downloaded. in progress.
+24 April 2020 20:58:26,adc-dl-bc-20420,p39omp7tpy2 -> 3088589 bytes downloaded. in progress.
+24 April 2020 20:58:27,adc-dl-bc-20420,p39omp7tpy2 -> 3859477 bytes downloaded. in progress.
+24 April 2020 20:58:28,adc-dl-bc-20420,p39omp7tpy2 -> 4628941 bytes downloaded. in progress.
+24 April 2020 20:58:29,adc-dl-bc-20420,p39omp7tpy2 -> 5397341 bytes downloaded. in progress.
+24 April 2020 20:58:30,adc-dl-bc-20420,p39omp7tpy2 -> 6165773 bytes downloaded. in progress.
+24 April 2020 20:58:31,adc-dl-bc-20420,p39omp7tpy2 -> 6941885 bytes downloaded. in progress.
+24 April 2020 20:58:32,adc-dl-bc-20420,p39omp7tpy2 -> 7713181 bytes downloaded. in progress.
+24 April 2020 20:58:33,adc-dl-bc-20420,p39omp7tpy2 -> 8472285 bytes downloaded. in progress.
+24 April 2020 20:58:34,adc-dl-bc-20420,p39omp7tpy2 -> 9180351 bytes downloaded. in progress.
+24 April 2020 20:58:35,adc-dl-bc-20420,p39omp7tpy2 -> 10008597 bytes downloaded. in progress.
+24 April 2020 20:58:36,adc-dl-bc-20420,p39omp7tpy2 -> 10738981 bytes downloaded. in progress.
+24 April 2020 20:58:37,adc-dl-bc-20420,p39omp7tpy2 -> 11411661 bytes downloaded. in progress.
+24 April 2020 20:58:38,adc-dl-bc-20420,p39omp7tpy2 -> 11890165 bytes downloaded. in progress.
+24 April 2020 20:58:40,adc-dl-bc-20420,p39omp7tpy2 -> 12672141 bytes downloaded. in progress.
+24 April 2020 20:58:41,adc-dl-bc-20420,p39omp7tpy2 -> 13301989 bytes downloaded. in progress.
+24 April 2020 20:58:42,adc-dl-bc-20420,p39omp7tpy2 -> 13894365 bytes downloaded. in progress.
+24 April 2020 20:58:43,adc-dl-bc-20420,p39omp7tpy2 -> 14568277 bytes downloaded. in progress.
+24 April 2020 20:58:44,adc-dl-bc-20420,p39omp7tpy2 -> 15325005 bytes downloaded. in progress.
+24 April 2020 20:58:45,adc-dl-bc-20420,p39omp7tpy2 -> 16089861 bytes downloaded. in progress.
+24 April 2020 20:58:46,adc-dl-bc-20420,p39omp7tpy2 -> 16855253 bytes downloaded. in progress.
+24 April 2020 20:58:47,adc-dl-bc-20420,p39omp7tpy2 -> 17624461 bytes downloaded. in progress.
+24 April 2020 20:58:48,adc-dl-bc-20420,p39omp7tpy2 -> 18397725 bytes downloaded. in progress.
+24 April 2020 20:58:49,adc-dl-bc-20420,p39omp7tpy2 -> 19103013 bytes downloaded. in progress.
+24 April 2020 20:58:50,adc-dl-bc-20420,p39omp7tpy2 -> 19103013 bytes downloaded. in progress.
+24 April 2020 20:58:51,adc-dl-bc-20420,p39omp7tpy2 -> 19103113 bytes downloaded. in progress.
+24 April 2020 20:58:52,adc-dl-bc-20420,p39omp7tpy2 -> 19103213 bytes downloaded. in progress.
+24 April 2020 20:58:53,adc-dl-bc-20420,p39omp7tpy2 -> 19103313 bytes downloaded. in progress.
+24 April 2020 20:58:54,adc-dl-bc-20420,p39omp7tpy2 -> 19103413 bytes downloaded. in progress.
+24 April 2020 20:58:55,adc-dl-bc-20420,p39omp7tpy2 -> 19103513 bytes downloaded. in progress.
+24 April 2020 20:58:56,adc-dl-bc-20420,p39omp7tpy2 -> 19103613 bytes downloaded. in progress.
+24 April 2020 20:58:57,adc-dl-bc-20420,p39omp7tpy2 -> 19103813 bytes downloaded. in progress.
+24 April 2020 20:58:58,adc-dl-bc-20420,p39omp7tpy2 -> 19103913 bytes downloaded. in progress.
+24 April 2020 20:58:59,adc-dl-bc-20420,p39omp7tpy2 -> 19104013 bytes downloaded. in progress.
+24 April 2020 20:59:00,adc-dl-bc-20420,p39omp7tpy2 -> 19104113 bytes downloaded. in progress.
+24 April 2020 20:59:01,adc-dl-bc-20420,p39omp7tpy2 -> 19104213 bytes downloaded. in progress.
+24 April 2020 20:59:02,adc-dl-bc-20420,p39omp7tpy2 -> 19104313 bytes downloaded. in progress.
+24 April 2020 20:59:03,adc-dl-bc-20420,p39omp7tpy2 -> 19104413 bytes downloaded. in progress.
+24 April 2020 20:59:04,adc-dl-bc-20420,p39omp7tpy2 download finished.19205413 bytes downloaded.
+24 April 2020 20:59:04,__main__,added jobs to threads. round 2
+24 April 2020 20:59:23,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 21:00:03,__main__,added jobs to threads. round 1
+24 April 2020 21:00:13,adc-dl-bc-20420,p4s9tbmy8s7 -> 769688 bytes downloaded. in progress.
+24 April 2020 21:00:14,adc-dl-bc-20420,p4s9tbmy8s7 -> 1537817 bytes downloaded. in progress.
+24 April 2020 21:00:15,adc-dl-bc-20420,p4s9tbmy8s7 -> 2300857 bytes downloaded. in progress.
+24 April 2020 21:00:16,adc-dl-bc-20420,p4s9tbmy8s7 -> 3069457 bytes downloaded. in progress.
+24 April 2020 21:00:17,adc-dl-bc-20420,p4s9tbmy8s7 -> 3835257 bytes downloaded. in progress.
+24 April 2020 21:00:18,adc-dl-bc-20420,p4s9tbmy8s7 -> 4547457 bytes downloaded. in progress.
+24 April 2020 21:00:19,adc-dl-bc-20420,p4s9tbmy8s7 -> 5287377 bytes downloaded. in progress.
+24 April 2020 21:00:20,adc-dl-bc-20420,p4s9tbmy8s7 -> 5842713 bytes downloaded. in progress.
+24 April 2020 21:00:21,adc-dl-bc-20420,p4s9tbmy8s7 -> 6608441 bytes downloaded. in progress.
+24 April 2020 21:00:22,adc-dl-bc-20420,p4s9tbmy8s7 -> 7190297 bytes downloaded. in progress.
+24 April 2020 21:00:23,adc-dl-bc-20420,p4s9tbmy8s7 -> 7881617 bytes downloaded. in progress.
+24 April 2020 21:00:24,adc-dl-bc-20420,p4s9tbmy8s7 -> 8653601 bytes downloaded. in progress.
+24 April 2020 21:00:25,adc-dl-bc-20420,p4s9tbmy8s7 -> 9425001 bytes downloaded. in progress.
+24 April 2020 21:00:26,adc-dl-bc-20420,p4s9tbmy8s7 -> 10196393 bytes downloaded. in progress.
+24 April 2020 21:00:27,adc-dl-bc-20420,p4s9tbmy8s7 -> 10967801 bytes downloaded. in progress.
+24 April 2020 21:00:28,adc-dl-bc-20420,p4s9tbmy8s7 -> 11737801 bytes downloaded. in progress.
+24 April 2020 21:00:29,adc-dl-bc-20420,p4s9tbmy8s7 -> 12509193 bytes downloaded. in progress.
+24 April 2020 21:00:30,adc-dl-bc-20420,p4s9tbmy8s7 -> 13280593 bytes downloaded. in progress.
+24 April 2020 21:00:31,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794084 bytes downloaded. in progress.
+24 April 2020 21:00:32,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794184 bytes downloaded. in progress.
+24 April 2020 21:00:33,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794284 bytes downloaded. in progress.
+24 April 2020 21:00:34,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794384 bytes downloaded. in progress.
+24 April 2020 21:00:35,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794484 bytes downloaded. in progress.
+24 April 2020 21:00:36,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794584 bytes downloaded. in progress.
+24 April 2020 21:00:37,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794684 bytes downloaded. in progress.
+24 April 2020 21:00:38,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794784 bytes downloaded. in progress.
+24 April 2020 21:00:39,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794884 bytes downloaded. in progress.
+24 April 2020 21:00:40,adc-dl-bc-20420,p4s9tbmy8s7 -> 13794984 bytes downloaded. in progress.
+24 April 2020 21:00:41,adc-dl-bc-20420,p4s9tbmy8s7 -> 13795084 bytes downloaded. in progress.
+24 April 2020 21:00:42,adc-dl-bc-20420,p4s9tbmy8s7 -> 13795184 bytes downloaded. in progress.
+24 April 2020 21:00:43,adc-dl-bc-20420,p4s9tbmy8s7 -> 13795284 bytes downloaded. in progress.
+24 April 2020 21:00:44,adc-dl-bc-20420,p4s9tbmy8s7 download finished.13896484 bytes downloaded.
+24 April 2020 21:00:44,__main__,added jobs to threads. round 2
+24 April 2020 21:00:55,adc-dl-bc-20420,"ffmpeg ran, output is not specified."
+24 April 2020 21:27:41,__main__,Application closed.
+24 April 2020 21:29:28,LOGGER_MODULE,session Started.
+24 April 2020 21:29:34,__main__,Driver launched and found successfully.
+24 April 2020 21:29:56,__main__,Application closed.
