@@ -1,4 +1,4 @@
-<img src="cover.gif" />
+<img src="assets/cover.gif" />
 
 
 
@@ -58,11 +58,11 @@ Using ACD v.2 is way more easier than ACD v.1, it's built for 6th grades. But st
 
 
 
-<img src="help_button" alt="image-20201118184025258" />
+<img src="assets/help_button" alt="image-20201118184025258" />
 
 
 
-<img src="howto_ac" alt="image-20201118184213685" style="max-width: 33%;" /><img src="howto_ftp" alt="image-20201118184230754" style="max-width: 33%;" /><img src="howto_shiftio" alt="image-20201118184257842" style="max-width: 33%;" />
+<img src="assets/howto_ac" alt="image-20201118184213685" style="max-width: 33%;" /><img src="assets/howto_ftp" alt="image-20201118184230754" style="max-width: 33%;" /><img src="assets/howto_shiftio" alt="image-20201118184257842" style="max-width: 33%;" />
 
 
 
@@ -70,14 +70,25 @@ Also here's a short video of Adobe Connect Downloader and Shift I/O instructions
 
 - #### Adobe Connect Downloader
 
-  <img src="ac-tutorial-low.gif" alt="ac-tutorial-low (2)" style="zoom:150%;" />
+  <img src="assets/ac-tutorial-low.gif" alt="ac-tutorial-low (2)" style="zoom:150%;" />
 
 - #### Shift I/O
 
-  <img src="acd-shiftio-tutorial-low.gif" alt="acd-shiftio-tutorial-low" style="zoom:150%;" />
+  <img src="assets/acd-shiftio-tutorial-low.gif" alt="acd-shiftio-tutorial-low" style="zoom:150%;" />
 
 
 
 ### 👨‍🏫 How it works?
 
 Well, it's really complicated, there are too many hand writings, diagrams and flow charts, but I guess they aren't necessary, so I let a debugger draw accurate flowchart of application's workflow, It really doesn't show how ACD works, but it's sexy :p 
+
+
+
+### 🧑‍💻 Source code
+
+The full source of both versions now lives in this repository, with its complete commit history (it was originally developed in private repositories).
+
+- **ACD v2** (current version): the repository root. To run it from source, install the dependencies with `pip install -r req.txt` and run `python main.py`.
+- **ACD v1** (legacy): [`legacy/v1/`](legacy/v1/), along with the original [v1 README](legacy/v1/README.md).
+
+Ready-to-use builds are still available on the [Releases](https://github.com/soroushamdg/acd/releases) page.

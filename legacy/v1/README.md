@@ -30,7 +30,7 @@
 <br>
 
 
-<img src="https://raw.githubusercontent.com/soroushamdg/acd/master/acd_screenshot.png" alt="">
+<img src="acd_screenshot.png" alt="">
 
 
 <p><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/soroushamdg/acd/total?color=%231E1E2C">
@@ -61,7 +61,7 @@
 <p>1 - Download the latest release file from <a href="https://github.com/soroushamdg/acd/releases">releases</a> page.<br>
 2 - Extract files.<br>
 3 - Goto <a href="https://ffmpeg.zeranoe.com/builds/">FFMPEG Binary Releases</a> page and download the latest STATIC stable version of it.<br>
-<img src="https://raw.githubusercontent.com/soroushamdg/acd/master/ffmpeg-download-page.png" alt="ffmpeg_download_screenshot"></p>
+<img src="ffmpeg-download-page.png" alt="ffmpeg_download_screenshot"></p>
 <p>4 - After you downloaded FFMPEG, extract it into a folder.</p>
 <p>5 - Extract ACD-Release.zip files.</p>
 <p>6 - Run ACD-Launcher.</p>
