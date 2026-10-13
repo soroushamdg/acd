@@ -1,0 +1,25 @@
+What is Adobe Connect service? This service helps you to download and merge Adobe Connect meetings into a single file, it can also download extra assets like pdf files or etc.
+
+✔ Step 1 :
+    1 - Click on "Login" button ( or Ctrl(or Command) + Shift + L ).
+    2 - A new Google Chrome window will open for you.
+    3 - Enter your portal's address into address bar.
+    4 - Login into your portal. (If your portal doesn't need you logged in, just goto website)
+    *** Close all other tabs and just keep your portals tab! ***
+    5 - Get back to ACD and hit "Catch" button ( or Ctrl(or Command) + Shift + L ).
+
+✔ Step 2 :
+    1 - Copy and paste direct link to your course into Course URL input.
+    2 - Enter file name that you wish to save it with.
+    3 - Check "Merge downloaded file if possible" if you want ACD to merge all Audio and Video files into one mp4 files.
+    4 - Click "Add to Queue".
+    5 - In following dialog, hit "Yes" if you want ACD to download extra assets such as .pdf, .jpg, .png files or .mp4 files and etc.
+    6 - After passing dialog, your course will be added to queue list.
+
+✔ Step 3 :
+    - After adding your courses to queue list, hit Start ( or Ctrl(or Command) + Shift + S ) to start downloading courses.
+    - Your files will be saved on your Desktop, ACD_EXPORTS, ADOBE CONNECT folder.
+
+👨‍💻 EXPERT :
+    - You can add your courses queue list in .txt file with specific format, goto File menu and select "Add list to queue" ( or Ctrl(or Command) + T ). Instructions are mentioned in details drop button.
+    - You can change output bitrate and file type in Expert menu, just goto Expert menu, and hit "Output bitrate" to change it, or you can select "Output file format" to change it between .mp4 and .mkv .

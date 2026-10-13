@@ -1,0 +1,3 @@
+fund_session15 , True , True , https://connect.kntu.ac.ir/pqjgsift442w/?session=breezxunm2pkmk8o4one9&html-view=false&proto=true
+fund_session12 , True , True , https://connect.kntu.ac.ir/pip2ykxxuwzw/?session=breezhy7ktze8k4523wor&html-view=false&proto=true
+fund_session14 , True , True , https://connect.kntu.ac.ir/pkfkm57oi6bt/?session=breez3ykas7f8ncy5vhh8&html-view=false&proto=true

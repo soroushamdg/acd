@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="media">
+    <file>icon.png</file>
+    <file>introductionsDialogAnimation.gif</file>
+  </qresource>
+  <qresource prefix="font">
+    <file>Poppins-Regular.ttf</file>
+  </qresource>
+</RCC>

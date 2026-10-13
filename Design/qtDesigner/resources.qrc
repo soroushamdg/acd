@@ -1,0 +1,26 @@
+<RCC>
+  <qresource prefix="acd-icons">
+    <file>icon.png</file>
+  </qresource>
+  <qresource prefix="images">
+    <file>file-transfer-bro.png</file>
+  </qresource>
+  <qresource prefix="button-icons">
+    <file>shit-io-connected.png</file>
+    <file>shit-io-disconnected.png</file>
+    <file>remove-button.png</file>
+    <file>back-button.png</file>
+    <file>success-label.png</file>
+    <file>refresh-button-icon.png</file>
+    <file>start-button.png</file>
+    <file>icons8_checkmark_64px.png</file>
+    <file>add-button.png</file>
+    <file>login-button.png</file>
+    <file>help_icon.png</file>
+  </qresource>
+  <qresource prefix="tab-icons">
+    <file>shit-io-icon.png</file>
+    <file>ftp-icon.png</file>
+    <file>adobe-connect-icon.png</file>
+  </qresource>
+</RCC>
